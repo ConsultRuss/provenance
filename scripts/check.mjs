@@ -53,7 +53,10 @@ check('16.2  no real company, no other project name', () => {
   // Names belonging to other projects on this machine, plus real entities that could plausibly
   // drift in from a draft. Extend this list rather than relying on memory.
   const denied = [
-    'memstrata',
+    // Other projects on this machine. This demo shares generic pipeline mechanics with some of
+    // them; it must not share a name, a codename, or any copied text.
+    'memstrata', 'site screener', 'sitescreener', 'site-screener',
+    // Real entities that could drift in from a draft.
     'ercot', 'anthropic', 'openai', 'google', 'microsoft', 'amazon', 'meta platforms',
     'salesforce', 'oracle corp', 'jpmorgan', 'blackrock', 'cbre', 'jll',
   ];
@@ -225,10 +228,16 @@ await (async () => {
         `${doc.id}: ${notices} withheld notices for ${blocked.length} blocked claims`,
       );
 
+      // One footnote per distinct record, not per claim: claims sharing a record share a number.
       const shipping = doc.claims.filter((c) => c.label === 'a' || c.label === 'b');
+      const distinctRecords = new Set(shipping.map((c) => c.sourceId));
       assert(
-        result.footnotes.length === new Set(shipping.map((c) => c.id)).size,
-        `${doc.id}: ${result.footnotes.length} footnotes for ${shipping.length} shipping claims`,
+        result.footnotes.length === distinctRecords.size,
+        `${doc.id}: ${result.footnotes.length} footnotes for ${distinctRecords.size} distinct records`,
+      );
+      assert(
+        new Set(result.footnotes).size === result.footnotes.length,
+        `${doc.id}: the same record is footnoted twice`,
       );
 
       const again = buildDocumentPdf({ doc, sources, posting: meta.posting, pinnedDate: meta.pinnedDate });

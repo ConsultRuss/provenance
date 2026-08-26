@@ -362,7 +362,7 @@ export const documents = [
       },
       {
         "type": "para",
-        "text": "{{c1}}, focused on ranch splits and severed mineral estates."
+        "text": "{{c1}}, focused on ranch splits and severed mineral estates. Builds and runs the parcel tooling the work depends on."
       },
       {
         "type": "section",
@@ -379,12 +379,24 @@ export const documents = [
       },
       {
         "type": "bullet",
+        "text": "Of those, {{c7}}, each carried through curative to close"
+      },
+      {
+        "type": "bullet",
         "text": "{{c3}} that ingests county records nightly"
+      },
+      {
+        "type": "bullet",
+        "text": "{{c6}} into that database, unattended"
+      },
+      {
+        "type": "bullet",
+        "text": "{{c8}} — a title clerk, a contract surveyor and myself"
       },
       {
         "type": "role",
         "text": "Land analyst · Bitterwater Ranch Company",
-        "meta": "2012 — 2019"
+        "meta": "2015 — 2019"
       },
       {
         "type": "bullet",
@@ -392,7 +404,24 @@ export const documents = [
       },
       {
         "type": "bullet",
-        "text": "{{c6}} into the parcel database, unattended"
+        "text": "Prepared title packets and coordinated landowner contact ahead of closing"
+      },
+      {
+        "type": "bullet",
+        "text": "Reconciled deed records across several county clerk systems"
+      },
+      {
+        "type": "role",
+        "text": "Title assistant · Pecanhill Title Group",
+        "meta": "2012 — 2015"
+      },
+      {
+        "type": "bullet",
+        "text": "Ran chain of title on residential and small-acreage files"
+      },
+      {
+        "type": "bullet",
+        "text": "Maintained the closing calendar and the curative checklist"
       },
       {
         "type": "section",
@@ -401,6 +430,22 @@ export const documents = [
       {
         "type": "bullet",
         "text": "{{c4}}, conferred 2019"
+      },
+      {
+        "type": "bullet",
+        "text": "B.S. Agricultural Economics"
+      },
+      {
+        "type": "section",
+        "text": "licences and systems"
+      },
+      {
+        "type": "bullet",
+        "text": "Texas real estate licence, active"
+      },
+      {
+        "type": "bullet",
+        "text": "Parcel database (own build) — spatial store, nightly county ingestion"
       }
     ],
     "claims": [
@@ -445,6 +490,20 @@ export const documents = [
         "label": "b",
         "sourceId": "s4",
         "requirementId": "r2"
+      },
+      {
+        "id": "c7",
+        "text": "17 involved a severed mineral estate",
+        "label": "b",
+        "sourceId": "s2",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c8",
+        "text": "Led a three-person crew through a full closing cycle",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r5"
       }
     ]
   },
@@ -550,8 +609,8 @@ export const gates = {
       "company": "Frontage Development",
       "role": "right of way agent",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s6",
@@ -661,8 +720,8 @@ export const gates = {
       "company": "Meridian Grid Partners",
       "role": "site analyst",
       "focus": true,
-      "claimsParsed": 16,
-      "claimsCleared": 14,
+      "claimsParsed": 18,
+      "claimsCleared": 16,
       "claimsBlocked": 2,
       "sourceIds": [
         "s1",
@@ -685,8 +744,8 @@ export const gates = {
       "company": "Draw Holdings",
       "role": "parcel data lead",
       "focus": false,
-      "claimsParsed": 1,
-      "claimsCleared": 1,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s11"
@@ -728,8 +787,8 @@ export const gates = {
       "company": "Ridgeline Energy",
       "role": "land analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 2,
+      "claimsParsed": 2,
+      "claimsCleared": 1,
       "claimsBlocked": 1,
       "sourceIds": [
         "s1",
@@ -814,8 +873,8 @@ export const gates = {
       "company": "Lometa Development",
       "role": "title analyst",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 2,
+      "claimsParsed": 1,
+      "claimsCleared": 1,
       "claimsBlocked": 0,
       "sourceIds": [
         "s1",
@@ -1219,12 +1278,12 @@ export const gates = {
         {
           "gate": "lint",
           "status": "ok",
-          "text": "2 claims, all labelled a or b"
+          "text": "1 claims, all labelled a or b"
         },
         {
           "gate": "submitted",
           "status": "ok",
-          "text": "2 claims shipped"
+          "text": "1 claims shipped"
         }
       ],
       "exit": 0

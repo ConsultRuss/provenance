@@ -2,7 +2,6 @@
   "seed": 20260826,
   "pinnedDate": "2026-08-26",
   "note": "All names in this file are invented. No real company, person, posting, document or transcript appears here. Contact details use the reserved example.invalid domain and the reserved 555-01xx phone range.",
-
   "posting": {
     "reqId": "MGP-2026-0447",
     "company": "Meridian Grid Partners",
@@ -28,7 +27,6 @@
     "subjectContact": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143",
     "gridOperator": "Sablewood Grid Authority"
   },
-
   "corpusTargets": {
     "records": 14,
     "claimsParsed": 47,
@@ -36,56 +34,193 @@
     "claimsBlocked": 6,
     "sourcesCited": 23
   },
-
   "gates": [
-    { "id": "intake",    "label": "intake",            "rejects": "postings with no verbatim requirement text to quote" },
-    { "id": "live",      "label": "live check",        "rejects": "postings that have closed or gone stale since intake" },
-    { "id": "pressure",  "label": "pressure test",     "rejects": "applications where a must-have requirement lands on do not have" },
-    { "id": "wildcard",  "label": "wildcard question", "rejects": "applications with no honest answer to the open question in the posting" },
-    { "id": "lint",      "label": "asset lint",        "rejects": "documents containing a claim labelled c or d" },
-    { "id": "submitted", "label": "submitted",         "rejects": "nothing — a record that reaches this gate has cleared every check" }
+    {
+      "id": "intake",
+      "label": "intake",
+      "rejects": "postings with no verbatim requirement text to quote"
+    },
+    {
+      "id": "live",
+      "label": "live check",
+      "rejects": "postings that have closed or gone stale since intake"
+    },
+    {
+      "id": "pressure",
+      "label": "pressure test",
+      "rejects": "applications where a must-have requirement lands on do not have"
+    },
+    {
+      "id": "wildcard",
+      "label": "wildcard question",
+      "rejects": "applications with no honest answer to the open question in the posting"
+    },
+    {
+      "id": "lint",
+      "label": "asset lint",
+      "rejects": "documents containing a claim labelled c or d"
+    },
+    {
+      "id": "submitted",
+      "label": "submitted",
+      "rejects": "nothing — a record that reaches this gate has cleared every check"
+    }
   ],
-
   "note2": "Categories decide which labels a record can support. A self-report can only carry label a. A third-party record or a system export can carry label b. The generator enforces this.",
-
   "sourceCategories": {
     "self-report": "the subject said it",
     "third-party record": "someone else attested to it",
     "system export": "a system the subject operates produced it"
   },
-
   "sourceWords": {
     "topic": [
-      { "name": "performance-review",      "category": "third-party record", "kind": "pdf" },
-      { "name": "employment-verification", "category": "third-party record", "kind": "pdf" },
-      { "name": "reference-letter",        "category": "third-party record", "kind": "pdf" },
-      { "name": "offer-letter",            "category": "third-party record", "kind": "pdf" },
-      { "name": "course-transcript",       "category": "third-party record", "kind": "pdf" },
-      { "name": "license-history",         "category": "third-party record", "kind": "pdf" },
-      { "name": "certification-card",      "category": "third-party record", "kind": "pdf" },
-      { "name": "continuing-ed-credits",   "category": "third-party record", "kind": "csv export" },
-      { "name": "client-note",             "category": "third-party record", "kind": "plain text" },
-      { "name": "award-letter",            "category": "third-party record", "kind": "pdf" },
-      { "name": "contract-sow",            "category": "third-party record", "kind": "pdf" },
-      { "name": "earnings-summary",        "category": "third-party record", "kind": "csv export" },
-      { "name": "timesheet-export",        "category": "system export",      "kind": "csv export" },
-      { "name": "closing-tracker",         "category": "system export",      "kind": "csv export" },
-      { "name": "mileage-log",             "category": "system export",      "kind": "csv export" },
-      { "name": "project-log",             "category": "self-report",        "kind": "plain text" },
-      { "name": "work-sample-notes",       "category": "self-report",        "kind": "plain text" },
-      { "name": "deal-sheet",              "category": "self-report",        "kind": "plain text" },
-      { "name": "career-questionnaire",    "category": "self-report",        "kind": "plain text" }
+      {
+        "name": "performance-review",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "employment-verification",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "reference-letter",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "offer-letter",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "course-transcript",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "license-history",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "certification-card",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "continuing-ed-credits",
+        "category": "third-party record",
+        "kind": "csv export"
+      },
+      {
+        "name": "client-note",
+        "category": "third-party record",
+        "kind": "plain text"
+      },
+      {
+        "name": "award-letter",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "contract-sow",
+        "category": "third-party record",
+        "kind": "pdf"
+      },
+      {
+        "name": "earnings-summary",
+        "category": "third-party record",
+        "kind": "csv export"
+      },
+      {
+        "name": "timesheet-export",
+        "category": "system export",
+        "kind": "csv export"
+      },
+      {
+        "name": "closing-tracker",
+        "category": "system export",
+        "kind": "csv export"
+      },
+      {
+        "name": "mileage-log",
+        "category": "system export",
+        "kind": "csv export"
+      },
+      {
+        "name": "project-log",
+        "category": "self-report",
+        "kind": "plain text"
+      },
+      {
+        "name": "work-sample-notes",
+        "category": "self-report",
+        "kind": "plain text"
+      },
+      {
+        "name": "deal-sheet",
+        "category": "self-report",
+        "kind": "plain text"
+      },
+      {
+        "name": "career-questionnaire",
+        "category": "self-report",
+        "kind": "plain text"
+      }
     ],
-    "stamp": ["2025-04-18", "2025-06-02", "2025-07-29", "2025-09-14", "2025-11-06", "2026-01-22", "2026-02-09", "2026-03-30", "2026-05-11", "2026-06-24"]
+    "stamp": [
+      "2025-04-18",
+      "2025-06-02",
+      "2025-07-29",
+      "2025-09-14",
+      "2025-11-06",
+      "2026-01-22",
+      "2026-02-09",
+      "2026-03-30",
+      "2026-05-11",
+      "2026-06-24"
+    ]
   },
-
   "companyWords": {
-    "first": ["Bosque", "Caliche", "Draw", "Escarpment", "Frontage", "Granite", "Hardpan", "Lometa", "Palisade", "Quarry", "Ridgeline", "Salado", "Thicket", "Wallow"],
-    "second": ["Land Group", "Holdings", "Partners", "Land Co", "Development", "Capital", "Ranch Group", "Energy"]
+    "first": [
+      "Bosque",
+      "Caliche",
+      "Draw",
+      "Escarpment",
+      "Frontage",
+      "Granite",
+      "Hardpan",
+      "Lometa",
+      "Palisade",
+      "Quarry",
+      "Ridgeline",
+      "Salado",
+      "Thicket",
+      "Wallow"
+    ],
+    "second": [
+      "Land Group",
+      "Holdings",
+      "Partners",
+      "Land Co",
+      "Development",
+      "Capital",
+      "Ranch Group",
+      "Energy"
+    ]
   },
-
-  "roleWords": ["site analyst", "land analyst", "acquisition analyst", "title analyst", "parcel data lead", "right of way agent", "development associate", "diligence analyst"],
-
+  "roleWords": [
+    "site analyst",
+    "land analyst",
+    "acquisition analyst",
+    "title analyst",
+    "parcel data lead",
+    "right of way agent",
+    "development associate",
+    "diligence analyst"
+  ],
   "sources": [
     {
       "id": "s1",
@@ -120,7 +255,6 @@
       "excerpt": "repository    parcel-db\nfirst commit  2025-11-04\nlast commit   2026-08-19\ncommits       412\nauthors       1  (a.reyes)\nhosting       self, single node\nnightly job   county-ingest · 287 successful runs"
     }
   ],
-
   "nullSource": {
     "id": "s0",
     "filename": "— no record —",
@@ -129,7 +263,6 @@
     "meta": "nothing in the library",
     "excerpt": "No record in the library supports this claim.\n\nText traced to: resume-2025-draft.docx\n\nThat file is an earlier document this pipeline wrote.\nA derived document cannot be cited as a source —\nciting it would mean the system vouching for itself."
   },
-
   "requirements": [
     {
       "id": "r1",
@@ -172,33 +305,110 @@
       "verdict": "adjacent but honest"
     }
   ],
-
   "documents": [
     {
       "id": "cover",
       "label": "cover letter",
       "kind": "letter",
       "blocks": [
-        { "type": "meta", "text": "24 August 2026" },
-        { "type": "meta", "text": "Hiring team\nMeridian Grid Partners\nSan Antonio, Texas" },
-        { "type": "para", "text": "Dear hiring team," },
-        { "type": "para", "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, most of it on the parcel side of the work the posting describes: assembling positions in country where the surface and the minerals went separate ways decades ago, and where the person who signs is rarely the person on the tax roll." },
-        { "type": "para", "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Of those, {{c7}} — slower work than a clean fee transfer, and the reason I have firm opinions about how long title curative really takes." },
-        { "type": "para", "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am {{c8}}, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}." },
-        { "type": "para", "text": "On the interconnection side I bring {{c5}}, and {{c6}} through a full development cycle." },
-        { "type": "para", "text": "What I would most want to discuss is where origination currently stalls for you — title curative, landowner contact, or the study phases — because the answer decides which of the above is actually worth anything to you. I am glad to walk through the parcel database on a call and let you push on the data yourself." },
-        { "type": "para", "text": "Sincerely," },
-        { "type": "sig", "text": "A. Reyes" }
+        {
+          "type": "meta",
+          "text": "24 August 2026"
+        },
+        {
+          "type": "meta",
+          "text": "Hiring team\nMeridian Grid Partners\nSan Antonio, Texas"
+        },
+        {
+          "type": "para",
+          "text": "Dear hiring team,"
+        },
+        {
+          "type": "para",
+          "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, most of it on the parcel side of the work the posting describes: assembling positions in country where the surface and the minerals went separate ways decades ago, and where the person who signs is rarely the person on the tax roll."
+        },
+        {
+          "type": "para",
+          "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Of those, {{c7}} — slower work than a clean fee transfer, and the reason I have firm opinions about how long title curative really takes."
+        },
+        {
+          "type": "para",
+          "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am {{c8}}, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
+        },
+        {
+          "type": "para",
+          "text": "On the interconnection side I bring {{c5}}, and {{c6}} through a full development cycle."
+        },
+        {
+          "type": "para",
+          "text": "What I would most want to discuss is where origination currently stalls for you — title curative, landowner contact, or the study phases — because the answer decides which of the above is actually worth anything to you. I am glad to walk through the parcel database on a call and let you push on the data yourself."
+        },
+        {
+          "type": "para",
+          "text": "Sincerely,"
+        },
+        {
+          "type": "sig",
+          "text": "A. Reyes"
+        }
       ],
       "claims": [
-        { "id": "c1", "text": "fourteen years working land transactions in South Texas", "label": "a", "sourceId": "s1", "requirementId": "r1" },
-        { "id": "c2", "text": "52 closings across Medina, Frio and Atascosa counties",   "label": "b", "sourceId": "s2", "requirementId": "r1" },
-        { "id": "c3", "text": "built and self-host a parcel database",                    "label": "a", "sourceId": "s1", "requirementId": "r2" },
-        { "id": "c4", "text": "M.S. in Land Economics",                                   "label": "b", "sourceId": "s3", "requirementId": "r4" },
-        { "id": "c5", "text": "deep familiarity with the Sablewood interconnection queue", "label": "d", "sourceId": "s0", "requirementId": "r3" },
-        { "id": "c6", "text": "a documented record leading a six-person team",            "label": "c", "sourceId": "s0", "requirementId": "r5" },
-        { "id": "c7", "text": "17 involved a severed mineral estate",                     "label": "b", "sourceId": "s2", "requirementId": "r1" },
-        { "id": "c8", "text": "its only committer",                                       "label": "b", "sourceId": "s4", "requirementId": "r2" }
+        {
+          "id": "c1",
+          "text": "fourteen years working land transactions in South Texas",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c2",
+          "text": "52 closings across Medina, Frio and Atascosa counties",
+          "label": "b",
+          "sourceId": "s2",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c3",
+          "text": "built and self-host a parcel database",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r2"
+        },
+        {
+          "id": "c4",
+          "text": "M.S. in Land Economics",
+          "label": "b",
+          "sourceId": "s3",
+          "requirementId": "r4"
+        },
+        {
+          "id": "c5",
+          "text": "deep familiarity with the Sablewood interconnection queue",
+          "label": "d",
+          "sourceId": "s0",
+          "requirementId": "r3"
+        },
+        {
+          "id": "c6",
+          "text": "a documented record leading a six-person team",
+          "label": "c",
+          "sourceId": "s0",
+          "requirementId": "r5"
+        },
+        {
+          "id": "c7",
+          "text": "17 involved a severed mineral estate",
+          "label": "b",
+          "sourceId": "s2",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c8",
+          "text": "its only committer",
+          "label": "b",
+          "sourceId": "s4",
+          "requirementId": "r2"
+        }
       ]
     },
     {
@@ -206,27 +416,163 @@
       "label": "résumé",
       "kind": "resume",
       "blocks": [
-        { "type": "name", "text": "A. Reyes" },
-        { "type": "contact", "text": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143" },
-        { "type": "section", "text": "summary" },
-        { "type": "para", "text": "{{c1}}, focused on ranch splits and severed mineral estates." },
-        { "type": "section", "text": "experience" },
-        { "type": "role", "text": "Senior land analyst · Tallow Creek Land Co", "meta": "2019 — present" },
-        { "type": "bullet", "text": "{{c2}}, acting for the buyer or the seller" },
-        { "type": "bullet", "text": "{{c3}} that ingests county records nightly" },
-        { "type": "role", "text": "Land analyst · Bitterwater Ranch Company", "meta": "2012 — 2019" },
-        { "type": "bullet", "text": "{{c5}} out of Hondo and the counties west of it" },
-        { "type": "bullet", "text": "{{c6}} into the parcel database, unattended" },
-        { "type": "section", "text": "education" },
-        { "type": "bullet", "text": "{{c4}}, conferred 2019" }
+        {
+          "type": "name",
+          "text": "A. Reyes"
+        },
+        {
+          "type": "contact",
+          "text": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143"
+        },
+        {
+          "type": "section",
+          "text": "summary"
+        },
+        {
+          "type": "para",
+          "text": "{{c1}}, focused on ranch splits and severed mineral estates. Builds and runs the parcel tooling the work depends on."
+        },
+        {
+          "type": "section",
+          "text": "experience"
+        },
+        {
+          "type": "role",
+          "text": "Senior land analyst · Tallow Creek Land Co",
+          "meta": "2019 — present"
+        },
+        {
+          "type": "bullet",
+          "text": "{{c2}}, acting for the buyer or the seller"
+        },
+        {
+          "type": "bullet",
+          "text": "Of those, {{c7}}, each carried through curative to close"
+        },
+        {
+          "type": "bullet",
+          "text": "{{c3}} that ingests county records nightly"
+        },
+        {
+          "type": "bullet",
+          "text": "{{c6}} into that database, unattended"
+        },
+        {
+          "type": "bullet",
+          "text": "{{c8}} — a title clerk, a contract surveyor and myself"
+        },
+        {
+          "type": "role",
+          "text": "Land analyst · Bitterwater Ranch Company",
+          "meta": "2015 — 2019"
+        },
+        {
+          "type": "bullet",
+          "text": "{{c5}} out of Hondo and the counties west of it"
+        },
+        {
+          "type": "bullet",
+          "text": "Prepared title packets and coordinated landowner contact ahead of closing"
+        },
+        {
+          "type": "bullet",
+          "text": "Reconciled deed records across several county clerk systems"
+        },
+        {
+          "type": "role",
+          "text": "Title assistant · Pecanhill Title Group",
+          "meta": "2012 — 2015"
+        },
+        {
+          "type": "bullet",
+          "text": "Ran chain of title on residential and small-acreage files"
+        },
+        {
+          "type": "bullet",
+          "text": "Maintained the closing calendar and the curative checklist"
+        },
+        {
+          "type": "section",
+          "text": "education"
+        },
+        {
+          "type": "bullet",
+          "text": "{{c4}}, conferred 2019"
+        },
+        {
+          "type": "bullet",
+          "text": "B.S. Agricultural Economics"
+        },
+        {
+          "type": "section",
+          "text": "licences and systems"
+        },
+        {
+          "type": "bullet",
+          "text": "Texas real estate licence, active"
+        },
+        {
+          "type": "bullet",
+          "text": "Parcel database (own build) — spatial store, nightly county ingestion"
+        }
       ],
       "claims": [
-        { "id": "c1", "text": "Fourteen years in Texas land transactions",  "label": "a", "sourceId": "s1", "requirementId": "r1" },
-        { "id": "c2", "text": "52 closings across three counties",          "label": "b", "sourceId": "s2", "requirementId": "r1" },
-        { "id": "c3", "text": "Built and self-hosted a parcel database",    "label": "a", "sourceId": "s1", "requirementId": "r2" },
-        { "id": "c4", "text": "M.S. Land Economics",                        "label": "b", "sourceId": "s3", "requirementId": "r4" },
-        { "id": "c5", "text": "Ranch splits and mineral severance work",    "label": "a", "sourceId": "s1", "requirementId": "r1" },
-        { "id": "c6", "text": "287 nightly ingestion runs",                 "label": "b", "sourceId": "s4", "requirementId": "r2" }
+        {
+          "id": "c1",
+          "text": "Fourteen years in Texas land transactions",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c2",
+          "text": "52 closings across three counties",
+          "label": "b",
+          "sourceId": "s2",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c3",
+          "text": "Built and self-hosted a parcel database",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r2"
+        },
+        {
+          "id": "c4",
+          "text": "M.S. Land Economics",
+          "label": "b",
+          "sourceId": "s3",
+          "requirementId": "r4"
+        },
+        {
+          "id": "c5",
+          "text": "Ranch splits and mineral severance work",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c6",
+          "text": "287 nightly ingestion runs",
+          "label": "b",
+          "sourceId": "s4",
+          "requirementId": "r2"
+        },
+        {
+          "id": "c7",
+          "text": "17 involved a severed mineral estate",
+          "label": "b",
+          "sourceId": "s2",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c8",
+          "text": "Led a three-person crew through a full closing cycle",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r5"
+        }
       ]
     },
     {
@@ -234,14 +580,38 @@
       "label": "outreach note",
       "kind": "note",
       "blocks": [
-        { "type": "meta", "text": "to: hiring team, Meridian Grid Partners\nsubject: site analyst opening" },
-        { "type": "para", "text": "I saw the site analyst opening. I have {{c1}}, and I {{c2}} — happy to show you what it pulls." },
-        { "type": "para", "text": "Worth a short call?" },
-        { "type": "sig", "text": "A. Reyes" }
+        {
+          "type": "meta",
+          "text": "to: hiring team, Meridian Grid Partners\nsubject: site analyst opening"
+        },
+        {
+          "type": "para",
+          "text": "I saw the site analyst opening. I have {{c1}}, and I {{c2}} — happy to show you what it pulls."
+        },
+        {
+          "type": "para",
+          "text": "Worth a short call?"
+        },
+        {
+          "type": "sig",
+          "text": "A. Reyes"
+        }
       ],
       "claims": [
-        { "id": "c1", "text": "spent fourteen years on Texas land deals", "label": "a", "sourceId": "s1", "requirementId": "r1" },
-        { "id": "c2", "text": "run my own parcel database",              "label": "a", "sourceId": "s1", "requirementId": "r2" }
+        {
+          "id": "c1",
+          "text": "spent fourteen years on Texas land deals",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r1"
+        },
+        {
+          "id": "c2",
+          "text": "run my own parcel database",
+          "label": "a",
+          "sourceId": "s1",
+          "requirementId": "r2"
+        }
       ]
     }
   ]

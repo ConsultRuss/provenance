@@ -214,15 +214,17 @@ export function buildDocumentPdf({ doc, sources, posting, pinnedDate }) {
   const sourceById = new Map(sources.map((s) => [s.id, s]));
   const claimById = new Map(doc.claims.map((c) => [c.id, c]));
 
-  // Footnote numbers are assigned to shipping claims only, in reading order.
+  // Footnotes number the records, not the claims: four claims resting on the same interview
+  // share one number, the way a citation actually works. Blocked claims get none — they have
+  // no record to point at.
   const footnotes = [];
-  const noteNumber = new Map();
+  const noteNumber = new Map(); // sourceId -> footnote number
   for (const block of doc.blocks) {
     for (const match of (block.text ?? '').matchAll(/\{\{(c\d+)\}\}/g)) {
       const claim = claimById.get(match[1]);
-      if (!claim || isBlocked(claim) || noteNumber.has(claim.id)) continue;
+      if (!claim || isBlocked(claim) || noteNumber.has(claim.sourceId)) continue;
       const source = sourceById.get(claim.sourceId);
-      noteNumber.set(claim.id, footnotes.length + 1);
+      noteNumber.set(claim.sourceId, footnotes.length + 1);
       footnotes.push(source ? source.filename : claim.sourceId);
     }
   }
@@ -256,7 +258,7 @@ export function buildDocumentPdf({ doc, sources, posting, pinnedDate }) {
         runs.push({ text: WITHHELD, font: 'C', size: style.size - 1.5, color: RED });
       } else {
         runs.push({ text: claim.text, font: style.font, size: style.size, color: style.color });
-        runs.push({ text: ` [${noteNumber.get(claim.id)}]`, font: 'C', size: 7.5, color: GREY });
+        runs.push({ text: ` [${noteNumber.get(claim.sourceId)}]`, font: 'C', size: 7.5, color: GREY });
       }
     }
     return runs;
