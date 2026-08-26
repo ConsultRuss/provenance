@@ -4,11 +4,26 @@
   "note": "All names in this file are invented. No real company, person, posting, document or transcript appears here. Contact details use the reserved example.invalid domain and the reserved 555-01xx phone range.",
 
   "posting": {
+    "reqId": "MGP-2026-0447",
     "company": "Meridian Grid Partners",
     "role": "site analyst",
-    "location": "San Antonio, Texas · hybrid",
+    "team": "Origination",
+    "reportsTo": "Director of Land",
+    "location": "San Antonio, Texas · hybrid, 3 days on site",
+    "employment": "full-time",
+    "travel": "up to 25%, mostly South Texas",
+    "compensation": "$92,000 – $118,000 · bonus eligible",
     "posted": "2026-08-11",
+    "closes": "2026-09-08",
     "blurb": "Meridian Grid Partners assembles land positions for utility-scale generation across South Texas. The site analyst supports origination: parcel research, title review and landowner contact ahead of interconnection.",
+    "responsibilities": [
+      "Research parcels and chains of title ahead of site control.",
+      "Pull and reconcile county records across several jurisdictions.",
+      "Flag severed mineral estates and other title risk early, in writing.",
+      "Prepare landowner contact packets and track every outreach attempt.",
+      "Keep the parcel dataset current enough that origination can rely on it."
+    ],
+    "wildcard": "Tell us about a deal you walked away from, and what it cost you to walk.",
     "subject": "A. Reyes",
     "subjectContact": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143",
     "gridOperator": "Sablewood Grid Authority"
@@ -31,10 +46,36 @@
     { "id": "submitted", "label": "submitted",         "rejects": "nothing — a record that reaches this gate has cleared every check" }
   ],
 
-  "sourceKinds": ["plain text", "csv export", "pdf", "json"],
+  "note2": "Categories decide which labels a record can support. A self-report can only carry label a. A third-party record or a system export can carry label b. The generator enforces this.",
+
+  "sourceCategories": {
+    "self-report": "the subject said it",
+    "third-party record": "someone else attested to it",
+    "system export": "a system the subject operates produced it"
+  },
 
   "sourceWords": {
-    "topic": ["call_notes", "permit_index", "plat_review", "closing_file", "survey_log", "tax_roll", "easement_index", "appraisal_notes", "title_commitment", "field_visit", "deed_index", "escrow_ledger", "zoning_letter", "well_report", "acreage_audit", "lease_abstract", "utility_memo", "flood_cert", "boundary_notes"],
+    "topic": [
+      { "name": "performance-review",      "category": "third-party record", "kind": "pdf" },
+      { "name": "employment-verification", "category": "third-party record", "kind": "pdf" },
+      { "name": "reference-letter",        "category": "third-party record", "kind": "pdf" },
+      { "name": "offer-letter",            "category": "third-party record", "kind": "pdf" },
+      { "name": "course-transcript",       "category": "third-party record", "kind": "pdf" },
+      { "name": "license-history",         "category": "third-party record", "kind": "pdf" },
+      { "name": "certification-card",      "category": "third-party record", "kind": "pdf" },
+      { "name": "continuing-ed-credits",   "category": "third-party record", "kind": "csv export" },
+      { "name": "client-note",             "category": "third-party record", "kind": "plain text" },
+      { "name": "award-letter",            "category": "third-party record", "kind": "pdf" },
+      { "name": "contract-sow",            "category": "third-party record", "kind": "pdf" },
+      { "name": "earnings-summary",        "category": "third-party record", "kind": "csv export" },
+      { "name": "timesheet-export",        "category": "system export",      "kind": "csv export" },
+      { "name": "closing-tracker",         "category": "system export",      "kind": "csv export" },
+      { "name": "mileage-log",             "category": "system export",      "kind": "csv export" },
+      { "name": "project-log",             "category": "self-report",        "kind": "plain text" },
+      { "name": "work-sample-notes",       "category": "self-report",        "kind": "plain text" },
+      { "name": "deal-sheet",              "category": "self-report",        "kind": "plain text" },
+      { "name": "career-questionnaire",    "category": "self-report",        "kind": "plain text" }
+    ],
     "stamp": ["2025-04-18", "2025-06-02", "2025-07-29", "2025-09-14", "2025-11-06", "2026-01-22", "2026-02-09", "2026-03-30", "2026-05-11", "2026-06-24"]
   },
 
@@ -48,40 +89,45 @@
   "sources": [
     {
       "id": "s1",
-      "filename": "interview_2026-03-11.txt",
+      "filename": "intake-interview-2026-03-11.txt",
       "kind": "plain text",
-      "meta": "transcript · 4,180 words",
+      "category": "self-report",
+      "meta": "interview transcript · 4,180 words",
       "excerpt": "[00:14:22] Q: How long have you been doing land work?\nA: Fourteen years now. Started in 2012 doing ranch\nsplits out past Hondo, moved into mineral and\nsurface severance work about four years in.\n\n[00:31:07] A: The parcel database is mine. I built it,\nI host it, I run the nightly pull myself.\n\n[00:52:41] Q: Team size on the Atascosa cycle?\nA: Three of us. Me, a title clerk, and a surveyor\non contract."
     },
     {
       "id": "s2",
-      "filename": "county_records_export.csv",
+      "filename": "deed-records-medina-frio-atascosa.csv",
       "kind": "csv export",
-      "meta": "tabular · 1,284 rows",
-      "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows total\n-- 17 rows with mineral_severed = true"
+      "category": "third-party record",
+      "meta": "county clerk pull · 1,284 rows",
+      "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows where role is buyer_rep or seller_rep\n-- 17 of those with mineral_severed = true"
     },
     {
       "id": "s3",
-      "filename": "registrar_letter.pdf",
+      "filename": "degree-verification-2019.pdf",
       "kind": "pdf",
-      "meta": "document · 1 page",
-      "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing."
+      "category": "third-party record",
+      "meta": "registrar letter · 1 page",
+      "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing.\n\nIssued at the request of the degree holder."
     },
     {
       "id": "s4",
-      "filename": "repo_manifest.json",
-      "kind": "json",
-      "meta": "structured · 38 KB",
-      "excerpt": "{\n  \"service\": \"parcel-db\",\n  \"host\": \"self\",\n  \"first_commit\": \"2025-11-04\",\n  \"commits\": 412,\n  \"authors\": [\"a.reyes\"]\n}"
+      "filename": "parcel-db-commit-log.txt",
+      "kind": "plain text",
+      "category": "system export",
+      "meta": "version control export · 412 commits",
+      "excerpt": "repository    parcel-db\nfirst commit  2025-11-04\nlast commit   2026-08-19\ncommits       412\nauthors       1  (a.reyes)\nhosting       self, single node\nnightly job   county-ingest · 287 successful runs"
     }
   ],
 
   "nullSource": {
     "id": "s0",
-    "filename": "— no source —",
+    "filename": "— no record —",
     "kind": "none",
-    "meta": "nothing on file",
-    "excerpt": "No record supports this claim.\n\nText traced to: draft_bio_v3.md (a derived document).\nDerived documents cannot be cited as sources."
+    "category": "none",
+    "meta": "nothing in the library",
+    "excerpt": "No record in the library supports this claim.\n\nText traced to: resume-2025-draft.docx\n\nThat file is an earlier document this pipeline wrote.\nA derived document cannot be cited as a source —\nciting it would mean the system vouching for itself."
   },
 
   "requirements": [
@@ -90,7 +136,7 @@
       "title": "Land transaction experience",
       "priority": "must",
       "verbatim": "5+ years originating, negotiating or closing land transactions in Texas. Familiarity with severed mineral estates strongly preferred.",
-      "evidence": "interview_2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. county_records_export.csv — 52 closings across three counties.",
+      "evidence": "intake-interview-2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. Corroborated by deed-records-medina-frio-atascosa.csv: 52 closings across three counties, 17 with a severed mineral estate.",
       "verdict": "have as documented"
     },
     {
@@ -98,7 +144,7 @@
       "title": "Parcel data systems",
       "priority": "must",
       "verbatim": "Comfort building or operating parcel-level data tooling — GIS layers, county record ingestion, or equivalent.",
-      "evidence": "repo_manifest.json — parcel-db, self-hosted, 412 commits, sole author. Corroborated by interview_2026-03-11.txt at 00:31:07.",
+      "evidence": "parcel-db-commit-log.txt — 412 commits, sole author, self-hosted, 287 nightly ingestion runs. The subject also describes it at 00:31:07 of intake-interview-2026-03-11.txt.",
       "verdict": "have as documented"
     },
     {
@@ -106,7 +152,7 @@
       "title": "Interconnection queue familiarity",
       "priority": "preferred",
       "verbatim": "Working knowledge of the Sablewood Grid Authority generation interconnection queue and its study phases is preferred, not required.",
-      "evidence": "Nothing on file. A draft asserted fluency here; the assertion traced to draft_bio_v3.md, a derived document, and was blocked at asset lint.",
+      "evidence": "Nothing in the library. A draft asserted fluency here; the assertion traced to resume-2025-draft.docx, a document this pipeline wrote, and was blocked at asset lint.",
       "verdict": "do not have"
     },
     {
@@ -114,7 +160,7 @@
       "title": "Graduate degree",
       "priority": "preferred",
       "verbatim": "Advanced degree in real estate, economics, land use or a related field.",
-      "evidence": "registrar_letter.pdf — M.S. Land Economics, conferred 2019-05-18, in good standing.",
+      "evidence": "degree-verification-2019.pdf — registrar letter confirming M.S. Land Economics, conferred 2019-05-18, in good standing.",
       "verdict": "have as documented"
     },
     {
@@ -122,7 +168,7 @@
       "title": "Team leadership",
       "priority": "must",
       "verbatim": "Experience leading a small cross-functional team through a full project cycle.",
-      "evidence": "interview_2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six. The six-person figure has no record behind it.",
+      "evidence": "intake-interview-2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six, and self-reported. The six-person figure has no record behind it at all.",
       "verdict": "adjacent but honest"
     }
   ],
@@ -147,7 +193,7 @@
       "claims": [
         { "id": "c1", "text": "fourteen years working land transactions in South Texas", "label": "a", "sourceId": "s1", "requirementId": "r1" },
         { "id": "c2", "text": "52 closings across Medina, Frio and Atascosa counties",   "label": "b", "sourceId": "s2", "requirementId": "r1" },
-        { "id": "c3", "text": "built and self-host a parcel database",                    "label": "a", "sourceId": "s4", "requirementId": "r2" },
+        { "id": "c3", "text": "built and self-host a parcel database",                    "label": "a", "sourceId": "s1", "requirementId": "r2" },
         { "id": "c4", "text": "M.S. in Land Economics",                                   "label": "b", "sourceId": "s3", "requirementId": "r4" },
         { "id": "c5", "text": "deep familiarity with the Sablewood interconnection queue", "label": "d", "sourceId": "s0", "requirementId": "r3" },
         { "id": "c6", "text": "a documented record leading a six-person team",            "label": "c", "sourceId": "s0", "requirementId": "r5" },
@@ -170,17 +216,17 @@
         { "type": "bullet", "text": "{{c3}} that ingests county records nightly" },
         { "type": "role", "text": "Land analyst · Bitterwater Ranch Company", "meta": "2012 — 2019" },
         { "type": "bullet", "text": "{{c5}} out of Hondo and the counties west of it" },
-        { "type": "bullet", "text": "{{c6}}, nightly, into the parcel database" },
+        { "type": "bullet", "text": "{{c6}} into the parcel database, unattended" },
         { "type": "section", "text": "education" },
         { "type": "bullet", "text": "{{c4}}, conferred 2019" }
       ],
       "claims": [
         { "id": "c1", "text": "Fourteen years in Texas land transactions",  "label": "a", "sourceId": "s1", "requirementId": "r1" },
         { "id": "c2", "text": "52 closings across three counties",          "label": "b", "sourceId": "s2", "requirementId": "r1" },
-        { "id": "c3", "text": "Built and self-hosted a parcel database",    "label": "a", "sourceId": "s4", "requirementId": "r2" },
+        { "id": "c3", "text": "Built and self-hosted a parcel database",    "label": "a", "sourceId": "s1", "requirementId": "r2" },
         { "id": "c4", "text": "M.S. Land Economics",                        "label": "b", "sourceId": "s3", "requirementId": "r4" },
         { "id": "c5", "text": "Ranch splits and mineral severance work",    "label": "a", "sourceId": "s1", "requirementId": "r1" },
-        { "id": "c6", "text": "County record ingestion",                    "label": "a", "sourceId": "s4", "requirementId": "r2" }
+        { "id": "c6", "text": "287 nightly ingestion runs",                 "label": "b", "sourceId": "s4", "requirementId": "r2" }
       ]
     },
     {
@@ -195,7 +241,7 @@
       ],
       "claims": [
         { "id": "c1", "text": "spent fourteen years on Texas land deals", "label": "a", "sourceId": "s1", "requirementId": "r1" },
-        { "id": "c2", "text": "run my own parcel database",              "label": "a", "sourceId": "s4", "requirementId": "r2" }
+        { "id": "c2", "text": "run my own parcel database",              "label": "a", "sourceId": "s1", "requirementId": "r2" }
       ]
     }
   ]

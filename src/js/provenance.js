@@ -20,6 +20,13 @@ const LABELS = {
   d: { meaning: 'derived document only', color: 'var(--dg)' },
 };
 
+// What kind of record something is decides which label it can support.
+const CATEGORY_MEANING = {
+  'self-report': 'the subject said it',
+  'third-party record': 'someone else attested to it',
+  'system export': 'a system produced it',
+};
+
 const isBlocked = (claim) => claim.label === 'c' || claim.label === 'd';
 const sourceById = new Map(sources.map((s) => [s.id, s]));
 const requirementById = new Map(requirements.map((r) => [r.id, r]));
@@ -84,6 +91,28 @@ export function mountProvenance(root) {
 
   const srail = el('div', { class: 'rail', id: 'srail' });
   const rrail = el('div', { class: 'rail', id: 'rrail' });
+
+  const post = meta.posting;
+  const postingCard = el(
+    'button',
+    {
+      class: 'posting',
+      type: 'button',
+      'aria-pressed': 'false',
+      onclick: () => showPosting(),
+    },
+    el('div', { class: 'p-co', text: post.company }),
+    el('div', { class: 'p-role', text: post.role }),
+    el(
+      'div',
+      { class: 'p-meta' },
+      el('span', { text: post.location }),
+      el('span', { text: post.employment }),
+      el('span', { text: post.compensation }),
+      el('span', { text: `req ${post.reqId} · closes ${post.closes}` }),
+    ),
+    el('div', { class: 'p-more', text: 'read the full posting' }),
+  );
   const docBox = el('div', { class: 'doc' });
   const wires = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   wires.setAttribute('id', 'wires');
@@ -94,20 +123,13 @@ export function mountProvenance(root) {
     'div',
     { class: 'chain' },
     wires,
-    el('div', {}, el('div', { class: 'railh', text: 'source records' }), srail),
+    el('div', {}, el('div', { class: 'railh', text: 'record library' }), srail),
     el('div', {}, el('div', { class: 'railh', text: 'generated document' }), docBox),
     el(
       'div',
       {},
       el('div', { class: 'railh', text: 'job posting' }),
-      el(
-        'div',
-        { class: 'posting' },
-        el('div', { class: 'p-co', text: meta.posting.company }),
-        el('div', { class: 'p-role', text: meta.posting.role }),
-        el('div', { class: 'p-meta', text: `${meta.posting.location}\nposted ${meta.posting.posted}` }),
-        el('div', { class: 'p-blurb', text: meta.posting.blurb }),
-      ),
+      postingCard,
       el('div', { class: 'railh', style: 'margin-top:16px', text: 'requirements' }),
       rrail,
     ),
@@ -205,6 +227,8 @@ export function mountProvenance(root) {
       },
       el('div', { class: `fn${source.id === 's0' ? ' none' : ''}`, text: source.filename }),
       el('div', { class: 'mt', text: source.meta }),
+      source.category !== 'none' &&
+        el('div', {}, el('span', { class: `cat ${source.category.replace(/ /g, '-')}`, text: source.category })),
     );
     sourceRows.set(source.id, row);
     srail.append(row);
@@ -357,6 +381,7 @@ export function mountProvenance(root) {
   /* ----------------------------------------------------------- selection --- */
 
   function clearPressed() {
+    postingCard.setAttribute('aria-pressed', 'false');
     for (const row of sourceRows.values()) row.setAttribute('aria-pressed', 'false');
     for (const { row } of requirementRows.values()) row.setAttribute('aria-pressed', 'false');
     for (const button of claimEls.values()) button.setAttribute('aria-pressed', 'false');
@@ -424,6 +449,23 @@ export function mountProvenance(root) {
       ),
       el('div', { class: 'iname', text: source.filename }),
       el('div', { class: 'imeta', text: source.meta }),
+      source.category !== 'none' &&
+        el(
+          'div',
+          { class: 'kv' },
+          el('div', { class: 'k', text: 'kind' }),
+          el(
+            'div',
+            {},
+            el('span', { class: `cat ${source.category.replace(/ /g, '-')}`, text: source.category }),
+            el('span', {
+              style: 'color:var(--sec);font-size:12.5px',
+              text: ` — ${CATEGORY_MEANING[source.category] ?? ''}, so it can carry ${
+                source.category === 'self-report' ? 'label a' : 'label b'
+              }`,
+            }),
+          ),
+        ),
       el('div', { class: 'code', text: source.excerpt }),
       el(
         'div',
@@ -435,6 +477,66 @@ export function mountProvenance(root) {
           citing.length
             ? citing.map((claim) => chip(claim.text, isBlocked(claim), () => showClaim(claim.id)))
             : el('span', { class: 'empty', text: 'no claim in this document draws on it' }),
+        ),
+      ),
+    );
+  }
+
+  // The whole posting, as posted. The requirements the pipeline extracted are quoted verbatim
+  // underneath it, so a reader can check the extraction against the source text.
+  function showPosting() {
+    selection = null;
+    clearPressed();
+    postingCard.setAttribute('aria-pressed', 'true');
+    redraw();
+
+    const facts = [
+      ['req', post.reqId],
+      ['team', `${post.team} · reports to ${post.reportsTo}`],
+      ['location', post.location],
+      ['type', `${post.employment} · travel ${post.travel}`],
+      ['pay', post.compensation],
+      ['dates', `posted ${post.posted} · closes ${post.closes}`],
+    ];
+
+    clear(inspector).append(
+      el(
+        'div',
+        { class: 'ihead' },
+        el('span', { class: 'ikind', text: 'job posting' }),
+        el('span', { class: 'verd plain', text: post.company }),
+      ),
+      el('div', { class: 'iquote', text: post.role }),
+      el(
+        'div',
+        { class: 'kv' },
+        facts.flatMap(([key, value]) => [el('div', { class: 'k', text: key }), el('div', { text: value })]),
+      ),
+      el('div', { class: 'code', text: post.blurb }),
+      el('h3', { style: 'margin-top:18px', text: 'what the role does' }),
+      el('ul', { class: 'plain-list' }, post.responsibilities.map((line) => el('li', { text: line }))),
+      el('h3', { style: 'margin-top:16px', text: 'the open question' }),
+      el('div', { class: 'code', text: post.wildcard }),
+      el('p', {
+        class: 'foot',
+        text: 'The wildcard gate rejects an application when there is no honest answer to this question.',
+      }),
+      el('h3', { style: 'margin-top:16px', text: `requirements extracted · ${requirements.length}` }),
+      el(
+        'div',
+        { class: 'req-quotes' },
+        requirements.map((r) =>
+          el(
+            'div',
+            { class: 'req-quote' },
+            el(
+              'div',
+              { class: 'rq-head' },
+              el('span', { class: `pill ${r.priority}`, text: r.priority }),
+              el('span', { class: 'rq-title', text: r.title }),
+            ),
+            el('div', { class: 'code', text: r.verbatim }),
+          ),
         ),
       ),
     );

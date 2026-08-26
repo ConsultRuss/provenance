@@ -4,7 +4,7 @@
     "title": "Land transaction experience",
     "priority": "must",
     "verbatim": "5+ years originating, negotiating or closing land transactions in Texas. Familiarity with severed mineral estates strongly preferred.",
-    "evidence": "interview_2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. county_records_export.csv — 52 closings across three counties.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. Corroborated by deed-records-medina-frio-atascosa.csv: 52 closings across three counties, 17 with a severed mineral estate.",
     "verdict": "have as documented"
   },
   {
@@ -12,7 +12,7 @@
     "title": "Parcel data systems",
     "priority": "must",
     "verbatim": "Comfort building or operating parcel-level data tooling — GIS layers, county record ingestion, or equivalent.",
-    "evidence": "repo_manifest.json — parcel-db, self-hosted, 412 commits, sole author. Corroborated by interview_2026-03-11.txt at 00:31:07.",
+    "evidence": "parcel-db-commit-log.txt — 412 commits, sole author, self-hosted, 287 nightly ingestion runs. The subject also describes it at 00:31:07 of intake-interview-2026-03-11.txt.",
     "verdict": "have as documented"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Interconnection queue familiarity",
     "priority": "preferred",
     "verbatim": "Working knowledge of the Sablewood Grid Authority generation interconnection queue and its study phases is preferred, not required.",
-    "evidence": "Nothing on file. A draft asserted fluency here; the assertion traced to draft_bio_v3.md, a derived document, and was blocked at asset lint.",
+    "evidence": "Nothing in the library. A draft asserted fluency here; the assertion traced to resume-2025-draft.docx, a document this pipeline wrote, and was blocked at asset lint.",
     "verdict": "do not have"
   },
   {
@@ -28,7 +28,7 @@
     "title": "Graduate degree",
     "priority": "preferred",
     "verbatim": "Advanced degree in real estate, economics, land use or a related field.",
-    "evidence": "registrar_letter.pdf — M.S. Land Economics, conferred 2019-05-18, in good standing.",
+    "evidence": "degree-verification-2019.pdf — registrar letter confirming M.S. Land Economics, conferred 2019-05-18, in good standing.",
     "verdict": "have as documented"
   },
   {
@@ -36,7 +36,7 @@
     "title": "Team leadership",
     "priority": "must",
     "verbatim": "Experience leading a small cross-functional team through a full project cycle.",
-    "evidence": "interview_2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six. The six-person figure has no record behind it.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six, and self-reported. The six-person figure has no record behind it at all.",
     "verdict": "adjacent but honest"
   }
 ]

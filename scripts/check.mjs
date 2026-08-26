@@ -93,6 +93,36 @@ check('16.3  every claim labelled c or d cites s0', () => {
   return `${blocked} blocked claims, all on s0`;
 });
 
+/* -- 3b · the label matches the kind of record behind it ------------------ */
+
+check('16.3b every label matches its record category', () => {
+  const documents = json('data/generated/documents.json');
+  const category = new Map(json('data/generated/sources.json').map((s) => [s.id, s.category]));
+  let checked = 0;
+  for (const doc of documents) {
+    for (const claim of doc.claims) {
+      const kind = category.get(claim.sourceId);
+      assert(kind !== undefined, `${doc.id}/${claim.id}: ${claim.sourceId} has no category`);
+      if (claim.label === 'a') {
+        assert(kind === 'self-report', `${doc.id}/${claim.id}: label a cites a ${kind}`);
+      }
+      if (claim.label === 'b') {
+        assert(
+          kind === 'third-party record' || kind === 'system export',
+          `${doc.id}/${claim.id}: label b cites a ${kind}`,
+        );
+      }
+      checked += 1;
+    }
+  }
+  // A library of only self-reports would make label b unreachable and the demo hollow.
+  const kinds = new Set([...category.values()]);
+  for (const required of ['self-report', 'third-party record', 'system export']) {
+    assert(kinds.has(required), `the library has no ${required}`);
+  }
+  return `${checked} claims, all consistent with their record category`;
+});
+
 /* -- 6 · the default selection is a blocked claim ------------------------- */
 
 check('16.6  the first document opens on a blocked claim', () => {

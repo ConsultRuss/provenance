@@ -2,171 +2,195 @@
 export const sources = [
   {
     "id": "s1",
-    "filename": "interview_2026-03-11.txt",
+    "filename": "intake-interview-2026-03-11.txt",
     "kind": "plain text",
-    "meta": "transcript · 4,180 words",
+    "category": "self-report",
+    "meta": "interview transcript · 4,180 words",
     "excerpt": "[00:14:22] Q: How long have you been doing land work?\nA: Fourteen years now. Started in 2012 doing ranch\nsplits out past Hondo, moved into mineral and\nsurface severance work about four years in.\n\n[00:31:07] A: The parcel database is mine. I built it,\nI host it, I run the nightly pull myself.\n\n[00:52:41] Q: Team size on the Atascosa cycle?\nA: Three of us. Me, a title clerk, and a surveyor\non contract."
   },
   {
     "id": "s2",
-    "filename": "county_records_export.csv",
+    "filename": "deed-records-medina-frio-atascosa.csv",
     "kind": "csv export",
-    "meta": "tabular · 1,284 rows",
-    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows total\n-- 17 rows with mineral_severed = true"
+    "category": "third-party record",
+    "meta": "county clerk pull · 1,284 rows",
+    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows where role is buyer_rep or seller_rep\n-- 17 of those with mineral_severed = true"
   },
   {
     "id": "s3",
-    "filename": "registrar_letter.pdf",
+    "filename": "degree-verification-2019.pdf",
     "kind": "pdf",
-    "meta": "document · 1 page",
-    "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing."
+    "category": "third-party record",
+    "meta": "registrar letter · 1 page",
+    "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing.\n\nIssued at the request of the degree holder."
   },
   {
     "id": "s4",
-    "filename": "repo_manifest.json",
-    "kind": "json",
-    "meta": "structured · 38 KB",
-    "excerpt": "{\n  \"service\": \"parcel-db\",\n  \"host\": \"self\",\n  \"first_commit\": \"2025-11-04\",\n  \"commits\": 412,\n  \"authors\": [\"a.reyes\"]\n}"
+    "filename": "parcel-db-commit-log.txt",
+    "kind": "plain text",
+    "category": "system export",
+    "meta": "version control export · 412 commits",
+    "excerpt": "repository    parcel-db\nfirst commit  2025-11-04\nlast commit   2026-08-19\ncommits       412\nauthors       1  (a.reyes)\nhosting       self, single node\nnightly job   county-ingest · 287 successful runs"
   },
   {
     "id": "s5",
-    "filename": "call_notes_2026-06-24.pdf",
+    "filename": "performance-review-2026-02-09.pdf",
     "kind": "pdf",
-    "meta": "document · 6 pages",
-    "excerpt": "Filed 2026-06-24. Reference CALL_NOTES-1771.\nRetained for the parcel file."
+    "category": "third-party record",
+    "meta": "issued · 9 pages",
+    "excerpt": "Reference PERFORMANCEREVIEW-6327\nIssued 2026-02-09.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s6",
-    "filename": "permit_index_2025-06-02.csv",
-    "kind": "csv export",
-    "meta": "tabular · 739 rows",
-    "excerpt": "field,value,recorded\npermit_index,211,2025-06-02\n… 137 more rows"
+    "filename": "employment-verification-2025-04-18.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 4 pages",
+    "excerpt": "Reference EMPLOYMENTVERIFICATION-2469\nIssued 2025-04-18.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s7",
-    "filename": "plat_review_2025-11-06.pdf",
+    "filename": "reference-letter-2025-07-29.pdf",
     "kind": "pdf",
-    "meta": "document · 2 pages",
-    "excerpt": "Filed 2025-11-06. Reference PLAT_REVIEW-9135.\nRetained for the parcel file."
+    "category": "third-party record",
+    "meta": "issued · 2 pages",
+    "excerpt": "Reference REFERENCELETTER-6463\nIssued 2025-07-29.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s8",
-    "filename": "closing_file_2026-03-30.pdf",
+    "filename": "offer-letter-2026-03-30.pdf",
     "kind": "pdf",
-    "meta": "document · 8 pages",
-    "excerpt": "Filed 2026-03-30. Reference CLOSING_FILE-1716.\nRetained for the parcel file."
+    "category": "third-party record",
+    "meta": "issued · 4 pages",
+    "excerpt": "Reference OFFERLETTER-2872\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s9",
-    "filename": "survey_log_2026-03-30.csv",
-    "kind": "csv export",
-    "meta": "tabular · 1,337 rows",
-    "excerpt": "field,value,recorded\nsurvey_log,298,2026-03-30\n… 28 more rows"
+    "filename": "course-transcript-2026-06-24.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 5 pages",
+    "excerpt": "Reference COURSETRANSCRIPT-7802\nIssued 2026-06-24.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s10",
-    "filename": "tax_roll_2025-07-29.json",
-    "kind": "json",
-    "meta": "structured · 31 KB",
-    "excerpt": "{\n  \"record\": \"tax_roll\",\n  \"recorded\": \"2025-07-29\",\n  \"entries\": 82\n}"
+    "filename": "license-history-2026-05-11.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 1 pages",
+    "excerpt": "Reference LICENSEHISTORY-3297\nIssued 2026-05-11.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s11",
-    "filename": "easement_index_2026-06-24.csv",
-    "kind": "csv export",
-    "meta": "tabular · 2,086 rows",
-    "excerpt": "field,value,recorded\neasement_index,693,2026-06-24\n… 80 more rows"
+    "filename": "certification-card-2026-03-30.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 6 pages",
+    "excerpt": "Reference CERTIFICATIONCARD-3645\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s12",
-    "filename": "appraisal_notes_2026-03-30.txt",
-    "kind": "plain text",
-    "meta": "transcript · 1,684 words",
-    "excerpt": "Recorded 2026-03-30.\nNotes filed under appraisal_notes. 34 items logged."
+    "filename": "continuing-ed-credits-2025-04-18.csv",
+    "kind": "csv export",
+    "category": "third-party record",
+    "meta": "export · 1,958 rows",
+    "excerpt": "issued_on,item,units,verified\n2025-04-18,continuing_ed_credits,18,true\n… 20 more rows\n\n-- issued by the awarding body, not by the subject"
   },
   {
     "id": "s13",
-    "filename": "title_commitment_2025-09-14.pdf",
-    "kind": "pdf",
-    "meta": "document · 7 pages",
-    "excerpt": "Filed 2025-09-14. Reference TITLE_COMMITMENT-6642.\nRetained for the parcel file."
+    "filename": "client-note-2025-09-14.txt",
+    "kind": "plain text",
+    "category": "third-party record",
+    "meta": "record · 5,606 words",
+    "excerpt": "Reference CLIENTNOTE-9081\nIssued 2025-09-14.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s14",
-    "filename": "field_visit_2025-07-29.json",
-    "kind": "json",
-    "meta": "structured · 28 KB",
-    "excerpt": "{\n  \"record\": \"field_visit\",\n  \"recorded\": \"2025-07-29\",\n  \"entries\": 166\n}"
+    "filename": "award-letter-2026-02-09.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 3 pages",
+    "excerpt": "Reference AWARDLETTER-2469\nIssued 2026-02-09.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s15",
-    "filename": "deed_index_2025-07-29.csv",
-    "kind": "csv export",
-    "meta": "tabular · 409 rows",
-    "excerpt": "field,value,recorded\ndeed_index,97,2025-07-29\n… 57 more rows"
+    "filename": "contract-sow-2026-03-30.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 2 pages",
+    "excerpt": "Reference CONTRACTSOW-7268\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s16",
-    "filename": "escrow_ledger_2025-09-14.pdf",
-    "kind": "pdf",
-    "meta": "document · 9 pages",
-    "excerpt": "Filed 2025-09-14. Reference ESCROW_LEDGER-3566.\nRetained for the parcel file."
+    "filename": "earnings-summary-2026-02-09.csv",
+    "kind": "csv export",
+    "category": "third-party record",
+    "meta": "export · 858 rows",
+    "excerpt": "issued_on,item,units,verified\n2026-02-09,earnings_summary,31,true\n… 89 more rows\n\n-- issued by the awarding body, not by the subject"
   },
   {
     "id": "s17",
-    "filename": "zoning_letter_2026-06-24.pdf",
-    "kind": "pdf",
-    "meta": "document · 2 pages",
-    "excerpt": "Filed 2026-06-24. Reference ZONING_LETTER-7968.\nRetained for the parcel file."
+    "filename": "timesheet-export-2025-07-29.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 780 rows",
+    "excerpt": "exported_on,timesheet_export,count\n2025-07-29,total,295\n2025-07-29,flagged,9\n… 42 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s18",
-    "filename": "well_report_2025-09-14.csv",
+    "filename": "closing-tracker-2025-04-18.csv",
     "kind": "csv export",
-    "meta": "tabular · 1,612 rows",
-    "excerpt": "field,value,recorded\nwell_report,496,2025-09-14\n… 17 more rows"
+    "category": "system export",
+    "meta": "export · 565 rows",
+    "excerpt": "exported_on,closing_tracker,count\n2025-04-18,total,365\n2025-04-18,flagged,37\n… 71 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s19",
-    "filename": "acreage_audit_2026-01-22.pdf",
-    "kind": "pdf",
-    "meta": "document · 8 pages",
-    "excerpt": "Filed 2026-01-22. Reference ACREAGE_AUDIT-8051.\nRetained for the parcel file."
+    "filename": "mileage-log-2026-01-22.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 2,252 rows",
+    "excerpt": "exported_on,mileage_log,count\n2026-01-22,total,769\n2026-01-22,flagged,14\n… 75 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s20",
-    "filename": "lease_abstract_2026-03-30.txt",
+    "filename": "project-log-2026-02-09.txt",
     "kind": "plain text",
-    "meta": "transcript · 5,595 words",
-    "excerpt": "Recorded 2026-03-30.\nNotes filed under lease_abstract. 43 items logged."
+    "category": "self-report",
+    "meta": "own notes · 3,100 words",
+    "excerpt": "Written 2026-02-09.\n\n28 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s21",
-    "filename": "utility_memo_2025-11-06.pdf",
-    "kind": "pdf",
-    "meta": "document · 4 pages",
-    "excerpt": "Filed 2025-11-06. Reference UTILITY_MEMO-6154.\nRetained for the parcel file."
+    "filename": "work-sample-notes-2026-01-22.txt",
+    "kind": "plain text",
+    "category": "self-report",
+    "meta": "own notes · 5,067 words",
+    "excerpt": "Written 2026-01-22.\n\n12 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s22",
-    "filename": "flood_cert_2026-01-22.json",
-    "kind": "json",
-    "meta": "structured · 23 KB",
-    "excerpt": "{\n  \"record\": \"flood_cert\",\n  \"recorded\": \"2026-01-22\",\n  \"entries\": 9\n}"
+    "filename": "deal-sheet-2026-03-30.txt",
+    "kind": "plain text",
+    "category": "self-report",
+    "meta": "own notes · 5,537 words",
+    "excerpt": "Written 2026-03-30.\n\n26 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s23",
-    "filename": "boundary_notes_2025-06-02.json",
-    "kind": "json",
-    "meta": "structured · 82 KB",
-    "excerpt": "{\n  \"record\": \"boundary_notes\",\n  \"recorded\": \"2025-06-02\",\n  \"entries\": 39\n}"
+    "filename": "career-questionnaire-2025-11-06.txt",
+    "kind": "plain text",
+    "category": "self-report",
+    "meta": "own notes · 2,656 words",
+    "excerpt": "Written 2025-11-06.\n\n36 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s0",
-    "filename": "— no source —",
+    "filename": "— no record —",
     "kind": "none",
-    "meta": "nothing on file",
-    "excerpt": "No record supports this claim.\n\nText traced to: draft_bio_v3.md (a derived document).\nDerived documents cannot be cited as sources."
+    "category": "none",
+    "meta": "nothing in the library",
+    "excerpt": "No record in the library supports this claim.\n\nText traced to: resume-2025-draft.docx\n\nThat file is an earlier document this pipeline wrote.\nA derived document cannot be cited as a source —\nciting it would mean the system vouching for itself."
   }
 ];
 
@@ -176,7 +200,7 @@ export const requirements = [
     "title": "Land transaction experience",
     "priority": "must",
     "verbatim": "5+ years originating, negotiating or closing land transactions in Texas. Familiarity with severed mineral estates strongly preferred.",
-    "evidence": "interview_2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. county_records_export.csv — 52 closings across three counties.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. Corroborated by deed-records-medina-frio-atascosa.csv: 52 closings across three counties, 17 with a severed mineral estate.",
     "verdict": "have as documented"
   },
   {
@@ -184,7 +208,7 @@ export const requirements = [
     "title": "Parcel data systems",
     "priority": "must",
     "verbatim": "Comfort building or operating parcel-level data tooling — GIS layers, county record ingestion, or equivalent.",
-    "evidence": "repo_manifest.json — parcel-db, self-hosted, 412 commits, sole author. Corroborated by interview_2026-03-11.txt at 00:31:07.",
+    "evidence": "parcel-db-commit-log.txt — 412 commits, sole author, self-hosted, 287 nightly ingestion runs. The subject also describes it at 00:31:07 of intake-interview-2026-03-11.txt.",
     "verdict": "have as documented"
   },
   {
@@ -192,7 +216,7 @@ export const requirements = [
     "title": "Interconnection queue familiarity",
     "priority": "preferred",
     "verbatim": "Working knowledge of the Sablewood Grid Authority generation interconnection queue and its study phases is preferred, not required.",
-    "evidence": "Nothing on file. A draft asserted fluency here; the assertion traced to draft_bio_v3.md, a derived document, and was blocked at asset lint.",
+    "evidence": "Nothing in the library. A draft asserted fluency here; the assertion traced to resume-2025-draft.docx, a document this pipeline wrote, and was blocked at asset lint.",
     "verdict": "do not have"
   },
   {
@@ -200,7 +224,7 @@ export const requirements = [
     "title": "Graduate degree",
     "priority": "preferred",
     "verbatim": "Advanced degree in real estate, economics, land use or a related field.",
-    "evidence": "registrar_letter.pdf — M.S. Land Economics, conferred 2019-05-18, in good standing.",
+    "evidence": "degree-verification-2019.pdf — registrar letter confirming M.S. Land Economics, conferred 2019-05-18, in good standing.",
     "verdict": "have as documented"
   },
   {
@@ -208,7 +232,7 @@ export const requirements = [
     "title": "Team leadership",
     "priority": "must",
     "verbatim": "Experience leading a small cross-functional team through a full project cycle.",
-    "evidence": "interview_2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six. The six-person figure has no record behind it.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six, and self-reported. The six-person figure has no record behind it at all.",
     "verdict": "adjacent but honest"
   }
 ];
@@ -279,7 +303,7 @@ export const documents = [
         "id": "c3",
         "text": "built and self-host a parcel database",
         "label": "a",
-        "sourceId": "s4",
+        "sourceId": "s1",
         "requirementId": "r2"
       },
       {
@@ -368,7 +392,7 @@ export const documents = [
       },
       {
         "type": "bullet",
-        "text": "{{c6}}, nightly, into the parcel database"
+        "text": "{{c6}} into the parcel database, unattended"
       },
       {
         "type": "section",
@@ -398,7 +422,7 @@ export const documents = [
         "id": "c3",
         "text": "Built and self-hosted a parcel database",
         "label": "a",
-        "sourceId": "s4",
+        "sourceId": "s1",
         "requirementId": "r2"
       },
       {
@@ -417,8 +441,8 @@ export const documents = [
       },
       {
         "id": "c6",
-        "text": "County record ingestion",
-        "label": "a",
+        "text": "287 nightly ingestion runs",
+        "label": "b",
         "sourceId": "s4",
         "requirementId": "r2"
       }
@@ -458,7 +482,7 @@ export const documents = [
         "id": "c2",
         "text": "run my own parcel database",
         "label": "a",
-        "sourceId": "s4",
+        "sourceId": "s1",
         "requirementId": "r2"
       }
     ]
@@ -501,11 +525,11 @@ export const gates = {
   "records": [
     {
       "id": "rec-01",
-      "company": "Granite Ranch Group",
-      "role": "land analyst",
+      "company": "Bosque Holdings",
+      "role": "development associate",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 2,
+      "claimsParsed": 3,
+      "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
         "s5",
@@ -523,8 +547,8 @@ export const gates = {
     },
     {
       "id": "rec-02",
-      "company": "Salado Energy",
-      "role": "development associate",
+      "company": "Frontage Development",
+      "role": "right of way agent",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 3,
@@ -545,13 +569,14 @@ export const gates = {
     },
     {
       "id": "rec-03",
-      "company": "Escarpment Ranch Group",
-      "role": "right of way agent",
+      "company": "Escarpment Development",
+      "role": "development associate",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s4",
         "s7",
         "s20"
       ],
@@ -567,14 +592,13 @@ export const gates = {
     },
     {
       "id": "rec-04",
-      "company": "Thicket Land Co",
-      "role": "parcel data lead",
+      "company": "Salado Capital",
+      "role": "land analyst",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s4",
         "s8",
         "s21"
       ],
@@ -590,14 +614,13 @@ export const gates = {
     },
     {
       "id": "rec-05",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Quarry Land Group",
+      "role": "right of way agent",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s4",
         "s9",
         "s22"
       ],
@@ -613,14 +636,13 @@ export const gates = {
     },
     {
       "id": "rec-06",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Hardpan Development",
+      "role": "land analyst",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 2,
+      "claimsParsed": 3,
+      "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s3",
         "s10",
         "s23"
       ],
@@ -645,8 +667,8 @@ export const gates = {
       "sourceIds": [
         "s1",
         "s2",
-        "s4",
-        "s3"
+        "s3",
+        "s4"
       ],
       "stoppedAt": "lint",
       "verdicts": {
@@ -660,14 +682,13 @@ export const gates = {
     },
     {
       "id": "rec-08",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Draw Holdings",
+      "role": "parcel data lead",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 1,
+      "claimsCleared": 1,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
         "s11"
       ],
       "stoppedAt": "wildcard",
@@ -682,13 +703,14 @@ export const gates = {
     },
     {
       "id": "rec-09",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Frontage Capital",
+      "role": "acquisition analyst",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 1,
       "claimsBlocked": 2,
       "sourceIds": [
+        "s4",
         "s12"
       ],
       "stoppedAt": "lint",
@@ -703,14 +725,14 @@ export const gates = {
     },
     {
       "id": "rec-10",
-      "company": "Wallow Partners",
+      "company": "Ridgeline Energy",
       "role": "land analyst",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 1,
+      "claimsParsed": 3,
+      "claimsCleared": 2,
       "claimsBlocked": 1,
       "sourceIds": [
-        "s4",
+        "s1",
         "s13"
       ],
       "stoppedAt": "lint",
@@ -725,8 +747,8 @@ export const gates = {
     },
     {
       "id": "rec-11",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Lometa Land Group",
+      "role": "title analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 1,
@@ -746,14 +768,14 @@ export const gates = {
     },
     {
       "id": "rec-12",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Wallow Partners",
+      "role": "land analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
+        "s3",
         "s15"
       ],
       "stoppedAt": null,
@@ -768,14 +790,13 @@ export const gates = {
     },
     {
       "id": "rec-13",
-      "company": "Escarpment Energy",
-      "role": "land analyst",
+      "company": "Ridgeline Development",
+      "role": "diligence analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
         "s16"
       ],
       "stoppedAt": null,
@@ -790,13 +811,14 @@ export const gates = {
     },
     {
       "id": "rec-14",
-      "company": "Caliche Land Co",
+      "company": "Lometa Development",
       "role": "title analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s1",
         "s17"
       ],
       "stoppedAt": null,
@@ -814,8 +836,8 @@ export const gates = {
     {
       "id": "run-0001",
       "recordId": "rec-01",
-      "company": "Granite Ranch Group",
-      "role": "land analyst",
+      "company": "Bosque Holdings",
+      "role": "development associate",
       "lines": [
         {
           "gate": "intake",
@@ -828,8 +850,8 @@ export const gates = {
     {
       "id": "run-0002",
       "recordId": "rec-02",
-      "company": "Salado Energy",
-      "role": "development associate",
+      "company": "Frontage Development",
+      "role": "right of way agent",
       "lines": [
         {
           "gate": "intake",
@@ -842,8 +864,8 @@ export const gates = {
     {
       "id": "run-0003",
       "recordId": "rec-03",
-      "company": "Escarpment Ranch Group",
-      "role": "right of way agent",
+      "company": "Escarpment Development",
+      "role": "development associate",
       "lines": [
         {
           "gate": "intake",
@@ -861,8 +883,8 @@ export const gates = {
     {
       "id": "run-0004",
       "recordId": "rec-04",
-      "company": "Thicket Land Co",
-      "role": "parcel data lead",
+      "company": "Salado Capital",
+      "role": "land analyst",
       "lines": [
         {
           "gate": "intake",
@@ -880,8 +902,8 @@ export const gates = {
     {
       "id": "run-0005",
       "recordId": "rec-05",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Quarry Land Group",
+      "role": "right of way agent",
       "lines": [
         {
           "gate": "intake",
@@ -904,8 +926,8 @@ export const gates = {
     {
       "id": "run-0006",
       "recordId": "rec-06",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Hardpan Development",
+      "role": "land analyst",
       "lines": [
         {
           "gate": "intake",
@@ -962,8 +984,8 @@ export const gates = {
     {
       "id": "run-0008",
       "recordId": "rec-08",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Draw Holdings",
+      "role": "parcel data lead",
       "lines": [
         {
           "gate": "intake",
@@ -991,8 +1013,8 @@ export const gates = {
     {
       "id": "run-0009",
       "recordId": "rec-09",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Frontage Capital",
+      "role": "acquisition analyst",
       "lines": [
         {
           "gate": "intake",
@@ -1025,7 +1047,7 @@ export const gates = {
     {
       "id": "run-0010",
       "recordId": "rec-10",
-      "company": "Wallow Partners",
+      "company": "Ridgeline Energy",
       "role": "land analyst",
       "lines": [
         {
@@ -1059,8 +1081,8 @@ export const gates = {
     {
       "id": "run-0011",
       "recordId": "rec-11",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Lometa Land Group",
+      "role": "title analyst",
       "lines": [
         {
           "gate": "intake",
@@ -1093,8 +1115,8 @@ export const gates = {
     {
       "id": "run-0012",
       "recordId": "rec-12",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Wallow Partners",
+      "role": "land analyst",
       "lines": [
         {
           "gate": "intake",
@@ -1132,8 +1154,8 @@ export const gates = {
     {
       "id": "run-0013",
       "recordId": "rec-13",
-      "company": "Escarpment Energy",
-      "role": "land analyst",
+      "company": "Ridgeline Development",
+      "role": "diligence analyst",
       "lines": [
         {
           "gate": "intake",
@@ -1171,7 +1193,7 @@ export const gates = {
     {
       "id": "run-0014",
       "recordId": "rec-14",
-      "company": "Caliche Land Co",
+      "company": "Lometa Development",
       "role": "title analyst",
       "lines": [
         {
@@ -1213,11 +1235,26 @@ export const gates = {
 export const meta = {
   "pinnedDate": "2026-08-26",
   "posting": {
+    "reqId": "MGP-2026-0447",
     "company": "Meridian Grid Partners",
     "role": "site analyst",
-    "location": "San Antonio, Texas · hybrid",
+    "team": "Origination",
+    "reportsTo": "Director of Land",
+    "location": "San Antonio, Texas · hybrid, 3 days on site",
+    "employment": "full-time",
+    "travel": "up to 25%, mostly South Texas",
+    "compensation": "$92,000 – $118,000 · bonus eligible",
     "posted": "2026-08-11",
+    "closes": "2026-09-08",
     "blurb": "Meridian Grid Partners assembles land positions for utility-scale generation across South Texas. The site analyst supports origination: parcel research, title review and landowner contact ahead of interconnection.",
+    "responsibilities": [
+      "Research parcels and chains of title ahead of site control.",
+      "Pull and reconcile county records across several jurisdictions.",
+      "Flag severed mineral estates and other title risk early, in writing.",
+      "Prepare landowner contact packets and track every outreach attempt.",
+      "Keep the parcel dataset current enough that origination can rely on it."
+    ],
+    "wildcard": "Tell us about a deal you walked away from, and what it cost you to walk.",
     "subject": "A. Reyes",
     "subjectContact": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143",
     "gridOperator": "Sablewood Grid Authority"

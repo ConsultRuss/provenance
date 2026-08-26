@@ -1,170 +1,194 @@
 [
   {
     "id": "s1",
-    "filename": "interview_2026-03-11.txt",
+    "filename": "intake-interview-2026-03-11.txt",
     "kind": "plain text",
-    "meta": "transcript · 4,180 words",
+    "category": "self-report",
+    "meta": "interview transcript · 4,180 words",
     "excerpt": "[00:14:22] Q: How long have you been doing land work?\nA: Fourteen years now. Started in 2012 doing ranch\nsplits out past Hondo, moved into mineral and\nsurface severance work about four years in.\n\n[00:31:07] A: The parcel database is mine. I built it,\nI host it, I run the nightly pull myself.\n\n[00:52:41] Q: Team size on the Atascosa cycle?\nA: Three of us. Me, a title clerk, and a surveyor\non contract."
   },
   {
     "id": "s2",
-    "filename": "county_records_export.csv",
+    "filename": "deed-records-medina-frio-atascosa.csv",
     "kind": "csv export",
-    "meta": "tabular · 1,284 rows",
-    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows total\n-- 17 rows with mineral_severed = true"
+    "category": "third-party record",
+    "meta": "county clerk pull · 1,284 rows",
+    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows where role is buyer_rep or seller_rep\n-- 17 of those with mineral_severed = true"
   },
   {
     "id": "s3",
-    "filename": "registrar_letter.pdf",
+    "filename": "degree-verification-2019.pdf",
     "kind": "pdf",
-    "meta": "document · 1 page",
-    "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing."
+    "category": "third-party record",
+    "meta": "registrar letter · 1 page",
+    "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing.\n\nIssued at the request of the degree holder."
   },
   {
     "id": "s4",
-    "filename": "repo_manifest.json",
-    "kind": "json",
-    "meta": "structured · 38 KB",
-    "excerpt": "{\n  \"service\": \"parcel-db\",\n  \"host\": \"self\",\n  \"first_commit\": \"2025-11-04\",\n  \"commits\": 412,\n  \"authors\": [\"a.reyes\"]\n}"
+    "filename": "parcel-db-commit-log.txt",
+    "kind": "plain text",
+    "category": "system export",
+    "meta": "version control export · 412 commits",
+    "excerpt": "repository    parcel-db\nfirst commit  2025-11-04\nlast commit   2026-08-19\ncommits       412\nauthors       1  (a.reyes)\nhosting       self, single node\nnightly job   county-ingest · 287 successful runs"
   },
   {
     "id": "s5",
-    "filename": "call_notes_2026-06-24.pdf",
+    "filename": "performance-review-2026-02-09.pdf",
     "kind": "pdf",
-    "meta": "document · 6 pages",
-    "excerpt": "Filed 2026-06-24. Reference CALL_NOTES-1771.\nRetained for the parcel file."
+    "category": "third-party record",
+    "meta": "issued · 9 pages",
+    "excerpt": "Reference PERFORMANCEREVIEW-6327\nIssued 2026-02-09.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s6",
-    "filename": "permit_index_2025-06-02.csv",
-    "kind": "csv export",
-    "meta": "tabular · 739 rows",
-    "excerpt": "field,value,recorded\npermit_index,211,2025-06-02\n… 137 more rows"
+    "filename": "employment-verification-2025-04-18.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 4 pages",
+    "excerpt": "Reference EMPLOYMENTVERIFICATION-2469\nIssued 2025-04-18.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s7",
-    "filename": "plat_review_2025-11-06.pdf",
+    "filename": "reference-letter-2025-07-29.pdf",
     "kind": "pdf",
-    "meta": "document · 2 pages",
-    "excerpt": "Filed 2025-11-06. Reference PLAT_REVIEW-9135.\nRetained for the parcel file."
+    "category": "third-party record",
+    "meta": "issued · 2 pages",
+    "excerpt": "Reference REFERENCELETTER-6463\nIssued 2025-07-29.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s8",
-    "filename": "closing_file_2026-03-30.pdf",
+    "filename": "offer-letter-2026-03-30.pdf",
     "kind": "pdf",
-    "meta": "document · 8 pages",
-    "excerpt": "Filed 2026-03-30. Reference CLOSING_FILE-1716.\nRetained for the parcel file."
+    "category": "third-party record",
+    "meta": "issued · 4 pages",
+    "excerpt": "Reference OFFERLETTER-2872\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s9",
-    "filename": "survey_log_2026-03-30.csv",
-    "kind": "csv export",
-    "meta": "tabular · 1,337 rows",
-    "excerpt": "field,value,recorded\nsurvey_log,298,2026-03-30\n… 28 more rows"
+    "filename": "course-transcript-2026-06-24.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 5 pages",
+    "excerpt": "Reference COURSETRANSCRIPT-7802\nIssued 2026-06-24.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s10",
-    "filename": "tax_roll_2025-07-29.json",
-    "kind": "json",
-    "meta": "structured · 31 KB",
-    "excerpt": "{\n  \"record\": \"tax_roll\",\n  \"recorded\": \"2025-07-29\",\n  \"entries\": 82\n}"
+    "filename": "license-history-2026-05-11.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 1 pages",
+    "excerpt": "Reference LICENSEHISTORY-3297\nIssued 2026-05-11.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s11",
-    "filename": "easement_index_2026-06-24.csv",
-    "kind": "csv export",
-    "meta": "tabular · 2,086 rows",
-    "excerpt": "field,value,recorded\neasement_index,693,2026-06-24\n… 80 more rows"
+    "filename": "certification-card-2026-03-30.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 6 pages",
+    "excerpt": "Reference CERTIFICATIONCARD-3645\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s12",
-    "filename": "appraisal_notes_2026-03-30.txt",
-    "kind": "plain text",
-    "meta": "transcript · 1,684 words",
-    "excerpt": "Recorded 2026-03-30.\nNotes filed under appraisal_notes. 34 items logged."
+    "filename": "continuing-ed-credits-2025-04-18.csv",
+    "kind": "csv export",
+    "category": "third-party record",
+    "meta": "export · 1,958 rows",
+    "excerpt": "issued_on,item,units,verified\n2025-04-18,continuing_ed_credits,18,true\n… 20 more rows\n\n-- issued by the awarding body, not by the subject"
   },
   {
     "id": "s13",
-    "filename": "title_commitment_2025-09-14.pdf",
-    "kind": "pdf",
-    "meta": "document · 7 pages",
-    "excerpt": "Filed 2025-09-14. Reference TITLE_COMMITMENT-6642.\nRetained for the parcel file."
+    "filename": "client-note-2025-09-14.txt",
+    "kind": "plain text",
+    "category": "third-party record",
+    "meta": "record · 5,606 words",
+    "excerpt": "Reference CLIENTNOTE-9081\nIssued 2025-09-14.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s14",
-    "filename": "field_visit_2025-07-29.json",
-    "kind": "json",
-    "meta": "structured · 28 KB",
-    "excerpt": "{\n  \"record\": \"field_visit\",\n  \"recorded\": \"2025-07-29\",\n  \"entries\": 166\n}"
+    "filename": "award-letter-2026-02-09.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 3 pages",
+    "excerpt": "Reference AWARDLETTER-2469\nIssued 2026-02-09.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s15",
-    "filename": "deed_index_2025-07-29.csv",
-    "kind": "csv export",
-    "meta": "tabular · 409 rows",
-    "excerpt": "field,value,recorded\ndeed_index,97,2025-07-29\n… 57 more rows"
+    "filename": "contract-sow-2026-03-30.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "issued · 2 pages",
+    "excerpt": "Reference CONTRACTSOW-7268\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s16",
-    "filename": "escrow_ledger_2025-09-14.pdf",
-    "kind": "pdf",
-    "meta": "document · 9 pages",
-    "excerpt": "Filed 2025-09-14. Reference ESCROW_LEDGER-3566.\nRetained for the parcel file."
+    "filename": "earnings-summary-2026-02-09.csv",
+    "kind": "csv export",
+    "category": "third-party record",
+    "meta": "export · 858 rows",
+    "excerpt": "issued_on,item,units,verified\n2026-02-09,earnings_summary,31,true\n… 89 more rows\n\n-- issued by the awarding body, not by the subject"
   },
   {
     "id": "s17",
-    "filename": "zoning_letter_2026-06-24.pdf",
-    "kind": "pdf",
-    "meta": "document · 2 pages",
-    "excerpt": "Filed 2026-06-24. Reference ZONING_LETTER-7968.\nRetained for the parcel file."
+    "filename": "timesheet-export-2025-07-29.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 780 rows",
+    "excerpt": "exported_on,timesheet_export,count\n2025-07-29,total,295\n2025-07-29,flagged,9\n… 42 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s18",
-    "filename": "well_report_2025-09-14.csv",
+    "filename": "closing-tracker-2025-04-18.csv",
     "kind": "csv export",
-    "meta": "tabular · 1,612 rows",
-    "excerpt": "field,value,recorded\nwell_report,496,2025-09-14\n… 17 more rows"
+    "category": "system export",
+    "meta": "export · 565 rows",
+    "excerpt": "exported_on,closing_tracker,count\n2025-04-18,total,365\n2025-04-18,flagged,37\n… 71 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s19",
-    "filename": "acreage_audit_2026-01-22.pdf",
-    "kind": "pdf",
-    "meta": "document · 8 pages",
-    "excerpt": "Filed 2026-01-22. Reference ACREAGE_AUDIT-8051.\nRetained for the parcel file."
+    "filename": "mileage-log-2026-01-22.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 2,252 rows",
+    "excerpt": "exported_on,mileage_log,count\n2026-01-22,total,769\n2026-01-22,flagged,14\n… 75 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s20",
-    "filename": "lease_abstract_2026-03-30.txt",
+    "filename": "project-log-2026-02-09.txt",
     "kind": "plain text",
-    "meta": "transcript · 5,595 words",
-    "excerpt": "Recorded 2026-03-30.\nNotes filed under lease_abstract. 43 items logged."
+    "category": "self-report",
+    "meta": "own notes · 3,100 words",
+    "excerpt": "Written 2026-02-09.\n\n28 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s21",
-    "filename": "utility_memo_2025-11-06.pdf",
-    "kind": "pdf",
-    "meta": "document · 4 pages",
-    "excerpt": "Filed 2025-11-06. Reference UTILITY_MEMO-6154.\nRetained for the parcel file."
+    "filename": "work-sample-notes-2026-01-22.txt",
+    "kind": "plain text",
+    "category": "self-report",
+    "meta": "own notes · 5,067 words",
+    "excerpt": "Written 2026-01-22.\n\n12 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s22",
-    "filename": "flood_cert_2026-01-22.json",
-    "kind": "json",
-    "meta": "structured · 23 KB",
-    "excerpt": "{\n  \"record\": \"flood_cert\",\n  \"recorded\": \"2026-01-22\",\n  \"entries\": 9\n}"
+    "filename": "deal-sheet-2026-03-30.txt",
+    "kind": "plain text",
+    "category": "self-report",
+    "meta": "own notes · 5,537 words",
+    "excerpt": "Written 2026-03-30.\n\n26 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s23",
-    "filename": "boundary_notes_2025-06-02.json",
-    "kind": "json",
-    "meta": "structured · 82 KB",
-    "excerpt": "{\n  \"record\": \"boundary_notes\",\n  \"recorded\": \"2025-06-02\",\n  \"entries\": 39\n}"
+    "filename": "career-questionnaire-2025-11-06.txt",
+    "kind": "plain text",
+    "category": "self-report",
+    "meta": "own notes · 2,656 words",
+    "excerpt": "Written 2025-11-06.\n\n36 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s0",
-    "filename": "— no source —",
+    "filename": "— no record —",
     "kind": "none",
-    "meta": "nothing on file",
-    "excerpt": "No record supports this claim.\n\nText traced to: draft_bio_v3.md (a derived document).\nDerived documents cannot be cited as sources."
+    "category": "none",
+    "meta": "nothing in the library",
+    "excerpt": "No record in the library supports this claim.\n\nText traced to: resume-2025-draft.docx\n\nThat file is an earlier document this pipeline wrote.\nA derived document cannot be cited as a source —\nciting it would mean the system vouching for itself."
   }
 ]

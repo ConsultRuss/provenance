@@ -31,14 +31,23 @@
     <p>Every claim carries one letter.</p>
     <ul>
       <li><strong>a</strong> — said directly by the subject, in a recording or a written answer.</li>
-      <li><strong>b</strong> — confirmed against a record that exists independently of the subject.</li>
+      <li><strong>b</strong> — confirmed against a record independent of the subject.</li>
       <li><strong>c</strong> — asserted by a tool and never confirmed.</li>
-      <li><strong>d</strong> — found only in a document the pipeline itself produced earlier.</li>
+      <li><strong>d</strong> — found only in a document this pipeline produced earlier.</li>
     </ul>
-    <p>Labels a and b ship. Labels c and d do not. A claim labelled c or d carries no source, because there is nothing to cite. That is why a blocked claim has no wire on its left.</p>
+    <p>Labels a and b ship; c and d do not. A claim labelled c or d cites no record, because there is nothing to cite — which is why a blocked claim has no wire on its left.</p>
+
+    <h2>Where the evidence comes from</h2>
+    <p>The left column is the subject's own record library: an intake interview, a county records pull, a degree verification letter, a commit log, performance reviews. Each record is tagged with what kind of evidence it is, and that tag decides which label a claim resting on it can carry.</p>
+    <ul>
+      <li><strong>self-report</strong> — the subject said it. Supports label a only.</li>
+      <li><strong>third-party record</strong> — someone else attested to it. Supports label b.</li>
+      <li><strong>system export</strong> — a system they operate produced it. Supports label b.</li>
+    </ul>
+    <p>The two cannot be set independently. A claim labelled b citing only an interview would make the subject their own witness, so <code>npm run seed</code> refuses to emit it.</p>
 
     <h2>Why a derived document cannot be a source</h2>
-    <p>A résumé is not evidence. Neither is a bio, a summary, or an earlier draft. Those are outputs. If the only backing for a claim is a document this pipeline wrote, the claim is circular — the system is citing itself. Label d marks that case exactly. The fix is to find the record the first document should have cited, or to drop the claim.</p>
+    <p>A résumé is not evidence. Neither is a bio, a summary, or an earlier draft — those are outputs. If a claim's only backing is a document this pipeline wrote, it is circular: the system is citing itself. Label d marks that case. The fix is to find the record the first document should have cited, or to drop the claim.</p>
 
     <h2>The gates</h2>
     <p>Six gates, in order. Each rejects something specific.</p>
@@ -46,18 +55,18 @@
       <li><strong>intake</strong> — postings with no verbatim requirement text to quote.</li>
       <li><strong>live check</strong> — postings that closed or went stale since intake.</li>
       <li><strong>pressure test</strong> — applications where a must-have requirement lands on do not have.</li>
-      <li><strong>wildcard question</strong> — applications with no honest answer to the open question in the posting.</li>
+      <li><strong>wildcard question</strong> — applications with no honest answer to the posting's open question.</li>
       <li><strong>asset lint</strong> — documents containing a claim labelled c or d.</li>
-      <li><strong>submitted</strong> — nothing. A record that reaches this gate has cleared every check.</li>
+      <li><strong>submitted</strong> — nothing. Reaching it means every check cleared.</li>
     </ul>
     <p>A record stops at the first gate that rejects it. Most records stop.</p>
 
     <h2>The export</h2>
-    <p>The download button writes a PDF of the document on screen. Blocked claims are not in that file. Each one is replaced by a line saying a claim was withheld and no source record supports it, and every claim that does ship carries a footnote naming the file it came from. The document keeps its provenance once it leaves the page.</p>
+    <p>The download button writes a PDF of the document on screen. Blocked claims are not in it — each is replaced by a line saying a claim was withheld for want of a record. Every claim that ships carries a footnote naming the file it came from, so it keeps its provenance off the page.</p>
 
     <h2>The data</h2>
-    <p>Everything here is generated. <code>npm run seed</code> writes the sources, requirements, documents and gate records from a fixed seed, and the same seed always produces the same files. No real company, person, posting, document or transcript enters this repository. The names are invented.</p>
-    <p>The numbers are not round, because measured counts rarely are. The output always contains blocked claims and unanswered requirements — a clean run would prove nothing.</p>
+    <p>Everything here is generated. <code>npm run seed</code> writes every record, requirement, document and gate result from a fixed seed, and the same seed always produces the same files. No real company, person, posting or transcript enters this repository, and the names are invented.</p>
+    <p>Numbers are not round, because measured counts rarely are. The output always contains blocked claims and unanswered requirements — a clean run would prove nothing.</p>
 
     <p class="foot">Russell W. Hild · consultruss.com</p>
   </div>

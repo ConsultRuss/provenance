@@ -34,11 +34,11 @@
   "records": [
     {
       "id": "rec-01",
-      "company": "Granite Ranch Group",
-      "role": "land analyst",
+      "company": "Bosque Holdings",
+      "role": "development associate",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 2,
+      "claimsParsed": 3,
+      "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
         "s5",
@@ -56,8 +56,8 @@
     },
     {
       "id": "rec-02",
-      "company": "Salado Energy",
-      "role": "development associate",
+      "company": "Frontage Development",
+      "role": "right of way agent",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 3,
@@ -78,13 +78,14 @@
     },
     {
       "id": "rec-03",
-      "company": "Escarpment Ranch Group",
-      "role": "right of way agent",
+      "company": "Escarpment Development",
+      "role": "development associate",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s4",
         "s7",
         "s20"
       ],
@@ -100,14 +101,13 @@
     },
     {
       "id": "rec-04",
-      "company": "Thicket Land Co",
-      "role": "parcel data lead",
+      "company": "Salado Capital",
+      "role": "land analyst",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s4",
         "s8",
         "s21"
       ],
@@ -123,14 +123,13 @@
     },
     {
       "id": "rec-05",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Quarry Land Group",
+      "role": "right of way agent",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s4",
         "s9",
         "s22"
       ],
@@ -146,14 +145,13 @@
     },
     {
       "id": "rec-06",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Hardpan Development",
+      "role": "land analyst",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 2,
+      "claimsParsed": 3,
+      "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s3",
         "s10",
         "s23"
       ],
@@ -178,8 +176,8 @@
       "sourceIds": [
         "s1",
         "s2",
-        "s4",
-        "s3"
+        "s3",
+        "s4"
       ],
       "stoppedAt": "lint",
       "verdicts": {
@@ -193,14 +191,13 @@
     },
     {
       "id": "rec-08",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Draw Holdings",
+      "role": "parcel data lead",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 1,
+      "claimsCleared": 1,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
         "s11"
       ],
       "stoppedAt": "wildcard",
@@ -215,13 +212,14 @@
     },
     {
       "id": "rec-09",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Frontage Capital",
+      "role": "acquisition analyst",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 1,
       "claimsBlocked": 2,
       "sourceIds": [
+        "s4",
         "s12"
       ],
       "stoppedAt": "lint",
@@ -236,14 +234,14 @@
     },
     {
       "id": "rec-10",
-      "company": "Wallow Partners",
+      "company": "Ridgeline Energy",
       "role": "land analyst",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 1,
+      "claimsParsed": 3,
+      "claimsCleared": 2,
       "claimsBlocked": 1,
       "sourceIds": [
-        "s4",
+        "s1",
         "s13"
       ],
       "stoppedAt": "lint",
@@ -258,8 +256,8 @@
     },
     {
       "id": "rec-11",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Lometa Land Group",
+      "role": "title analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 1,
@@ -279,14 +277,14 @@
     },
     {
       "id": "rec-12",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Wallow Partners",
+      "role": "land analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
+        "s3",
         "s15"
       ],
       "stoppedAt": null,
@@ -301,14 +299,13 @@
     },
     {
       "id": "rec-13",
-      "company": "Escarpment Energy",
-      "role": "land analyst",
+      "company": "Ridgeline Development",
+      "role": "diligence analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
         "s16"
       ],
       "stoppedAt": null,
@@ -323,13 +320,14 @@
     },
     {
       "id": "rec-14",
-      "company": "Caliche Land Co",
+      "company": "Lometa Development",
       "role": "title analyst",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s1",
         "s17"
       ],
       "stoppedAt": null,
@@ -347,8 +345,8 @@
     {
       "id": "run-0001",
       "recordId": "rec-01",
-      "company": "Granite Ranch Group",
-      "role": "land analyst",
+      "company": "Bosque Holdings",
+      "role": "development associate",
       "lines": [
         {
           "gate": "intake",
@@ -361,8 +359,8 @@
     {
       "id": "run-0002",
       "recordId": "rec-02",
-      "company": "Salado Energy",
-      "role": "development associate",
+      "company": "Frontage Development",
+      "role": "right of way agent",
       "lines": [
         {
           "gate": "intake",
@@ -375,8 +373,8 @@
     {
       "id": "run-0003",
       "recordId": "rec-03",
-      "company": "Escarpment Ranch Group",
-      "role": "right of way agent",
+      "company": "Escarpment Development",
+      "role": "development associate",
       "lines": [
         {
           "gate": "intake",
@@ -394,8 +392,8 @@
     {
       "id": "run-0004",
       "recordId": "rec-04",
-      "company": "Thicket Land Co",
-      "role": "parcel data lead",
+      "company": "Salado Capital",
+      "role": "land analyst",
       "lines": [
         {
           "gate": "intake",
@@ -413,8 +411,8 @@
     {
       "id": "run-0005",
       "recordId": "rec-05",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Quarry Land Group",
+      "role": "right of way agent",
       "lines": [
         {
           "gate": "intake",
@@ -437,8 +435,8 @@
     {
       "id": "run-0006",
       "recordId": "rec-06",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Hardpan Development",
+      "role": "land analyst",
       "lines": [
         {
           "gate": "intake",
@@ -495,8 +493,8 @@
     {
       "id": "run-0008",
       "recordId": "rec-08",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Draw Holdings",
+      "role": "parcel data lead",
       "lines": [
         {
           "gate": "intake",
@@ -524,8 +522,8 @@
     {
       "id": "run-0009",
       "recordId": "rec-09",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Frontage Capital",
+      "role": "acquisition analyst",
       "lines": [
         {
           "gate": "intake",
@@ -558,7 +556,7 @@
     {
       "id": "run-0010",
       "recordId": "rec-10",
-      "company": "Wallow Partners",
+      "company": "Ridgeline Energy",
       "role": "land analyst",
       "lines": [
         {
@@ -592,8 +590,8 @@
     {
       "id": "run-0011",
       "recordId": "rec-11",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Lometa Land Group",
+      "role": "title analyst",
       "lines": [
         {
           "gate": "intake",
@@ -626,8 +624,8 @@
     {
       "id": "run-0012",
       "recordId": "rec-12",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Wallow Partners",
+      "role": "land analyst",
       "lines": [
         {
           "gate": "intake",
@@ -665,8 +663,8 @@
     {
       "id": "run-0013",
       "recordId": "rec-13",
-      "company": "Escarpment Energy",
-      "role": "land analyst",
+      "company": "Ridgeline Development",
+      "role": "diligence analyst",
       "lines": [
         {
           "gate": "intake",
@@ -704,7 +702,7 @@
     {
       "id": "run-0014",
       "recordId": "rec-14",
-      "company": "Caliche Land Co",
+      "company": "Lometa Development",
       "role": "title analyst",
       "lines": [
         {

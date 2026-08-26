@@ -64,7 +64,7 @@
         "id": "c3",
         "text": "built and self-host a parcel database",
         "label": "a",
-        "sourceId": "s4",
+        "sourceId": "s1",
         "requirementId": "r2"
       },
       {
@@ -153,7 +153,7 @@
       },
       {
         "type": "bullet",
-        "text": "{{c6}}, nightly, into the parcel database"
+        "text": "{{c6}} into the parcel database, unattended"
       },
       {
         "type": "section",
@@ -183,7 +183,7 @@
         "id": "c3",
         "text": "Built and self-hosted a parcel database",
         "label": "a",
-        "sourceId": "s4",
+        "sourceId": "s1",
         "requirementId": "r2"
       },
       {
@@ -202,8 +202,8 @@
       },
       {
         "id": "c6",
-        "text": "County record ingestion",
-        "label": "a",
+        "text": "287 nightly ingestion runs",
+        "label": "b",
         "sourceId": "s4",
         "requirementId": "r2"
       }
@@ -243,7 +243,7 @@
         "id": "c2",
         "text": "run my own parcel database",
         "label": "a",
-        "sourceId": "s4",
+        "sourceId": "s1",
         "requirementId": "r2"
       }
     ]
