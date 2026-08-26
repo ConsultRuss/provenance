@@ -47,37 +47,69 @@ export function mountGates(root) {
     }),
   );
 
+  const intro = el(
+    'p',
+    { class: 'lede' },
+    document.createTextNode(
+      'Every record enters at intake and moves right. A gate either passes a record to the next ' +
+        'gate or stops it there. A record that is stopped is not retried and not patched — the ' +
+        'work it would take to pass the gate honestly is the work that was missing. The number on ' +
+        'each card is how many records that gate stopped.',
+    ),
+  );
+
   const funnel = el(
     'div',
     { class: 'funnel' },
-    gates.gates.map((gate) => {
+    gates.gates.map((gate, i) => {
       const counts = tally(gate.id);
-      const rejected = counts.fail + counts.blocked + counts.expired;
+      const stopped = counts.fail + counts.blocked + counts.expired;
+      const reached = gates.records.length - counts['not applicable'];
       // Each gate stops records with exactly one verdict, so name the one it uses.
       const verdictName =
-        counts.blocked > 0 ? 'blocked' : counts.expired > 0 ? 'expired' : counts.fail > 0 ? 'failed' : 'blocked';
+        counts.blocked > 0 ? 'blocked' : counts.expired > 0 ? 'expired' : counts.fail > 0 ? 'failed' : 'stopped';
 
       return el(
         'div',
         { class: 'gate' },
-        el('div', { class: 'gname', text: gate.label }),
-        el('div', { class: `gbig${rejected === 0 ? ' zero' : ''}`, text: String(rejected) }),
-        el('div', { class: 'glab', text: verdictName }),
         el(
           'div',
-          { class: 'grow', style: 'margin-top:8px' },
-          el('span', { text: 'passed' }),
-          el('span', { text: String(counts.pass) }),
+          { class: 'ghead' },
+          el('span', { class: 'gnum', text: String(i + 1) }),
+          el('span', { class: 'gname', text: gate.label }),
+        ),
+        el('div', { class: `gbig${stopped === 0 ? ' zero' : ''}`, text: String(stopped) }),
+        el('div', { class: 'glab', text: stopped === 0 ? 'stopped none' : verdictName }),
+        el(
+          'div',
+          { class: 'grow', style: 'margin-top:9px' },
+          el('span', { text: 'reached' }),
+          el('span', { text: String(reached) }),
         ),
         el(
           'div',
           { class: 'grow' },
-          el('span', { text: 'not reached' }),
-          el('span', { text: String(counts['not applicable']) }),
+          el('span', { text: 'passed on' }),
+          el('span', { text: String(counts.pass) }),
         ),
-        el('div', { class: 'grej', text: `rejects ${gate.rejects}` }),
+        el('div', { class: 'grej' }, el('span', { class: 'grej-k', text: 'rejects ' }), document.createTextNode(gate.rejects)),
       );
     }),
+  );
+
+  const vocabulary = el(
+    'dl',
+    { class: 'vocab' },
+    [
+      ['pass', 'the record met this gate and moved to the next one'],
+      ['blocked', 'the gate refused the record on purpose — this is the outcome the pipeline exists to produce'],
+      ['expired', 'the posting closed or went stale before the record reached this gate'],
+      ['fail', 'the gate could not be run because an input it needs is missing'],
+      ['not applicable', 'the record was stopped at an earlier gate and never reached this one'],
+    ].flatMap(([term, meaning]) => [
+      el('dt', { text: term }),
+      el('dd', { text: meaning }),
+    ]),
   );
 
   const log = el(
@@ -107,12 +139,19 @@ export function mountGates(root) {
 
   root.append(
     summary,
+    intro,
     funnel,
+    el('h2', { text: 'what each verdict means', style: 'margin-top:28px' }),
+    vocabulary,
+    el('h2', { text: 'run log', style: 'margin-top:28px' }),
     el('p', {
-      class: 'foot',
-      text: 'The number on each card is how many records that gate stopped. Passed records move right.',
+      class: 'lede',
+      text:
+        'One block per record, in the order the pipeline processed them. Each line is one gate, ' +
+        'with the verdict and the reason it was reached. A run ends exit 0 only if the record ' +
+        'cleared every gate and was submitted; exit 1 means a gate stopped it, and the last line ' +
+        'before the exit says which one and why.',
     }),
-    el('h2', { text: 'run log', style: 'margin-top:26px' }),
     log,
   );
 }

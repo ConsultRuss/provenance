@@ -216,6 +216,15 @@ await (async () => {
         assert(y >= 0 && y <= 792, `${doc.id}: text at y=${y} is outside the page`);
       }
 
+      // The footer sits alone at y=48. Anything else that low has run off the bottom of the
+      // page and is overlapping it — lengthening a document in seed.config.json must fail here
+      // rather than ship a letter with its last paragraph printed through the footer.
+      const low = positions.filter(([, y]) => y < 60);
+      assert(
+        low.every(([, y]) => y === 48),
+        `${doc.id}: ${low.length - low.filter(([, y]) => y === 48).length} line(s) collide with the footer`,
+      );
+
       notes.push(`${doc.id} ${blocked.length}/${result.footnotes.length}`);
     }
     return `withheld/footnotes — ${notes.join(', ')}`;

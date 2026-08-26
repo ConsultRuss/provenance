@@ -18,11 +18,15 @@
       },
       {
         "type": "para",
-        "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, and county records show {{c2}}, acting for the buyer or the seller."
+        "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, most of it on the parcel side of the work the posting describes: assembling positions in country where the surface and the minerals went separate ways decades ago, and where the person who signs is rarely the person on the tax roll."
       },
       {
         "type": "para",
-        "text": "The posting asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly, and I run the pull myself. I also hold an {{c4}}."
+        "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Close to a third of those involved a severed mineral estate. That work is slower than a clean fee transfer, and it is the reason I have firm opinions about how long title curative really takes."
+      },
+      {
+        "type": "para",
+        "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am its only committer, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
       },
       {
         "type": "para",
@@ -30,7 +34,7 @@
       },
       {
         "type": "para",
-        "text": "I would welcome a conversation."
+        "text": "What I would most want to discuss is where origination currently stalls for you — title curative, landowner contact, or the study phases — because the answer decides which of the above is actually worth anything to you. I am glad to walk through the parcel database on a call and let you push on the data yourself."
       },
       {
         "type": "para",
