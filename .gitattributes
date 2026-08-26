@@ -1,0 +1,4 @@
+# Seed output must stay byte-identical across checkouts and platforms.
+* text eol=lf
+*.png binary
+*.pdf binary

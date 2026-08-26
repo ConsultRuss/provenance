@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provenance ledger — design mock</title>
+<style>
+:root{
+--ink:#1a1a18; --sec:#6b6b66; --mut:#9a9a94;
+--bd:#e5e4df; --bd2:#d2d1ca;
+--pg:#ffffff; --s1:#f7f6f3; --s2:#ffffff;
+--ok:#0f6e56; --okb:#e1f5ee;
+--ac:#185fa5; --acb:#e6f1fb;
+--wn:#854f0b; --wnb:#faeeda;
+--dg:#a32d2d; --dgb:#fcebeb;
+--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.page{max-width:1200px;margin:0 auto;padding:36px 32px 72px}
+a{color:var(--ac)}
+h1{font-size:22px;font-weight:500;margin:0 0 4px}
+.sub{color:var(--sec);font-size:14px;margin:0 0 26px}
+.tabs{display:flex;gap:26px;border-bottom:1px solid var(--bd);margin-bottom:26px}
+.tab{font-size:14px;color:var(--sec);padding:0 0 10px;border-bottom:2px solid transparent;cursor:pointer}
+.tab.on{color:var(--ink);border-bottom-color:var(--ink);font-weight:500}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 15px;background:var(--wnb);border-radius:6px;margin-bottom:20px}
+.bar-t{font-size:13.5px;color:var(--wn)}
+.bar-n{font-family:var(--mono);font-size:13px;color:var(--wn)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat{background:var(--s1);border-radius:6px;padding:11px 14px}
+.stat .l{font-family:var(--mono);font-size:11px;color:var(--mut);letter-spacing:.02em}
+.stat .v{font-size:23px;font-weight:500;line-height:1.35}
+.tgl{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.tb{font-size:13.5px;padding:6px 14px;border-radius:6px;border:1px solid var(--bd2);background:transparent;color:var(--sec);cursor:pointer;font-family:var(--sans)}
+.tb.a{background:var(--s1);color:var(--ink);font-weight:500;border-color:var(--bd2)}
+.cnt{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--sec)}
+.chain{position:relative;display:grid;grid-template-columns:250px minmax(0,1fr) 288px;gap:64px;align-items:start}
+#wires{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:1}
+.railh{font-family:var(--mono);font-size:10.5px;color:var(--mut);letter-spacing:.04em;margin-bottom:9px}
+.rail{display:flex;flex-direction:column;gap:6px;position:relative;z-index:2}
+.rw{border:1px solid var(--bd);border-radius:6px;padding:9px 11px;cursor:pointer;background:var(--pg)}
+.rw:hover{border-color:var(--bd2);background:var(--s1)}
+.rw.on{border-color:var(--ink);background:var(--s1)}
+.rw .fn{font-family:var(--mono);font-size:12px;color:var(--ink);word-break:break-all}
+.rw .mt{font-family:var(--mono);font-size:10.5px;color:var(--mut);margin-top:3px}
+.rw .rq{font-size:13px;color:var(--ink);line-height:1.4}
+.pill{display:inline-block;font-family:var(--mono);font-size:9.5px;padding:1px 6px;border-radius:3px;vertical-align:1px}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:6px;vertical-align:0px}
+.doc{background:var(--s2);border:1px solid var(--bd);border-radius:10px;padding:20px 22px;position:relative;z-index:2}
+.cl{cursor:pointer;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3.5px;border-radius:3px;padding:0 1px}
+.cl.sel{background:var(--acb)}
+.cl.blk{color:var(--mut)}
+.insp{margin-top:22px;border-top:1px solid var(--bd);padding-top:18px}
+.ihead{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.ikind{font-family:var(--mono);font-size:10.5px;color:var(--mut);letter-spacing:.04em}
+.verd{margin-left:auto;font-family:var(--mono);font-size:12.5px}
+.code{font-family:var(--mono);font-size:12.5px;line-height:1.75;background:var(--s1);border-radius:6px;padding:12px 14px;white-space:pre-wrap;color:var(--ink);overflow-x:auto}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:6px 14px;font-size:13.5px;margin-top:12px}
+.kv .k{font-family:var(--mono);font-size:11.5px;color:var(--mut);padding-top:2px}
+.lgd{display:flex;flex-wrap:wrap;gap:20px;padding:14px 0 18px;border-bottom:1px solid var(--bd);margin-bottom:20px}
+.lg{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--sec)}
+.kx{width:16px;height:16px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px}
+.foot{font-size:12.5px;color:var(--mut);margin-top:14px}
+.chip{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:4px;background:var(--s1);color:var(--sec);cursor:pointer;border:1px solid var(--bd)}
+.chip:hover{border-color:var(--bd2);color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>Provenance ledger</h1>
+<p class="sub">Every claim in a generated document, traced back to a source record and forward to the requirement it answers. Demo data — generated, no real record.</p>
+
+<div class="tabs">
+<div class="tab on">Provenance</div>
+<div class="tab">Gates</div>
+<div class="tab">Pressure test</div>
+<div class="tab">How it works</div>
+</div>
+
+<div class="bar">
+<div class="bar-t">Labels c and d cannot ship. The generator refuses to emit them.</div>
+<div class="bar-n">6 blocked</div>
+</div>
+
+<div class="stats">
+<div class="stat"><div class="l">claims parsed</div><div class="v">47</div></div>
+<div class="stat"><div class="l">cleared</div><div class="v">41</div></div>
+<div class="stat"><div class="l">blocked</div><div class="v" style="color:var(--dg)">6</div></div>
+<div class="stat"><div class="l">sources cited</div><div class="v">23</div></div>
+</div>
+
+<div class="lgd">
+<span class="lg"><span class="kx" style="background:var(--okb);color:var(--ok)">a</span>said directly</span>
+<span class="lg"><span class="kx" style="background:var(--acb);color:var(--ac)">b</span>confirmed against a record</span>
+<span class="lg"><span class="kx" style="background:var(--wnb);color:var(--wn)">c</span>asserted, never confirmed</span>
+<span class="lg"><span class="kx" style="background:var(--dgb);color:var(--dg)">d</span>derived document only</span>
+</div>
+
+<div class="tgl">
+<button class="tb a" id="t1">cover letter</button>
+<button class="tb" id="t2">résumé</button>
+<button class="tb" id="t3">outreach note</button>
+<div class="cnt" id="cnt"></div>
+</div>
+
+<div class="chain" id="chain">
+<svg id="wires"></svg>
+
+<div>
+<div class="railh">source records</div>
+<div class="rail" id="srail"></div>
+</div>
+
+<div>
+<div class="railh">generated document</div>
+<div class="doc" id="doc"></div>
+</div>
+
+<div>
+<div class="railh">jd requirements — meridian grid partners, site analyst</div>
+<div class="rail" id="rrail"></div>
+</div>
+</div>
+
+<div class="insp" id="insp"></div>
+
+<p class="foot">Click a claim to trace it. Click a source or a requirement to inspect it. Blocked claims have no wire on the left.</p>
+
+</div>
+
+<script>
+var SRC={
+ s1:{fn:"interview_2026-03-11.txt",mt:"transcript · 4,180 words · 12 claims",kind:"plain text",
+     ex:"[00:14:22] Q: How long have you been doing land work?\nA: Fourteen years now. Started in 2012 doing ranch\nsplits out past Hondo, moved into mineral and\nsurface severance work about four years in.\n\n[00:31:07] A: The parcel database is mine. I built it,\nI host it, I run the nightly pull myself."},
+ s2:{fn:"county_records_export.csv",mt:"tabular · 1,284 rows · 6 claims",kind:"csv export",
+     ex:"county,instrument,date,role,acres\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7\n… 49 more rows matching role filter"},
+ s3:{fn:"registrar_letter.pdf",mt:"document · 1 page · 2 claims",kind:"pdf",
+     ex:"This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing."},
+ s4:{fn:"repo_manifest.json",mt:"structured · 38 KB · 4 claims",kind:"json",
+     ex:'{\n  "service": "parcel-db",\n  "host": "self",\n  "first_commit": "2025-11-04",\n  "commits": 412,\n  "authors": ["a.reyes"]\n}'},
+ s0:{fn:"— no source —",mt:"nothing on file",kind:"none",
+     ex:"No record supports this claim.\n\nText traced to: draft_bio_v3.md (a derived document).\nDerived documents cannot be cited as sources."}
+};
+var REQ={
+ r1:{t:"Land transaction experience",p:"must",jd:"5+ years originating, negotiating or closing land transactions in Texas. Familiarity with severed mineral estates strongly preferred."},
+ r2:{t:"Parcel data systems",p:"must",jd:"Comfort building or operating parcel-level data tooling — GIS layers, county record ingestion, or equivalent."},
+ r3:{t:"ERCOT familiarity",p:"preferred",jd:"Working knowledge of the ERCOT generation interconnection queue and its study phases is preferred, not required."},
+ r4:{t:"Graduate degree",p:"preferred",jd:"Advanced degree in real estate, economics, land use or a related field."},
+ r5:{t:"Team leadership",p:"must",jd:"Experience leading a small cross-functional team through a full project cycle."}
+};
+var DOCS={
+ A:{label:"cover letter",cnt:"answers 3 of 5 · 2 blocked",
+  html:'A. Reyes brings <span class="cl" data-s="s1" data-r="r1" data-l="a" data-q="fourteen years in land transactions">fourteen years in land transactions</span>, including <span class="cl" data-s="s2" data-r="r1" data-l="b" data-q="52 closings across three counties">52 closings across three counties</span>. She <span class="cl" data-s="s4" data-r="r2" data-l="a" data-q="built and self-hosts a parcel database">built and self-hosts a parcel database</span> that ingests county records nightly, and holds a <span class="cl" data-s="s3" data-r="r4" data-l="b" data-q="Master of Land Economics">Master of Land Economics</span>. Her <span class="cl blk" data-s="s0" data-r="r3" data-l="d" data-q="deep ERCOT market fluency">deep ERCOT market fluency</span> and her record <span class="cl blk" data-s="s0" data-r="r5" data-l="c" data-q="leading a six-person team">leading a six-person team</span> would fit the interconnection workstream directly.',
+  size:"15px",lh:"2.05"},
+ B:{label:"résumé",cnt:"answers 3 of 5 · 2 unanswered",
+  html:'<div>· <span class="cl" data-s="s1" data-r="r1" data-l="a" data-q="Land transactions — 14 years">Land transactions — 14 years</span></div><div>· <span class="cl" data-s="s2" data-r="r1" data-l="b" data-q="52 closings, 3 counties">52 closings, 3 counties</span></div><div>· <span class="cl" data-s="s4" data-r="r2" data-l="a" data-q="Parcel database, built and self-hosted">Parcel database, built and self-hosted</span></div><div>· <span class="cl" data-s="s3" data-r="r4" data-l="b" data-q="M.S. Land Economics">M.S. Land Economics</span></div>',
+  size:"14px",lh:"2.2"},
+ C:{label:"outreach note",cnt:"answers 2 of 5 · 0 blocked",
+  html:'Saw the site analyst opening. I have <span class="cl" data-s="s1" data-r="r1" data-l="a" data-q="spent fourteen years on Texas land deals">spent fourteen years on Texas land deals</span> and I <span class="cl" data-s="s4" data-r="r2" data-l="a" data-q="run my own parcel database">run my own parcel database</span> — happy to show you what it pulls. Worth a short call?',
+  size:"15px",lh:"2.05"}
+};
+var LC={a:["said directly","var(--ok)","var(--okb)"],b:["confirmed against a record","var(--ac)","var(--acb)"],c:["asserted, never confirmed","var(--wn)","var(--wnb)"],d:["derived document only","var(--dg)","var(--dgb)"]};
+
+var chain=document.getElementById('chain'),svg=document.getElementById('wires'),doc=document.getElementById('doc'),insp=document.getElementById('insp');
+var cur='A',sel=null;
+
+function srail(){
+ var h='';
+ for(var k in SRC){var s=SRC[k];
+  h+='<div class="rw" id="'+k+'" data-sk="'+k+'"><div class="fn"'+(k==='s0'?' style="color:var(--mut)"':'')+'>'+s.fn+'</div><div class="mt">'+s.mt+'</div></div>';}
+ document.getElementById('srail').innerHTML=h;
+ document.querySelectorAll('#srail .rw').forEach(function(e){e.onclick=function(){showSrc(e.dataset.sk)}});
+}
+function rrail(){
+ var h='';
+ for(var k in REQ){var r=REQ[k];
+  var pc=r.p==='must'?'background:var(--dgb);color:var(--dg)':'background:var(--s1);color:var(--sec)';
+  h+='<div class="rw" id="'+k+'" data-rk="'+k+'"><div class="rq"><span class="dot" id="d-'+k+'"></span>'+r.t+'</div><div class="mt" style="margin-top:5px"><span class="pill" style="'+pc+'">'+r.p+'</span> <span id="st-'+k+'"></span></div></div>';}
+ document.getElementById('rrail').innerHTML=h;
+ document.querySelectorAll('#rrail .rw').forEach(function(e){e.onclick=function(){showReq(e.dataset.rk)}});
+}
+function claims(){return doc.querySelectorAll('.cl')}
+function paintReqState(){
+ var map={};
+ claims().forEach(function(c){var l=c.dataset.l,blocked=(l==='c'||l==='d');
+  var prev=map[c.dataset.r];
+  if(prev==='ok')return; map[c.dataset.r]=blocked?'blk':'ok';});
+ for(var k in REQ){var st=map[k],d=document.getElementById('d-'+k),t=document.getElementById('st-'+k);
+  if(st==='ok'){d.style.background='var(--ok)';t.textContent='answered';t.style.color='var(--ok)';}
+  else if(st==='blk'){d.style.background='var(--dg)';t.textContent='blocked claim only';t.style.color='var(--dg)';}
+  else{d.style.background='var(--bd2)';t.textContent='unanswered';t.style.color='var(--mut)';}}
+}
+function R(el){var a=el.getBoundingClientRect(),b=chain.getBoundingClientRect();return{l:a.left-b.left,r:a.right-b.left,m:a.top-b.top+a.height/2}}
+function path(x1,y1,x2,y2){var d=Math.max(30,(x2-x1)*.5);return'M'+x1+' '+y1+' C '+(x1+d)+' '+y1+', '+(x2-d)+' '+y2+', '+x2+' '+y2}
+function drawWires(active){
+ var out='';
+ claims().forEach(function(c){
+  var on=(c===active),l=c.dataset.l,blocked=(l==='c'||l==='d');
+  var cr=R(c),sv=document.getElementById(c.dataset.s),rv=document.getElementById(c.dataset.r);
+  var col=on?(blocked?'var(--dg)':LC[l][1]):'#8a8a84';
+  var op=on?1:.12,w=on?1.8:1;
+  if(!blocked){var s=R(sv);out+='<path d="'+path(s.r+6,s.m,cr.l-6,cr.m)+'" fill="none" stroke="'+col+'" stroke-width="'+w+'" opacity="'+op+'"/>';}
+  var q=R(rv);
+  out+='<path d="'+path(cr.r+6,cr.m,q.l-6,q.m)+'" fill="none" stroke="'+col+'" stroke-width="'+w+'" opacity="'+op+'"'+(blocked?' stroke-dasharray="4 4"':'')+'/>';
+ });
+ svg.innerHTML=out;
+}
+function clearOn(){document.querySelectorAll('.rw').forEach(function(x){x.classList.remove('on')});claims().forEach(function(c){c.classList.remove('sel')});}
+function showClaim(c){
+ sel=c;clearOn();c.classList.add('sel');
+ var l=c.dataset.l,blocked=(l==='c'||l==='d'),m=LC[l];
+ document.getElementById(c.dataset.r).classList.add('on');
+ if(!blocked)document.getElementById(c.dataset.s).classList.add('on');
+ drawWires(c);
+ var s=SRC[c.dataset.s],r=REQ[c.dataset.r];
+ insp.innerHTML='<div class="ihead"><span class="kx" style="background:'+m[2]+';color:'+m[1]+'">'+l+'</span><span class="ikind">claim</span>'+
+  '<span class="verd" style="color:'+(blocked?'var(--dg)':'var(--ok)')+'">'+(blocked?'blocked from output':'ships')+'</span></div>'+
+  '<div style="font-size:16px;line-height:1.6">&ldquo;'+c.dataset.q+'&rdquo;</div>'+
+  '<div class="kv"><div class="k">label</div><div>'+m[0]+'</div>'+
+  '<div class="k">source</div><div><span class="chip" onclick="showSrc(\''+c.dataset.s+'\')">'+s.fn+'</span></div>'+
+  '<div class="k">answers</div><div><span class="chip" onclick="showReq(\''+c.dataset.r+'\')">'+r.t+'</span> <span style="color:var(--mut);font-size:12.5px">'+r.p+'</span></div></div>'+
+  '<div class="code" style="margin-top:14px">'+esc(s.ex)+'</div>';
+}
+function showSrc(k){
+ clearOn();sel=null;svg.innerHTML='';drawWires(null);
+ document.getElementById(k).classList.add('on');
+ var s=SRC[k],used=[];
+ claims().forEach(function(c){if(c.dataset.s===k)used.push(c)});
+ var chips=used.length?used.map(function(c){return '<span class="chip" data-cq="'+c.dataset.q+'">'+c.dataset.q+'</span>'}).join(' '):'<span style="color:var(--mut);font-size:13px">no claim in this document draws on it</span>';
+ insp.innerHTML='<div class="ihead"><span class="ikind">source record</span><span class="verd" style="color:var(--sec)">'+s.kind+'</span></div>'+
+  '<div style="font-family:var(--mono);font-size:15px">'+s.fn+'</div>'+
+  '<div style="font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:4px">'+s.mt+'</div>'+
+  '<div class="code" style="margin-top:14px">'+esc(s.ex)+'</div>'+
+  '<div class="kv"><div class="k">cited by</div><div>'+chips+'</div></div>';
+ rebind();
+}
+function showReq(k){
+ clearOn();sel=null;drawWires(null);
+ document.getElementById(k).classList.add('on');
+ var r=REQ[k],ans=[];
+ claims().forEach(function(c){if(c.dataset.r===k)ans.push(c)});
+ var chips=ans.length?ans.map(function(c){var b=(c.dataset.l==='c'||c.dataset.l==='d');
+   return '<span class="chip" data-cq="'+c.dataset.q+'"'+(b?' style="color:var(--dg);border-color:var(--dgb);background:var(--dgb)"':'')+'>'+c.dataset.q+(b?' · blocked':'')+'</span>'}).join(' ')
+   :'<span style="color:var(--mut);font-size:13px">nothing in this document answers it</span>';
+ insp.innerHTML='<div class="ihead"><span class="ikind">jd requirement</span><span class="verd" style="color:'+(r.p==='must'?'var(--dg)':'var(--sec)')+'">'+r.p+'</span></div>'+
+  '<div style="font-size:16px">'+r.t+'</div>'+
+  '<div class="code" style="margin-top:14px">'+esc(r.jd)+'</div>'+
+  '<div class="kv"><div class="k">answered by</div><div>'+chips+'</div></div>';
+ rebind();
+}
+function rebind(){
+ insp.querySelectorAll('.chip[data-cq]').forEach(function(ch){ch.onclick=function(){
+  claims().forEach(function(c){if(c.dataset.q===ch.dataset.cq)showClaim(c)});}});
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function setDoc(k){
+ cur=k;var d=DOCS[k];
+ doc.innerHTML=d.html;doc.style.fontSize=d.size;doc.style.lineHeight=d.lh;
+ document.getElementById('cnt').textContent=d.cnt;
+ ['t1','t2','t3'].forEach(function(id,i){document.getElementById(id).className='tb'+(['A','B','C'][i]===k?' a':'')});
+ claims().forEach(function(c){c.style.textDecorationColor=LC[c.dataset.l][1];
+  if(c.dataset.l==='c')c.style.textDecorationStyle='dashed';
+  if(c.dataset.l==='d')c.style.textDecorationStyle='dotted';});
+ claims().forEach(function(c){c.onclick=function(){showClaim(c)}});
+ paintReqState();
+ showClaim(claims()[k==='A'?4:0]);
+}
+srail();rrail();
+document.getElementById('t1').onclick=function(){setDoc('A')};
+document.getElementById('t2').onclick=function(){setDoc('B')};
+document.getElementById('t3').onclick=function(){setDoc('C')};
+setDoc('A');
+window.addEventListener('resize',function(){drawWires(sel)});
+</script>
+</body>
+</html>

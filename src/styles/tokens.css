@@ -1,0 +1,39 @@
+/* Design tokens. Fixed by section 13 of the brief — do not add colours here casually.
+   Light only. The single dark surface on the page is the Gates run log. */
+
+:root {
+  /* text */
+  --ink: #1a1a18;
+  --sec: #6b6b66;
+  --mut: #9a9a94; /* non-text only: state dots, inactive rules. Fails AA as text. */
+
+  /* structure */
+  --bd: #e5e4df;
+  --bd2: #d2d1ca;
+  --pg: #ffffff;
+  --s1: #f7f6f3;
+
+  /* claim labels */
+  --ok: #0f6e56;
+  --okb: #e1f5ee;
+  --ac: #185fa5;
+  --acb: #e6f1fb;
+  --wn: #854f0b;
+  --wnb: #faeeda;
+  --dg: #a32d2d;
+  --dgb: #fcebeb;
+
+  /* wires */
+  --wire: #8a8a84;
+
+  /* run log — the only dark surface */
+  --log-bg: #1a1a18;
+  --log-ink: #f7f6f3;
+  --log-dim: #9d9d95;
+  --log-ok: #6cc0a4;
+  --log-bad: #e8918c;
+
+  /* type */
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}

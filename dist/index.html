@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Russell W. Hild — provenance demo</title>
+<meta name="description" content="A document generator with a provenance check inside it. Every claim is traced to a source record and to the requirement it answers. Claims that cannot be sourced do not ship.">
+<link rel="stylesheet" href="./styles/tokens.css">
+<link rel="stylesheet" href="./styles/app.css">
+</head>
+<body>
+<main class="page">
+
+  <h1>Russell W. Hild — provenance demo</h1>
+  <p class="sub">Every claim in a generated document, traced back to a source record and forward to the requirement it answers. Demo data — generated, no real record.</p>
+
+  <div class="tabs" role="tablist" aria-label="views">
+    <button class="tab" type="button" role="tab" data-tab="provenance" id="tab-provenance" aria-controls="panel-provenance" aria-selected="true">Provenance</button>
+    <button class="tab" type="button" role="tab" data-tab="gates" id="tab-gates" aria-controls="panel-gates" aria-selected="false" tabindex="-1">Gates</button>
+    <button class="tab" type="button" role="tab" data-tab="pressure" id="tab-pressure" aria-controls="panel-pressure" aria-selected="false" tabindex="-1">Pressure test</button>
+    <button class="tab" type="button" role="tab" data-tab="how" id="tab-how" aria-controls="panel-how" aria-selected="false" tabindex="-1">How it works</button>
+  </div>
+
+  <div class="view" id="panel-provenance" role="tabpanel" aria-labelledby="tab-provenance" tabindex="0"></div>
+  <div class="view" id="panel-gates" role="tabpanel" aria-labelledby="tab-gates" tabindex="0" hidden></div>
+  <div class="view" id="panel-pressure" role="tabpanel" aria-labelledby="tab-pressure" tabindex="0" hidden></div>
+
+  <div class="view prose" id="panel-how" role="tabpanel" aria-labelledby="tab-how" tabindex="0" hidden>
+
+    <h2>The four labels</h2>
+    <p>Every claim carries one letter.</p>
+    <ul>
+      <li><strong>a</strong> — said directly by the subject, in a recording or a written answer.</li>
+      <li><strong>b</strong> — confirmed against a record that exists independently of the subject.</li>
+      <li><strong>c</strong> — asserted by a tool and never confirmed.</li>
+      <li><strong>d</strong> — found only in a document the pipeline itself produced earlier.</li>
+    </ul>
+    <p>Labels a and b ship. Labels c and d do not. A claim labelled c or d carries no source, because there is nothing to cite. That is why a blocked claim has no wire on its left.</p>
+
+    <h2>Why a derived document cannot be a source</h2>
+    <p>A résumé is not evidence. Neither is a bio, a summary, or an earlier draft. Those are outputs. If the only backing for a claim is a document this pipeline wrote, the claim is circular — the system is citing itself. Label d marks that case exactly. The fix is to find the record the first document should have cited, or to drop the claim.</p>
+
+    <h2>The gates</h2>
+    <p>Six gates, in order. Each rejects something specific.</p>
+    <ul>
+      <li><strong>intake</strong> — postings with no verbatim requirement text to quote.</li>
+      <li><strong>live check</strong> — postings that closed or went stale since intake.</li>
+      <li><strong>pressure test</strong> — applications where a must-have requirement lands on do not have.</li>
+      <li><strong>wildcard question</strong> — applications with no honest answer to the open question in the posting.</li>
+      <li><strong>asset lint</strong> — documents containing a claim labelled c or d.</li>
+      <li><strong>submitted</strong> — nothing. A record that reaches this gate has cleared every check.</li>
+    </ul>
+    <p>A record stops at the first gate that rejects it. Most records stop.</p>
+
+    <h2>The export</h2>
+    <p>The download button writes a PDF of the document on screen. Blocked claims are not in that file. Each one is replaced by a line saying a claim was withheld and no source record supports it, and every claim that does ship carries a footnote naming the file it came from. The document keeps its provenance once it leaves the page.</p>
+
+    <h2>The data</h2>
+    <p>Everything here is generated. <code>npm run seed</code> writes the sources, requirements, documents and gate records from a fixed seed, and the same seed always produces the same files. No real company, person, posting, document or transcript enters this repository. The names are invented.</p>
+    <p>The numbers are not round, because measured counts rarely are. The output always contains blocked claims and unanswered requirements — a clean run would prove nothing.</p>
+
+    <p class="foot">Russell W. Hild · consultruss.com</p>
+  </div>
+
+</main>
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* Provenance demo. Layout, type and interaction follow design/provenance-mock.html.
+   Deviations from the mock are marked and explained where they occur. */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--pg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page { max-width: 1200px; margin: 0 auto; padding: 36px 32px 72px; }
+
+h1 { font-size: 22px; font-weight: 500; margin: 0 0 4px; letter-spacing: -0.01em; }
+h2 { font-size: 16px; font-weight: 500; margin: 0 0 10px; }
+h3 { font-size: 14px; font-weight: 500; margin: 0 0 6px; }
+p { margin: 0 0 12px; }
+
+.sub { color: var(--sec); font-size: 14px; margin: 0 0 26px; }
+
+/* Focus is always visible. No shadows are allowed, so this is an outline. */
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 3px; }
+
+/* ------------------------------------------------------------------ tabs -- */
+
+.tabs { display: flex; gap: 26px; border-bottom: 1px solid var(--bd); margin-bottom: 26px; }
+
+.tab {
+  font-family: var(--sans); font-size: 14px; color: var(--sec);
+  padding: 0 0 10px; border: 0; border-bottom: 2px solid transparent;
+  background: none; cursor: pointer; line-height: 1.6;
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); font-weight: 500; }
+
+.view[hidden] { display: none; }
+
+/* ---------------------------------------------------- banner and metrics -- */
+
+.bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 11px 15px; background: var(--wnb); border-radius: 6px; margin-bottom: 20px;
+}
+.bar-t { font-size: 13.5px; color: var(--wn); }
+.bar-n { font-family: var(--mono); font-size: 13px; color: var(--wn); white-space: nowrap; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.stat { background: var(--s1); border-radius: 10px; padding: 11px 14px; }
+.stat .l { font-family: var(--mono); font-size: 11px; color: var(--sec); letter-spacing: 0.02em; }
+.stat .v { font-size: 23px; font-weight: 500; line-height: 1.35; }
+.stat .v.bad { color: var(--dg); }
+
+/* The cards count the whole corpus, not the document on screen. Say so. */
+.stats-note { font-family: var(--mono); font-size: 11.5px; color: var(--sec); margin: 8px 0 24px; }
+
+/* ---------------------------------------------------------------- legend -- */
+
+.lgd {
+  display: flex; flex-wrap: wrap; gap: 20px;
+  padding: 14px 0 18px; border-bottom: 1px solid var(--bd); margin-bottom: 20px;
+}
+.lg { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--sec); }
+
+.kx {
+  width: 16px; height: 16px; border-radius: 3px; flex: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px;
+}
+.kx.a { background: var(--okb); color: var(--ok); }
+.kx.b { background: var(--acb); color: var(--ac); }
+.kx.c { background: var(--wnb); color: var(--wn); }
+.kx.d { background: var(--dgb); color: var(--dg); }
+
+/* Colour is never the only signal: each label also carries a distinct underline. */
+.lg .kx.a, .lg .kx.b { border-bottom: 2px solid currentColor; }
+.lg .kx.c { border-bottom: 2px dashed currentColor; }
+.lg .kx.d { border-bottom: 2px dotted currentColor; }
+
+/* ---------------------------------------------------- document toggle row -- */
+
+.tgl { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+
+.tb {
+  font-size: 13.5px; padding: 6px 14px; border-radius: 6px;
+  border: 1px solid var(--bd2); background: transparent; color: var(--sec);
+  cursor: pointer; font-family: var(--sans);
+}
+.tb:hover { color: var(--ink); }
+.tb[aria-pressed="true"] { background: var(--s1); color: var(--ink); font-weight: 500; }
+
+.cnt { margin-left: auto; font-family: var(--mono); font-size: 12.5px; color: var(--sec); }
+
+.dl {
+  font-family: var(--mono); font-size: 12px; padding: 6px 12px; border-radius: 6px;
+  border: 1px solid var(--bd2); background: transparent; color: var(--sec); cursor: pointer;
+}
+.dl:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ----------------------------------------------------------- three columns -- */
+
+.chain {
+  position: relative;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr) 288px;
+  gap: 64px; /* the wire gutter — never below 48px */
+  align-items: start;
+}
+
+#wires {
+  position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+  pointer-events: none; overflow: visible; z-index: 1;
+}
+
+.railh {
+  font-family: var(--mono); font-size: 11px; color: var(--sec);
+  letter-spacing: 0.04em; margin-bottom: 9px;
+}
+
+.rail { display: flex; flex-direction: column; gap: 6px; position: relative; z-index: 2; }
+
+/* Real buttons, so keyboard and Enter/Space work without extra handlers. */
+.rw {
+  display: block; width: 100%; text-align: left; font-family: var(--sans);
+  border: 1px solid var(--bd); border-radius: 6px; padding: 9px 11px;
+  cursor: pointer; background: var(--pg); color: var(--ink); line-height: 1.6;
+}
+.rw:hover { border-color: var(--bd2); background: var(--s1); }
+.rw[aria-pressed="true"] { border-color: var(--ink); background: var(--s1); }
+
+.rw .fn { font-family: var(--mono); font-size: 12px; color: var(--ink); word-break: break-all; }
+.rw .fn.none { color: var(--sec); }
+.rw .mt { font-family: var(--mono); font-size: 11px; color: var(--sec); margin-top: 3px; }
+.rw .rq { font-size: 13px; color: var(--ink); line-height: 1.4; }
+
+.pill {
+  display: inline-block; font-family: var(--mono); font-size: 10px;
+  padding: 1px 6px; border-radius: 3px; vertical-align: 1px;
+}
+.pill.must { background: var(--dgb); color: var(--dg); }
+.pill.preferred { background: var(--s1); color: var(--sec); }
+
+/* Non-text use of muted is fine — the adjacent word carries the same information. */
+.dot {
+  width: 7px; height: 7px; border-radius: 50%; display: inline-block;
+  margin-right: 6px; background: var(--mut);
+}
+.dot.answered { background: var(--ok); }
+.dot.blocked { background: var(--dg); }
+
+.st.answered { color: var(--ok); }
+.st.blocked { color: var(--dg); }
+.st.unanswered { color: var(--sec); }
+
+/* -------------------------------------------------------------- document -- */
+
+.doc {
+  background: var(--pg); border: 1px solid var(--bd); border-radius: 10px;
+  padding: 20px 22px; position: relative; z-index: 2;
+  font-size: 15px; line-height: 2.05;
+}
+.doc.bullets { font-size: 14px; line-height: 2.2; }
+
+.cl {
+  font: inherit; color: inherit; background: none; border: 0; padding: 0 1px;
+  cursor: pointer; border-radius: 3px;
+  text-decoration-line: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3.5px;
+}
+.cl.a { text-decoration-color: var(--ok); text-decoration-style: solid; }
+.cl.b { text-decoration-color: var(--ac); text-decoration-style: solid; }
+.cl.c { text-decoration-color: var(--wn); text-decoration-style: dashed; }
+.cl.d { text-decoration-color: var(--dg); text-decoration-style: dotted; }
+
+/* The mock set blocked claims in --mut, which fails AA at 15px. The underline style
+   already distinguishes them, so only the weight of the grey changes. */
+.cl.blk { color: var(--sec); }
+.cl[aria-pressed="true"] { background: var(--acb); }
+
+/* -------------------------------------------------------------- inspector -- */
+
+.insp { margin-top: 22px; border-top: 1px solid var(--bd); padding-top: 18px; }
+.ihead { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+.ikind { font-family: var(--mono); font-size: 11px; color: var(--sec); letter-spacing: 0.04em; }
+.verd { margin-left: auto; font-family: var(--mono); font-size: 12.5px; }
+.verd.ships { color: var(--ok); }
+.verd.blocked { color: var(--dg); }
+.verd.plain { color: var(--sec); }
+
+.iquote { font-size: 16px; line-height: 1.6; }
+.iname { font-family: var(--mono); font-size: 15px; }
+.imeta { font-family: var(--mono); font-size: 11.5px; color: var(--sec); margin-top: 4px; }
+
+.code {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.75;
+  background: var(--s1); border-radius: 6px; padding: 12px 14px;
+  white-space: pre-wrap; color: var(--ink); overflow-x: auto; margin-top: 14px;
+}
+
+.kv { display: grid; grid-template-columns: 96px 1fr; gap: 6px 14px; font-size: 13.5px; margin-top: 12px; }
+.kv .k { font-family: var(--mono); font-size: 11.5px; color: var(--sec); padding-top: 2px; }
+.kv .empty { color: var(--sec); font-size: 13px; }
+
+.chip {
+  font-family: var(--mono); font-size: 11px; padding: 2px 7px; border-radius: 4px;
+  background: var(--s1); color: var(--sec); cursor: pointer; border: 1px solid var(--bd);
+  margin: 0 4px 4px 0;
+}
+.chip:hover { border-color: var(--bd2); color: var(--ink); }
+.chip.blocked { color: var(--dg); border-color: var(--dgb); background: var(--dgb); }
+
+.foot { font-size: 12.5px; color: var(--sec); margin-top: 14px; }
+
+/* ------------------------------------------------------------------ gates -- */
+
+.funnel { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 8px; }
+
+.gate { border: 1px solid var(--bd); border-radius: 10px; padding: 12px 13px; }
+.gate .gname { font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+.gate .grow { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 11.5px; color: var(--sec); }
+.gate .gbig { font-size: 21px; font-weight: 500; font-family: var(--sans); line-height: 1.3; color: var(--dg); }
+.gate .gbig.zero { color: var(--sec); }
+.gate .glab { font-family: var(--mono); font-size: 10.5px; color: var(--sec); letter-spacing: 0.02em; }
+.gate .grej { font-size: 12px; color: var(--sec); margin-top: 8px; line-height: 1.45; }
+
+.log {
+  background: var(--log-bg); color: var(--log-ink); border-radius: 10px;
+  padding: 16px 18px; font-family: var(--mono); font-size: 12px; line-height: 1.85;
+  overflow-x: auto; margin-top: 18px;
+}
+.log .run { margin-bottom: 14px; }
+.log .run:last-child { margin-bottom: 0; }
+.log .rhead { color: var(--log-dim); }
+.log .ln { white-space: pre; }
+.log .ok { color: var(--log-ok); }
+.log .bad { color: var(--log-bad); }
+.log .exit0 { color: var(--log-ok); }
+.log .exit1 { color: var(--log-bad); }
+
+/* ---------------------------------------------------------- pressure test -- */
+
+.call { border: 1px solid var(--bd); border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; }
+.call .clab { font-family: var(--mono); font-size: 11px; color: var(--sec); letter-spacing: 0.02em; }
+.call .cval { font-size: 23px; font-weight: 500; line-height: 1.35; }
+.call .cwhy { font-size: 13.5px; color: var(--sec); margin-top: 4px; }
+
+table.grid { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+table.grid th {
+  text-align: left; font-weight: 500; font-size: 12px; color: var(--sec);
+  font-family: var(--mono); letter-spacing: 0.02em;
+  border-bottom: 1px solid var(--bd2); padding: 0 12px 8px 0;
+}
+table.grid td { border-bottom: 1px solid var(--bd); padding: 11px 12px 11px 0; vertical-align: top; }
+table.grid td:last-child, table.grid th:last-child { padding-right: 0; }
+table.grid .ev { color: var(--sec); font-size: 13px; }
+.vd { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+.vd.have { color: var(--ok); }
+.vd.adjacent { color: var(--wn); }
+.vd.donot { color: var(--dg); }
+
+/* ---------------------------------------------------------- how it works -- */
+
+.prose { max-width: 68ch; }
+.prose h2 { margin-top: 26px; }
+.prose h2:first-child { margin-top: 0; }
+.prose ul { margin: 0 0 12px; padding-left: 20px; }
+.prose li { margin-bottom: 4px; }
+.prose code { font-family: var(--mono); font-size: 13px; background: var(--s1); padding: 1px 5px; border-radius: 3px; }
+
+/* ------------------------------------------------------------- responsive -- */
+
+@media (max-width: 1100px) {
+  .funnel { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .page { padding: 24px 20px 56px; }
+  .chain { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  #wires { display: none; } /* wires are decorative; the inspector carries the same links */
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .funnel { grid-template-columns: repeat(2, 1fr); }
+  .tabs { gap: 18px; overflow-x: auto; }
+  .cnt { margin-left: 0; width: 100%; }
+}
+
+/* Two weights only, per section 13. strong defaults to 700, so pull it back to 500. */
+.prose strong, strong, b { font-weight: 500; }

@@ -1,0 +1,13 @@
+{
+  "name": "provenance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Provenance demo for consultruss.com. Static, generated data, no dependencies.",
+  "type": "module",
+  "scripts": {
+    "seed": "node scripts/generate.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "id": "s1",
+    "filename": "interview_2026-03-11.txt",
+    "kind": "plain text",
+    "meta": "transcript · 4,180 words",
+    "excerpt": "[00:14:22] Q: How long have you been doing land work?\nA: Fourteen years now. Started in 2012 doing ranch\nsplits out past Hondo, moved into mineral and\nsurface severance work about four years in.\n\n[00:31:07] A: The parcel database is mine. I built it,\nI host it, I run the nightly pull myself.\n\n[00:52:41] Q: Team size on the Atascosa cycle?\nA: Three of us. Me, a title clerk, and a surveyor\non contract."
+  },
+  {
+    "id": "s2",
+    "filename": "county_records_export.csv",
+    "kind": "csv export",
+    "meta": "tabular · 1,284 rows",
+    "excerpt": "county,instrument,date,role,acres\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7\n… 49 more rows matching role filter"
+  },
+  {
+    "id": "s3",
+    "filename": "registrar_letter.pdf",
+    "kind": "pdf",
+    "meta": "document · 1 page",
+    "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing."
+  },
+  {
+    "id": "s4",
+    "filename": "repo_manifest.json",
+    "kind": "json",
+    "meta": "structured · 38 KB",
+    "excerpt": "{\n  \"service\": \"parcel-db\",\n  \"host\": \"self\",\n  \"first_commit\": \"2025-11-04\",\n  \"commits\": 412,\n  \"authors\": [\"a.reyes\"]\n}"
+  },
+  {
+    "id": "s5",
+    "filename": "call_notes_2026-06-24.pdf",
+    "kind": "pdf",
+    "meta": "document · 6 pages",
+    "excerpt": "Filed 2026-06-24. Reference CALL_NOTES-1771.\nRetained for the parcel file."
+  },
+  {
+    "id": "s6",
+    "filename": "permit_index_2025-06-02.csv",
+    "kind": "csv export",
+    "meta": "tabular · 739 rows",
+    "excerpt": "field,value,recorded\npermit_index,211,2025-06-02\n… 137 more rows"
+  },
+  {
+    "id": "s7",
+    "filename": "plat_review_2025-11-06.pdf",
+    "kind": "pdf",
+    "meta": "document · 2 pages",
+    "excerpt": "Filed 2025-11-06. Reference PLAT_REVIEW-9135.\nRetained for the parcel file."
+  },
+  {
+    "id": "s8",
+    "filename": "closing_file_2026-03-30.pdf",
+    "kind": "pdf",
+    "meta": "document · 8 pages",
+    "excerpt": "Filed 2026-03-30. Reference CLOSING_FILE-1716.\nRetained for the parcel file."
+  },
+  {
+    "id": "s9",
+    "filename": "survey_log_2026-03-30.csv",
+    "kind": "csv export",
+    "meta": "tabular · 1,337 rows",
+    "excerpt": "field,value,recorded\nsurvey_log,298,2026-03-30\n… 28 more rows"
+  },
+  {
+    "id": "s10",
+    "filename": "tax_roll_2025-07-29.json",
+    "kind": "json",
+    "meta": "structured · 31 KB",
+    "excerpt": "{\n  \"record\": \"tax_roll\",\n  \"recorded\": \"2025-07-29\",\n  \"entries\": 82\n}"
+  },
+  {
+    "id": "s11",
+    "filename": "easement_index_2026-06-24.csv",
+    "kind": "csv export",
+    "meta": "tabular · 2,086 rows",
+    "excerpt": "field,value,recorded\neasement_index,693,2026-06-24\n… 80 more rows"
+  },
+  {
+    "id": "s12",
+    "filename": "appraisal_notes_2026-03-30.txt",
+    "kind": "plain text",
+    "meta": "transcript · 1,684 words",
+    "excerpt": "Recorded 2026-03-30.\nNotes filed under appraisal_notes. 34 items logged."
+  },
+  {
+    "id": "s13",
+    "filename": "title_commitment_2025-09-14.pdf",
+    "kind": "pdf",
+    "meta": "document · 7 pages",
+    "excerpt": "Filed 2025-09-14. Reference TITLE_COMMITMENT-6642.\nRetained for the parcel file."
+  },
+  {
+    "id": "s14",
+    "filename": "field_visit_2025-07-29.json",
+    "kind": "json",
+    "meta": "structured · 28 KB",
+    "excerpt": "{\n  \"record\": \"field_visit\",\n  \"recorded\": \"2025-07-29\",\n  \"entries\": 166\n}"
+  },
+  {
+    "id": "s15",
+    "filename": "deed_index_2025-07-29.csv",
+    "kind": "csv export",
+    "meta": "tabular · 409 rows",
+    "excerpt": "field,value,recorded\ndeed_index,97,2025-07-29\n… 57 more rows"
+  },
+  {
+    "id": "s16",
+    "filename": "escrow_ledger_2025-09-14.pdf",
+    "kind": "pdf",
+    "meta": "document · 9 pages",
+    "excerpt": "Filed 2025-09-14. Reference ESCROW_LEDGER-3566.\nRetained for the parcel file."
+  },
+  {
+    "id": "s17",
+    "filename": "zoning_letter_2026-06-24.pdf",
+    "kind": "pdf",
+    "meta": "document · 2 pages",
+    "excerpt": "Filed 2026-06-24. Reference ZONING_LETTER-7968.\nRetained for the parcel file."
+  },
+  {
+    "id": "s18",
+    "filename": "well_report_2025-09-14.csv",
+    "kind": "csv export",
+    "meta": "tabular · 1,612 rows",
+    "excerpt": "field,value,recorded\nwell_report,496,2025-09-14\n… 17 more rows"
+  },
+  {
+    "id": "s19",
+    "filename": "acreage_audit_2026-01-22.pdf",
+    "kind": "pdf",
+    "meta": "document · 8 pages",
+    "excerpt": "Filed 2026-01-22. Reference ACREAGE_AUDIT-8051.\nRetained for the parcel file."
+  },
+  {
+    "id": "s20",
+    "filename": "lease_abstract_2026-03-30.txt",
+    "kind": "plain text",
+    "meta": "transcript · 5,595 words",
+    "excerpt": "Recorded 2026-03-30.\nNotes filed under lease_abstract. 43 items logged."
+  },
+  {
+    "id": "s21",
+    "filename": "utility_memo_2025-11-06.pdf",
+    "kind": "pdf",
+    "meta": "document · 4 pages",
+    "excerpt": "Filed 2025-11-06. Reference UTILITY_MEMO-6154.\nRetained for the parcel file."
+  },
+  {
+    "id": "s22",
+    "filename": "flood_cert_2026-01-22.json",
+    "kind": "json",
+    "meta": "structured · 23 KB",
+    "excerpt": "{\n  \"record\": \"flood_cert\",\n  \"recorded\": \"2026-01-22\",\n  \"entries\": 9\n}"
+  },
+  {
+    "id": "s23",
+    "filename": "boundary_notes_2025-06-02.json",
+    "kind": "json",
+    "meta": "structured · 82 KB",
+    "excerpt": "{\n  \"record\": \"boundary_notes\",\n  \"recorded\": \"2025-06-02\",\n  \"entries\": 39\n}"
+  },
+  {
+    "id": "s0",
+    "filename": "— no source —",
+    "kind": "none",
+    "meta": "nothing on file",
+    "excerpt": "No record supports this claim.\n\nText traced to: draft_bio_v3.md (a derived document).\nDerived documents cannot be cited as sources."
+  }
+]

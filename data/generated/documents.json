@@ -1,0 +1,110 @@
+[
+  {
+    "id": "cover",
+    "label": "cover letter",
+    "kind": "prose",
+    "template": "A. Reyes brings {{c1}}, including {{c2}}. Reyes {{c3}} that ingests county records nightly, and holds a {{c4}}. {{c5}}, and {{c6}}, would fit the interconnection workstream directly.",
+    "claims": [
+      {
+        "id": "c1",
+        "text": "fourteen years in land transactions",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c2",
+        "text": "52 closings across three counties",
+        "label": "b",
+        "sourceId": "s2",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c3",
+        "text": "built and self-hosts a parcel database",
+        "label": "a",
+        "sourceId": "s4",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c4",
+        "text": "Master of Land Economics",
+        "label": "b",
+        "sourceId": "s3",
+        "requirementId": "r4"
+      },
+      {
+        "id": "c5",
+        "text": "Deep familiarity with the Sablewood queue",
+        "label": "d",
+        "sourceId": "s0",
+        "requirementId": "r3"
+      },
+      {
+        "id": "c6",
+        "text": "a documented record leading a six-person team",
+        "label": "c",
+        "sourceId": "s0",
+        "requirementId": "r5"
+      }
+    ]
+  },
+  {
+    "id": "resume",
+    "label": "résumé",
+    "kind": "bullets",
+    "template": "{{c1}}\n{{c2}}\n{{c3}}\n{{c4}}",
+    "claims": [
+      {
+        "id": "c1",
+        "text": "Land transactions — 14 years",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c2",
+        "text": "52 closings, 3 counties",
+        "label": "b",
+        "sourceId": "s2",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c3",
+        "text": "Parcel database, built and self-hosted",
+        "label": "a",
+        "sourceId": "s4",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c4",
+        "text": "M.S. Land Economics",
+        "label": "b",
+        "sourceId": "s3",
+        "requirementId": "r4"
+      }
+    ]
+  },
+  {
+    "id": "outreach",
+    "label": "outreach note",
+    "kind": "prose",
+    "template": "Saw the site analyst opening. I have {{c1}} and I {{c2}} — happy to show you what it pulls. Worth a short call?",
+    "claims": [
+      {
+        "id": "c1",
+        "text": "spent fourteen years on Texas land deals",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c2",
+        "text": "run my own parcel database",
+        "label": "a",
+        "sourceId": "s4",
+        "requirementId": "r2"
+      }
+    ]
+  }
+]
