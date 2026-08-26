@@ -37,8 +37,8 @@
       "company": "Granite Ranch Group",
       "role": "land analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s5",
@@ -149,8 +149,8 @@
       "company": "Frontage Capital",
       "role": "acquisition analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s3",
@@ -172,8 +172,8 @@
       "company": "Meridian Grid Partners",
       "role": "site analyst",
       "focus": true,
-      "claimsParsed": 12,
-      "claimsCleared": 10,
+      "claimsParsed": 16,
+      "claimsCleared": 14,
       "claimsBlocked": 2,
       "sourceIds": [
         "s1",
@@ -261,8 +261,8 @@
       "company": "Ridgeline Development",
       "role": "diligence analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 2,
+      "claimsParsed": 2,
+      "claimsCleared": 1,
       "claimsBlocked": 1,
       "sourceIds": [
         "s14"
@@ -282,8 +282,8 @@
       "company": "Lometa Development",
       "role": "title analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s1",
@@ -652,12 +652,12 @@
         {
           "gate": "lint",
           "status": "ok",
-          "text": "3 claims, all labelled a or b"
+          "text": "2 claims, all labelled a or b"
         },
         {
           "gate": "submitted",
           "status": "ok",
-          "text": "3 claims shipped"
+          "text": "2 claims shipped"
         }
       ],
       "exit": 0

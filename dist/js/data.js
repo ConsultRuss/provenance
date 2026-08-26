@@ -12,7 +12,7 @@ export const sources = [
     "filename": "county_records_export.csv",
     "kind": "csv export",
     "meta": "tabular · 1,284 rows",
-    "excerpt": "county,instrument,date,role,acres\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7\n… 49 more rows matching role filter"
+    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows total\n-- 17 rows with mineral_severed = true"
   },
   {
     "id": "s3",
@@ -237,11 +237,11 @@ export const documents = [
       },
       {
         "type": "para",
-        "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Close to a third of those involved a severed mineral estate. That work is slower than a clean fee transfer, and it is the reason I have firm opinions about how long title curative really takes."
+        "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Of those, {{c7}} — slower work than a clean fee transfer, and the reason I have firm opinions about how long title curative really takes."
       },
       {
         "type": "para",
-        "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am its only committer, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
+        "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am {{c8}}, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
       },
       {
         "type": "para",
@@ -302,6 +302,20 @@ export const documents = [
         "label": "c",
         "sourceId": "s0",
         "requirementId": "r5"
+      },
+      {
+        "id": "c7",
+        "text": "17 involved a severed mineral estate",
+        "label": "b",
+        "sourceId": "s2",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c8",
+        "text": "its only committer",
+        "label": "b",
+        "sourceId": "s4",
+        "requirementId": "r2"
       }
     ]
   },
@@ -350,7 +364,11 @@ export const documents = [
       },
       {
         "type": "bullet",
-        "text": "Ranch splits, surface and mineral severance work"
+        "text": "{{c5}} out of Hondo and the counties west of it"
+      },
+      {
+        "type": "bullet",
+        "text": "{{c6}}, nightly, into the parcel database"
       },
       {
         "type": "section",
@@ -389,6 +407,20 @@ export const documents = [
         "label": "b",
         "sourceId": "s3",
         "requirementId": "r4"
+      },
+      {
+        "id": "c5",
+        "text": "Ranch splits and mineral severance work",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c6",
+        "text": "County record ingestion",
+        "label": "a",
+        "sourceId": "s4",
+        "requirementId": "r2"
       }
     ]
   },
@@ -472,8 +504,8 @@ export const gates = {
       "company": "Granite Ranch Group",
       "role": "land analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s5",
@@ -584,8 +616,8 @@ export const gates = {
       "company": "Frontage Capital",
       "role": "acquisition analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s3",
@@ -607,8 +639,8 @@ export const gates = {
       "company": "Meridian Grid Partners",
       "role": "site analyst",
       "focus": true,
-      "claimsParsed": 12,
-      "claimsCleared": 10,
+      "claimsParsed": 16,
+      "claimsCleared": 14,
       "claimsBlocked": 2,
       "sourceIds": [
         "s1",
@@ -696,8 +728,8 @@ export const gates = {
       "company": "Ridgeline Development",
       "role": "diligence analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 2,
+      "claimsParsed": 2,
+      "claimsCleared": 1,
       "claimsBlocked": 1,
       "sourceIds": [
         "s14"
@@ -717,8 +749,8 @@ export const gates = {
       "company": "Lometa Development",
       "role": "title analyst",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s1",
@@ -1087,12 +1119,12 @@ export const gates = {
         {
           "gate": "lint",
           "status": "ok",
-          "text": "3 claims, all labelled a or b"
+          "text": "2 claims, all labelled a or b"
         },
         {
           "gate": "submitted",
           "status": "ok",
-          "text": "3 claims shipped"
+          "text": "2 claims shipped"
         }
       ],
       "exit": 0

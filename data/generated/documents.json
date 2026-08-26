@@ -22,11 +22,11 @@
       },
       {
         "type": "para",
-        "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Close to a third of those involved a severed mineral estate. That work is slower than a clean fee transfer, and it is the reason I have firm opinions about how long title curative really takes."
+        "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Of those, {{c7}} — slower work than a clean fee transfer, and the reason I have firm opinions about how long title curative really takes."
       },
       {
         "type": "para",
-        "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am its only committer, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
+        "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am {{c8}}, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
       },
       {
         "type": "para",
@@ -87,6 +87,20 @@
         "label": "c",
         "sourceId": "s0",
         "requirementId": "r5"
+      },
+      {
+        "id": "c7",
+        "text": "17 involved a severed mineral estate",
+        "label": "b",
+        "sourceId": "s2",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c8",
+        "text": "its only committer",
+        "label": "b",
+        "sourceId": "s4",
+        "requirementId": "r2"
       }
     ]
   },
@@ -135,7 +149,11 @@
       },
       {
         "type": "bullet",
-        "text": "Ranch splits, surface and mineral severance work"
+        "text": "{{c5}} out of Hondo and the counties west of it"
+      },
+      {
+        "type": "bullet",
+        "text": "{{c6}}, nightly, into the parcel database"
       },
       {
         "type": "section",
@@ -174,6 +192,20 @@
         "label": "b",
         "sourceId": "s3",
         "requirementId": "r4"
+      },
+      {
+        "id": "c5",
+        "text": "Ranch splits and mineral severance work",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c6",
+        "text": "County record ingestion",
+        "label": "a",
+        "sourceId": "s4",
+        "requirementId": "r2"
       }
     ]
   },

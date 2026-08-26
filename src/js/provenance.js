@@ -69,7 +69,18 @@ function counterText(doc) {
 
 export function mountProvenance(root) {
   let currentDoc = documents[0];
-  let selectedClaimId = null;
+
+  // What is selected, and therefore which wires are lit. Selecting a claim lights its own pair;
+  // selecting a source or a requirement lights every claim that touches it, so the chain through
+  // that row is visible in one go rather than one claim at a time.
+  let selection = null; // { kind: 'claim' | 'source' | 'requirement', id }
+
+  function selectedClaims() {
+    if (!selection) return [];
+    if (selection.kind === 'claim') return currentDoc.claims.filter((c) => c.id === selection.id);
+    if (selection.kind === 'source') return currentDoc.claims.filter((c) => c.sourceId === selection.id);
+    return currentDoc.claims.filter((c) => c.requirementId === selection.id);
+  }
 
   const srail = el('div', { class: 'rail', id: 'srail' });
   const rrail = el('div', { class: 'rail', id: 'rrail' });
@@ -324,7 +335,24 @@ export function mountProvenance(root) {
       .filter(Boolean);
   }
 
-  const redraw = () => drawWires(wires, chain, links(), selectedClaimId);
+  const redraw = () => drawWires(wires, chain, links(), new Set(selectedClaims().map((c) => c.id)));
+
+  // Light every row the selected claims touch, so a wire always lands on something marked.
+  function paintSelection() {
+    clearPressed();
+    const claims = selectedClaims();
+    for (const claim of claims) {
+      claimEls.get(claim.id)?.setAttribute('aria-pressed', 'true');
+      requirementRows.get(claim.requirementId)?.row.setAttribute('aria-pressed', 'true');
+      if (!isBlocked(claim)) sourceRows.get(claim.sourceId)?.setAttribute('aria-pressed', 'true');
+    }
+    // The clicked row stays marked even when nothing in this document connects to it.
+    if (selection?.kind === 'source') sourceRows.get(selection.id)?.setAttribute('aria-pressed', 'true');
+    if (selection?.kind === 'requirement') {
+      requirementRows.get(selection.id)?.row.setAttribute('aria-pressed', 'true');
+    }
+    redraw();
+  }
 
   /* ----------------------------------------------------------- selection --- */
 
@@ -342,15 +370,10 @@ export function mountProvenance(root) {
     const claim = currentDoc.claims.find((c) => c.id === claimId);
     if (!claim) return;
 
-    selectedClaimId = claimId;
-    clearPressed();
-    claimEls.get(claimId)?.setAttribute('aria-pressed', 'true');
-    requirementRows.get(claim.requirementId)?.row.setAttribute('aria-pressed', 'true');
+    selection = { kind: 'claim', id: claimId };
+    paintSelection();
 
     const blocked = isBlocked(claim);
-    if (!blocked) sourceRows.get(claim.sourceId)?.setAttribute('aria-pressed', 'true');
-    redraw();
-
     const source = sourceById.get(claim.sourceId);
     const requirement = requirementById.get(claim.requirementId);
 
@@ -386,10 +409,8 @@ export function mountProvenance(root) {
   }
 
   function showSource(sourceId) {
-    selectedClaimId = null;
-    clearPressed();
-    sourceRows.get(sourceId)?.setAttribute('aria-pressed', 'true');
-    redraw();
+    selection = { kind: 'source', id: sourceId };
+    paintSelection();
 
     const source = sourceById.get(sourceId);
     const citing = currentDoc.claims.filter((c) => c.sourceId === sourceId);
@@ -420,10 +441,8 @@ export function mountProvenance(root) {
   }
 
   function showRequirement(requirementId) {
-    selectedClaimId = null;
-    clearPressed();
-    requirementRows.get(requirementId)?.row.setAttribute('aria-pressed', 'true');
-    redraw();
+    selection = { kind: 'requirement', id: requirementId };
+    paintSelection();
 
     const requirement = requirementById.get(requirementId);
     const answering = currentDoc.claims.filter((c) => c.requirementId === requirementId);
@@ -484,7 +503,7 @@ export function mountProvenance(root) {
 
   function setDocument(doc) {
     currentDoc = doc;
-    selectedClaimId = null;
+    selection = null;
     for (const [id, button] of docButtons) button.setAttribute('aria-pressed', id === doc.id ? 'true' : 'false');
     counter.textContent = counterText(doc);
     renderDocument();

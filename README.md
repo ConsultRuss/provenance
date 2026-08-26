@@ -17,17 +17,17 @@ Deploys to `consultruss.com/provenance`.
 npm run seed     # regenerate data/generated/* and src/js/data.js from data/seed.config.json
 npm run build    # write dist/
 npm run check    # run the acceptance checks
+npm run serve    # preview dist/ at http://127.0.0.1:8137
 ```
 
-No dependencies. Node is used for the three scripts only; the page itself is plain HTML, CSS
+No dependencies. Node is used for the four scripts only; the page itself is plain HTML, CSS
 and ES modules.
 
-To look at it locally, serve the folder — do not open `index.html` from the filesystem. Module
-scripts are CORS-checked and a `file://` origin is opaque, so browsers refuse to load them:
-
-```bash
-cd dist && python -m http.server 8137
-```
+Preview with `npm run serve` rather than opening `index.html` from the filesystem: module
+scripts are CORS-checked and a `file://` origin is opaque, so browsers refuse to load them.
+The server sends `Cache-Control: no-store`, because a browser will otherwise keep an old
+`js/data.js` after `npm run seed` and quietly show you stale numbers. If you serve `dist/`
+some other way, send that header or you will debug a page that is not the one you built.
 
 ## The labels
 

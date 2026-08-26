@@ -11,7 +11,7 @@
     "filename": "county_records_export.csv",
     "kind": "csv export",
     "meta": "tabular · 1,284 rows",
-    "excerpt": "county,instrument,date,role,acres\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7\n… 49 more rows matching role filter"
+    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows total\n-- 17 rows with mineral_severed = true"
   },
   {
     "id": "s3",

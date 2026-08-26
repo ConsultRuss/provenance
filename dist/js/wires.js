@@ -37,23 +37,27 @@ function line(d, stroke, width, opacity, dashed) {
 }
 
 /**
- * Draw every wire, every time. The selected pair is drawn last so it sits on top.
+ * Draw every wire, every time. Highlighted wires are drawn last so they sit on top.
  *
  * links: [{ key, source, claim, requirement, color, blocked }]
  *   source is null for a blocked claim — a claim with no record behind it has no left wire,
  *   and its right wire is dashed.
+ *
+ * active: a Set of keys, a single key, or null. Selecting a source or a requirement lights up
+ * every claim that touches it, so the whole chain through that row is visible at once.
  */
-export function drawWires(svg, container, links, activeKey) {
+export function drawWires(svg, container, links, active) {
   while (svg.firstChild) svg.removeChild(svg.firstChild);
   if (!svg.isConnected || getComputedStyle(svg).display === 'none') return;
 
   const box = container.getBoundingClientRect();
   if (box.width === 0) return;
 
-  const ordered = [...links.filter((l) => l.key !== activeKey), ...links.filter((l) => l.key === activeKey)];
+  const keys = active instanceof Set ? active : new Set(active == null ? [] : [active]);
+  const ordered = [...links.filter((l) => !keys.has(l.key)), ...links.filter((l) => keys.has(l.key))];
 
   for (const link of ordered) {
-    const on = link.key === activeKey;
+    const on = keys.has(link.key);
     const stroke = on ? link.color : UNSELECTED.color;
     const width = on ? SELECTED.width : UNSELECTED.width;
     const opacity = on ? SELECTED.opacity : UNSELECTED.opacity;

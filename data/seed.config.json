@@ -58,7 +58,7 @@
       "filename": "county_records_export.csv",
       "kind": "csv export",
       "meta": "tabular · 1,284 rows",
-      "excerpt": "county,instrument,date,role,acres\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7\n… 49 more rows matching role filter"
+      "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows total\n-- 17 rows with mineral_severed = true"
     },
     {
       "id": "s3",
@@ -137,8 +137,8 @@
         { "type": "meta", "text": "Hiring team\nMeridian Grid Partners\nSan Antonio, Texas" },
         { "type": "para", "text": "Dear hiring team," },
         { "type": "para", "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, most of it on the parcel side of the work the posting describes: assembling positions in country where the surface and the minerals went separate ways decades ago, and where the person who signs is rarely the person on the tax roll." },
-        { "type": "para", "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Close to a third of those involved a severed mineral estate. That work is slower than a clean fee transfer, and it is the reason I have firm opinions about how long title curative really takes." },
-        { "type": "para", "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am its only committer, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}." },
+        { "type": "para", "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Of those, {{c7}} — slower work than a clean fee transfer, and the reason I have firm opinions about how long title curative really takes." },
+        { "type": "para", "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am {{c8}}, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}." },
         { "type": "para", "text": "On the interconnection side I bring {{c5}}, and {{c6}} through a full development cycle." },
         { "type": "para", "text": "What I would most want to discuss is where origination currently stalls for you — title curative, landowner contact, or the study phases — because the answer decides which of the above is actually worth anything to you. I am glad to walk through the parcel database on a call and let you push on the data yourself." },
         { "type": "para", "text": "Sincerely," },
@@ -150,7 +150,9 @@
         { "id": "c3", "text": "built and self-host a parcel database",                    "label": "a", "sourceId": "s4", "requirementId": "r2" },
         { "id": "c4", "text": "M.S. in Land Economics",                                   "label": "b", "sourceId": "s3", "requirementId": "r4" },
         { "id": "c5", "text": "deep familiarity with the Sablewood interconnection queue", "label": "d", "sourceId": "s0", "requirementId": "r3" },
-        { "id": "c6", "text": "a documented record leading a six-person team",            "label": "c", "sourceId": "s0", "requirementId": "r5" }
+        { "id": "c6", "text": "a documented record leading a six-person team",            "label": "c", "sourceId": "s0", "requirementId": "r5" },
+        { "id": "c7", "text": "17 involved a severed mineral estate",                     "label": "b", "sourceId": "s2", "requirementId": "r1" },
+        { "id": "c8", "text": "its only committer",                                       "label": "b", "sourceId": "s4", "requirementId": "r2" }
       ]
     },
     {
@@ -167,7 +169,8 @@
         { "type": "bullet", "text": "{{c2}}, acting for the buyer or the seller" },
         { "type": "bullet", "text": "{{c3}} that ingests county records nightly" },
         { "type": "role", "text": "Land analyst · Bitterwater Ranch Company", "meta": "2012 — 2019" },
-        { "type": "bullet", "text": "Ranch splits, surface and mineral severance work" },
+        { "type": "bullet", "text": "{{c5}} out of Hondo and the counties west of it" },
+        { "type": "bullet", "text": "{{c6}}, nightly, into the parcel database" },
         { "type": "section", "text": "education" },
         { "type": "bullet", "text": "{{c4}}, conferred 2019" }
       ],
@@ -175,7 +178,9 @@
         { "id": "c1", "text": "Fourteen years in Texas land transactions",  "label": "a", "sourceId": "s1", "requirementId": "r1" },
         { "id": "c2", "text": "52 closings across three counties",          "label": "b", "sourceId": "s2", "requirementId": "r1" },
         { "id": "c3", "text": "Built and self-hosted a parcel database",    "label": "a", "sourceId": "s4", "requirementId": "r2" },
-        { "id": "c4", "text": "M.S. Land Economics",                        "label": "b", "sourceId": "s3", "requirementId": "r4" }
+        { "id": "c4", "text": "M.S. Land Economics",                        "label": "b", "sourceId": "s3", "requirementId": "r4" },
+        { "id": "c5", "text": "Ranch splits and mineral severance work",    "label": "a", "sourceId": "s1", "requirementId": "r1" },
+        { "id": "c6", "text": "County record ingestion",                    "label": "a", "sourceId": "s4", "requirementId": "r2" }
       ]
     },
     {
