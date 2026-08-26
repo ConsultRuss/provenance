@@ -159,14 +159,50 @@ p { margin: 0 0 12px; }
 
 .doc {
   background: var(--pg); border: 1px solid var(--bd); border-radius: 10px;
-  padding: 20px 22px; position: relative; z-index: 2;
-  font-size: 15px; line-height: 2.05;
+  padding: 22px 24px; position: relative; z-index: 2;
+  font-size: 14.5px; line-height: 1.95;
 }
-.doc.bullets { font-size: 14px; line-height: 2.2; }
+.doc.resume { font-size: 13.5px; line-height: 1.8; }
 
+/* Document blocks. The type of a block is the only thing that decides how it is set, so a
+   letter reads as a letter and a résumé as a résumé from the same renderer. */
+.b-meta {
+  font-family: var(--mono); font-size: 11.5px; color: var(--sec);
+  line-height: 1.65; white-space: pre-line; margin-bottom: 12px;
+}
+.b-name { font-size: 19px; font-weight: 500; line-height: 1.3; }
+.b-contact { font-family: var(--mono); font-size: 11.5px; color: var(--sec); margin-bottom: 4px; }
+.b-section {
+  font-family: var(--mono); font-size: 10.5px; color: var(--sec); letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--bd); padding-bottom: 5px; margin: 18px 0 9px;
+}
+.b-role { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-top: 8px; }
+.b-role-t { font-weight: 500; }
+.b-role-m { font-family: var(--mono); font-size: 11px; color: var(--sec); white-space: nowrap; }
+.b-bullet { padding-left: 2px; text-indent: -10px; margin-left: 10px; }
+.b-para { margin-bottom: 12px; }
+.b-para:last-child, .b-bullet:last-child { margin-bottom: 0; }
+.b-sig { margin-top: 4px; font-weight: 500; }
+
+/* -------------------------------------------------------------- posting -- */
+
+.posting { border: 1px solid var(--bd); border-radius: 10px; padding: 12px 13px; }
+.p-co { font-size: 14px; font-weight: 500; line-height: 1.35; }
+.p-role { font-size: 13px; color: var(--ink); }
+.p-meta {
+  font-family: var(--mono); font-size: 10.5px; color: var(--sec);
+  white-space: pre-line; line-height: 1.6; margin-top: 5px;
+}
+.p-blurb {
+  font-size: 12px; color: var(--sec); line-height: 1.5;
+  margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--bd);
+}
+
+/* A span, not a button: engines coerce a button to inline-block, which makes each claim an
+   unbreakable box and forces the prose to break around it. Keyboard support is explicit in
+   claimSpan() instead. */
 .cl {
-  font: inherit; color: inherit; background: none; border: 0; padding: 0 1px;
-  cursor: pointer; border-radius: 3px;
+  cursor: pointer; border-radius: 3px; padding: 0 1px;
   text-decoration-line: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3.5px;
 }
 .cl.a { text-decoration-color: var(--ok); text-decoration-style: solid; }

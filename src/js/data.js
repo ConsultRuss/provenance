@@ -217,40 +217,77 @@ export const documents = [
   {
     "id": "cover",
     "label": "cover letter",
-    "kind": "prose",
-    "template": "A. Reyes brings {{c1}}, including {{c2}}. Reyes {{c3}} that ingests county records nightly, and holds a {{c4}}. {{c5}}, and {{c6}}, would fit the interconnection workstream directly.",
+    "kind": "letter",
+    "blocks": [
+      {
+        "type": "meta",
+        "text": "24 August 2026"
+      },
+      {
+        "type": "meta",
+        "text": "Hiring team\nMeridian Grid Partners\nSan Antonio, Texas"
+      },
+      {
+        "type": "para",
+        "text": "Dear hiring team,"
+      },
+      {
+        "type": "para",
+        "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, and county records show {{c2}}, acting for the buyer or the seller."
+      },
+      {
+        "type": "para",
+        "text": "The posting asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly, and I run the pull myself. I also hold an {{c4}}."
+      },
+      {
+        "type": "para",
+        "text": "On the interconnection side I bring {{c5}}, and {{c6}} through a full development cycle."
+      },
+      {
+        "type": "para",
+        "text": "I would welcome a conversation."
+      },
+      {
+        "type": "para",
+        "text": "Sincerely,"
+      },
+      {
+        "type": "sig",
+        "text": "A. Reyes"
+      }
+    ],
     "claims": [
       {
         "id": "c1",
-        "text": "fourteen years in land transactions",
+        "text": "fourteen years working land transactions in South Texas",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "52 closings across three counties",
+        "text": "52 closings across Medina, Frio and Atascosa counties",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c3",
-        "text": "built and self-hosts a parcel database",
+        "text": "built and self-host a parcel database",
         "label": "a",
         "sourceId": "s4",
         "requirementId": "r2"
       },
       {
         "id": "c4",
-        "text": "Master of Land Economics",
+        "text": "M.S. in Land Economics",
         "label": "b",
         "sourceId": "s3",
         "requirementId": "r4"
       },
       {
         "id": "c5",
-        "text": "Deep familiarity with the Sablewood queue",
+        "text": "deep familiarity with the Sablewood interconnection queue",
         "label": "d",
         "sourceId": "s0",
         "requirementId": "r3"
@@ -267,26 +304,77 @@ export const documents = [
   {
     "id": "resume",
     "label": "résumé",
-    "kind": "bullets",
-    "template": "{{c1}}\n{{c2}}\n{{c3}}\n{{c4}}",
+    "kind": "resume",
+    "blocks": [
+      {
+        "type": "name",
+        "text": "A. Reyes"
+      },
+      {
+        "type": "contact",
+        "text": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143"
+      },
+      {
+        "type": "section",
+        "text": "summary"
+      },
+      {
+        "type": "para",
+        "text": "{{c1}}, focused on ranch splits and severed mineral estates."
+      },
+      {
+        "type": "section",
+        "text": "experience"
+      },
+      {
+        "type": "role",
+        "text": "Senior land analyst · Tallow Creek Land Co",
+        "meta": "2019 — present"
+      },
+      {
+        "type": "bullet",
+        "text": "{{c2}}, acting for the buyer or the seller"
+      },
+      {
+        "type": "bullet",
+        "text": "{{c3}} that ingests county records nightly"
+      },
+      {
+        "type": "role",
+        "text": "Land analyst · Bitterwater Ranch Company",
+        "meta": "2012 — 2019"
+      },
+      {
+        "type": "bullet",
+        "text": "Ranch splits, surface and mineral severance work"
+      },
+      {
+        "type": "section",
+        "text": "education"
+      },
+      {
+        "type": "bullet",
+        "text": "{{c4}}, conferred 2019"
+      }
+    ],
     "claims": [
       {
         "id": "c1",
-        "text": "Land transactions — 14 years",
+        "text": "Fourteen years in Texas land transactions",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "52 closings, 3 counties",
+        "text": "52 closings across three counties",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c3",
-        "text": "Parcel database, built and self-hosted",
+        "text": "Built and self-hosted a parcel database",
         "label": "a",
         "sourceId": "s4",
         "requirementId": "r2"
@@ -303,8 +391,25 @@ export const documents = [
   {
     "id": "outreach",
     "label": "outreach note",
-    "kind": "prose",
-    "template": "Saw the site analyst opening. I have {{c1}} and I {{c2}} — happy to show you what it pulls. Worth a short call?",
+    "kind": "note",
+    "blocks": [
+      {
+        "type": "meta",
+        "text": "to: hiring team, Meridian Grid Partners\nsubject: site analyst opening"
+      },
+      {
+        "type": "para",
+        "text": "I saw the site analyst opening. I have {{c1}}, and I {{c2}} — happy to show you what it pulls."
+      },
+      {
+        "type": "para",
+        "text": "Worth a short call?"
+      },
+      {
+        "type": "sig",
+        "text": "A. Reyes"
+      }
+    ],
     "claims": [
       {
         "id": "c1",
@@ -1074,7 +1179,11 @@ export const meta = {
   "posting": {
     "company": "Meridian Grid Partners",
     "role": "site analyst",
+    "location": "San Antonio, Texas · hybrid",
+    "posted": "2026-08-11",
+    "blurb": "Meridian Grid Partners assembles land positions for utility-scale generation across South Texas. The site analyst supports origination: parcel research, title review and landowner contact ahead of interconnection.",
     "subject": "A. Reyes",
+    "subjectContact": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143",
     "gridOperator": "Sablewood Grid Authority"
   },
   "targets": {

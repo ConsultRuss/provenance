@@ -17,8 +17,12 @@ if (!existsSync(join(SRC, 'js/data.js'))) {
   process.exit(1);
 }
 
-rmSync(DIST, { recursive: true, force: true });
+// Empty dist/ rather than removing it. A preview server with dist/ as its working directory
+// holds a lock on the folder, and rebuilding underneath one is the normal case, not an edge.
 mkdirSync(DIST, { recursive: true });
+for (const name of readdirSync(DIST)) {
+  rmSync(join(DIST, name), { recursive: true, force: true });
+}
 
 let count = 0;
 function copyInto(from, to) {

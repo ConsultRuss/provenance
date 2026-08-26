@@ -1,9 +1,12 @@
 // View 1 — Provenance. The three-column chain.
 //
-// Behaviour follows design/provenance-mock.html. Three things are deliberately different:
+// Behaviour follows design/provenance-mock.html. Four things are deliberately different:
 //   1. The counter is computed from the claims, never hardcoded.
 //   2. The metric cards read the whole generated corpus and say so.
-//   3. Claims and rail rows are real buttons, so the keyboard works without extra handlers.
+//   3. Documents are built from typed blocks, so a letter reads as a letter and a résumé as a
+//      résumé rather than as one undifferentiated paragraph.
+//   4. Rail rows are real buttons; claims are role="button" spans, because a button cannot
+//      flow as inline text (see claimSpan).
 
 import { sources, requirements, documents, gates, meta } from './data.js';
 import { drawWires, onLayoutChange } from './wires.js';
@@ -85,10 +88,16 @@ export function mountProvenance(root) {
     el(
       'div',
       {},
-      el('div', {
-        class: 'railh',
-        text: `job requirements — ${meta.posting.company}, ${meta.posting.role}`,
-      }),
+      el('div', { class: 'railh', text: 'job posting' }),
+      el(
+        'div',
+        { class: 'posting' },
+        el('div', { class: 'p-co', text: meta.posting.company }),
+        el('div', { class: 'p-role', text: meta.posting.role }),
+        el('div', { class: 'p-meta', text: `${meta.posting.location}\nposted ${meta.posting.posted}` }),
+        el('div', { class: 'p-blurb', text: meta.posting.blurb }),
+      ),
+      el('div', { class: 'railh', style: 'margin-top:16px', text: 'requirements' }),
       rrail,
     ),
   );
@@ -102,7 +111,7 @@ export function mountProvenance(root) {
 
   const counter = el('div', { class: 'cnt' });
   const docButtons = new Map();
-  const claimButtons = new Map();
+  const claimEls = new Map();
   const sourceRows = new Map();
   const requirementRows = new Map();
 
@@ -216,43 +225,68 @@ export function mountProvenance(root) {
 
   /* ------------------------------------------------------------ document --- */
 
+  // Claims are spans rather than buttons. A button is coerced to inline-block by every engine,
+  // which makes each claim an unbreakable box and forces the prose to break around it. Section
+  // 14 allows role="button" with tabindex and explicit Enter/Space, which is what this does.
+  function claimSpan(claim) {
+    const blocked = isBlocked(claim);
+    const span = el('span', {
+      class: `cl ${claim.label}${blocked ? ' blk' : ''}`,
+      role: 'button',
+      tabindex: '0',
+      'aria-pressed': 'false',
+      'aria-label': `claim: ${claim.text}. label ${claim.label}, ${blocked ? 'blocked from output' : 'ships'}.`,
+      text: claim.text,
+      onclick: () => showClaim(claim.id),
+      onkeydown: (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ' && event.key !== 'Spacebar') return;
+        event.preventDefault(); // Space would scroll the page
+        showClaim(claim.id);
+      },
+    });
+    claimEls.set(claim.id, span);
+    return span;
+  }
+
+  // Fills {{cN}} slots in one block of text and returns the pieces.
+  function fill(text, claimById) {
+    const parts = [];
+    for (const part of text.split(/(\{\{c\d+\}\})/)) {
+      if (part === '') continue;
+      const match = part.match(/^\{\{(c\d+)\}\}$/);
+      if (!match) parts.push(document.createTextNode(part));
+      else {
+        const claim = claimById.get(match[1]);
+        if (claim) parts.push(claimSpan(claim));
+      }
+    }
+    return parts;
+  }
+
   function renderDocument() {
     clear(docBox);
-    claimButtons.clear();
-    docBox.className = `doc${currentDoc.kind === 'bullets' ? ' bullets' : ''}`;
+    claimEls.clear();
+    docBox.className = `doc ${currentDoc.kind}`;
 
     const claimById = new Map(currentDoc.claims.map((c) => [c.id, c]));
 
-    for (const lineText of currentDoc.template.split('\n')) {
-      const line = currentDoc.kind === 'bullets' ? el('div', {}) : docBox;
-      if (currentDoc.kind === 'bullets') line.append(document.createTextNode('· '));
+    for (const block of currentDoc.blocks) {
+      const content = fill(block.text ?? '', claimById);
 
-      for (const part of lineText.split(/(\{\{c\d+\}\})/)) {
-        if (part === '') continue;
-        const match = part.match(/^\{\{(c\d+)\}\}$/);
-        if (!match) {
-          line.append(document.createTextNode(part));
-          continue;
-        }
-        const claim = claimById.get(match[1]);
-        if (!claim) continue;
-
-        const blocked = isBlocked(claim);
-        const button = el('button', {
-          class: `cl ${claim.label}${blocked ? ' blk' : ''}`,
-          type: 'button',
-          'aria-pressed': 'false',
-          'aria-label': `claim: ${claim.text}. label ${claim.label}, ${
-            blocked ? 'blocked from output' : 'ships'
-          }.`,
-          text: claim.text,
-          onclick: () => showClaim(claim.id),
-        });
-        claimButtons.set(claim.id, button);
-        line.append(button);
+      if (block.type === 'role') {
+        docBox.append(
+          el(
+            'div',
+            { class: 'b-role' },
+            el('span', { class: 'b-role-t' }, content),
+            el('span', { class: 'b-role-m', text: block.meta ?? '' }),
+          ),
+        );
+      } else if (block.type === 'bullet') {
+        docBox.append(el('div', { class: 'b-bullet' }, document.createTextNode('· '), content));
+      } else {
+        docBox.append(el('div', { class: `b-${block.type}` }, content));
       }
-
-      if (currentDoc.kind === 'bullets') docBox.append(line);
     }
   }
 
@@ -273,7 +307,7 @@ export function mountProvenance(root) {
   function links() {
     return currentDoc.claims
       .map((claim) => {
-        const claimEl = claimButtons.get(claim.id);
+        const claimEl = claimEls.get(claim.id);
         const requirementEl = requirementRows.get(claim.requirementId)?.row;
         if (!claimEl || !requirementEl) return null;
         const blocked = isBlocked(claim);
@@ -297,7 +331,7 @@ export function mountProvenance(root) {
   function clearPressed() {
     for (const row of sourceRows.values()) row.setAttribute('aria-pressed', 'false');
     for (const { row } of requirementRows.values()) row.setAttribute('aria-pressed', 'false');
-    for (const button of claimButtons.values()) button.setAttribute('aria-pressed', 'false');
+    for (const button of claimEls.values()) button.setAttribute('aria-pressed', 'false');
   }
 
   function chip(text, blocked, onclick) {
@@ -310,7 +344,7 @@ export function mountProvenance(root) {
 
     selectedClaimId = claimId;
     clearPressed();
-    claimButtons.get(claimId)?.setAttribute('aria-pressed', 'true');
+    claimEls.get(claimId)?.setAttribute('aria-pressed', 'true');
     requirementRows.get(claim.requirementId)?.row.setAttribute('aria-pressed', 'true');
 
     const blocked = isBlocked(claim);

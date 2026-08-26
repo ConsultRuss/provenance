@@ -95,12 +95,24 @@ const documents = config.documents.map((d) => ({
   id: d.id,
   label: d.label,
   kind: d.kind,
-  template: d.template,
+  blocks: d.blocks.map((b) => ({ ...b })),
   claims: d.claims.map((c) => ({ ...c })),
 }));
 
+const BLOCK_TYPES = new Set(['meta', 'name', 'contact', 'section', 'role', 'para', 'bullet', 'sig']);
+const slotsIn = (doc) =>
+  doc.blocks.flatMap((b) => [...(b.text ?? '').matchAll(/\{\{(c\d+)\}\}/g)].map((m) => m[1]));
+
 // The invariant the whole page rests on. A claim that cannot ship has no source.
 for (const doc of documents) {
+  const slots = slotsIn(doc);
+  for (const block of doc.blocks) {
+    if (!BLOCK_TYPES.has(block.type)) throw new Error(`${doc.id}: unknown block type ${block.type}`);
+  }
+  for (const slot of slots) {
+    if (!doc.claims.some((c) => c.id === slot)) throw new Error(`${doc.id}: slot ${slot} has no claim`);
+  }
+
   for (const claim of doc.claims) {
     const blocked = claim.label === 'c' || claim.label === 'd';
     if (blocked && claim.sourceId !== 's0') {
@@ -115,8 +127,8 @@ for (const doc of documents) {
     if (!requirements.some((r) => r.id === claim.requirementId)) {
       throw new Error(`${doc.id}/${claim.id}: unknown requirementId ${claim.requirementId}`);
     }
-    if (!doc.template.includes(`{{${claim.id}}}`)) {
-      throw new Error(`${doc.id}: template has no slot for ${claim.id}`);
+    if (!slots.includes(claim.id)) {
+      throw new Error(`${doc.id}: no block has a slot for ${claim.id}`);
     }
   }
 }

@@ -217,38 +217,50 @@ export function buildDocumentPdf({ doc, sources, posting, pinnedDate }) {
   // Footnote numbers are assigned to shipping claims only, in reading order.
   const footnotes = [];
   const noteNumber = new Map();
-  for (const part of doc.template.split(/(\{\{c\d+\}\})/)) {
-    const match = part.match(/^\{\{(c\d+)\}\}$/);
-    if (!match) continue;
-    const claim = claimById.get(match[1]);
-    if (!claim || isBlocked(claim) || noteNumber.has(claim.id)) continue;
-    const source = sourceById.get(claim.sourceId);
-    noteNumber.set(claim.id, footnotes.length + 1);
-    footnotes.push(source ? source.filename : claim.sourceId);
+  for (const block of doc.blocks) {
+    for (const match of (block.text ?? '').matchAll(/\{\{(c\d+)\}\}/g)) {
+      const claim = claimById.get(match[1]);
+      if (!claim || isBlocked(claim) || noteNumber.has(claim.id)) continue;
+      const source = sourceById.get(claim.sourceId);
+      noteNumber.set(claim.id, footnotes.length + 1);
+      footnotes.push(source ? source.filename : claim.sourceId);
+    }
   }
 
-  // Turn the template into styled runs, one paragraph per template line.
-  const paragraphs = doc.template.split('\n').map((lineText) => {
+  // How each block type is set. Sizes track the on-page styling so the export reads as the
+  // same document rather than as a flattened transcript of it.
+  const STYLE = {
+    meta: { font: 'C', size: 8.5, color: GREY, after: 11, lead: 12 },
+    name: { font: 'B', size: 15, color: INK, after: 3, lead: 19 },
+    contact: { font: 'C', size: 8.5, color: GREY, after: 12, lead: 12 },
+    section: { font: 'C', size: 8, color: GREY, after: 7, lead: 12, rule: true },
+    role: { font: 'B', size: 10, color: INK, after: 3, lead: 14 },
+    para: { font: 'H', size: 10.5, color: INK, after: 11, lead: 15 },
+    bullet: { font: 'H', size: 10, color: INK, after: 3, lead: 14, bullet: true },
+    sig: { font: 'B', size: 10.5, color: INK, after: 0, lead: 15 },
+  };
+
+  function runsFor(block, style) {
     const runs = [];
-    for (const part of lineText.split(/(\{\{c\d+\}\})/)) {
+    for (const part of (block.text ?? '').split(/(\{\{c\d+\}\})/)) {
       if (part === '') continue;
       const match = part.match(/^\{\{(c\d+)\}\}$/);
       if (!match) {
-        runs.push({ text: part, font: 'H', size: 10.5, color: INK });
+        runs.push({ text: part, font: style.font, size: style.size, color: style.color });
         continue;
       }
       const claim = claimById.get(match[1]);
       if (!claim) continue;
       if (isBlocked(claim)) {
         // The claim text itself is never written to the file.
-        runs.push({ text: WITHHELD, font: 'C', size: 9, color: RED });
+        runs.push({ text: WITHHELD, font: 'C', size: style.size - 1.5, color: RED });
       } else {
-        runs.push({ text: claim.text, font: 'H', size: 10.5, color: INK });
+        runs.push({ text: claim.text, font: style.font, size: style.size, color: style.color });
         runs.push({ text: ` [${noteNumber.get(claim.id)}]`, font: 'C', size: 7.5, color: GREY });
       }
     }
     return runs;
-  });
+  }
 
   const content = new Content();
   const left = PAGE.margin;
@@ -268,16 +280,34 @@ export function buildDocumentPdf({ doc, sources, posting, pinnedDate }) {
   content.rule(left, y, maxWidth, [0.85, 0.84, 0.81]);
   y -= 24;
 
-  // Body.
-  const bulleted = doc.kind === 'bullets';
-  for (const runs of paragraphs) {
-    const prefix = bulleted ? [{ text: '· ', font: 'H', size: 10.5, color: INK }] : [];
-    const lines = wrap(atomize([...prefix, ...runs]), maxWidth);
-    for (const line of lines) {
-      content.text(left, y, line);
-      y -= bulleted ? 17 : 16;
+  // Body, block by block.
+  for (const block of doc.blocks) {
+    const style = STYLE[block.type] ?? STYLE.para;
+
+    if (style.rule) {
+      content.text(left, y, atomize(runsFor(block, style)));
+      y -= 5;
+      content.rule(left, y, maxWidth, [0.85, 0.84, 0.81]);
+      y -= style.after + 6;
+      continue;
     }
-    y -= bulleted ? 2 : 10;
+
+    // A role line puts its dates flush right on the same baseline.
+    if (block.type === 'role' && block.meta) {
+      const metaAtoms = atomize([{ text: block.meta, font: 'C', size: 8, color: GREY }]);
+      const metaWidth = metaAtoms.reduce((n, a) => n + a.width, 0);
+      content.text(left + maxWidth - metaWidth, y, metaAtoms);
+    }
+
+    const prefix = style.bullet ? [{ text: '· ', font: style.font, size: style.size, color: style.color }] : [];
+    const indent = style.bullet ? 10 : 0;
+    const lines = wrap(atomize([...prefix, ...runsFor(block, style)]), maxWidth - indent);
+
+    lines.forEach((line, i) => {
+      content.text(left + (i > 0 ? indent : 0), y, line);
+      y -= style.lead;
+    });
+    y -= style.after;
   }
 
   // Footnotes.
