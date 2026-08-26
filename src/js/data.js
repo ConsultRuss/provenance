@@ -5,32 +5,32 @@ export const sources = [
     "filename": "intake-interview-2026-03-11.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "interview transcript · 4,180 words",
-    "excerpt": "[00:14:22] Q: How long have you been doing land work?\nA: Fourteen years now. Started in 2012 doing ranch\nsplits out past Hondo, moved into mineral and\nsurface severance work about four years in.\n\n[00:31:07] A: The parcel database is mine. I built it,\nI host it, I run the nightly pull myself.\n\n[00:52:41] Q: Team size on the Atascosa cycle?\nA: Three of us. Me, a title clerk, and a surveyor\non contract."
+    "meta": "interview transcript · 3,940 words",
+    "excerpt": "[00:09:40] Q: How long have you been on equipment?\nA: Eleven years. Two in the shop starting out, nine\nin the field since. Dozers, excavators, wheel loaders,\nsome ag equipment.\n\n[00:22:15] A: I rebuild final drives and hydrostatic\npumps. Learned it in the apprenticeship and never\nstopped doing it.\n\n[00:41:03] Q: Have you run a crew?\nA: Two techs plus me, through one rebuild season.\nNot a big crew. I was the one signing the work off."
   },
   {
     "id": "s2",
-    "filename": "deed-records-medina-frio-atascosa.csv",
+    "filename": "work-orders-2023-2026.csv",
     "kind": "csv export",
-    "category": "third-party record",
-    "meta": "county clerk pull · 1,284 rows",
-    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows where role is buyer_rep or seller_rep\n-- 17 of those with mineral_severed = true"
+    "category": "system export",
+    "meta": "work order export · 1,284 rows",
+    "excerpt": "work_order,date,machine,fault_system,site,hours,comeback\nWO-88214,2024-03-11,excavator,hydraulic,customer,6.5,false\nWO-91077,2024-07-02,dozer,electrical,customer,4.0,false\nWO-94663,2025-01-19,wheel_loader,hydraulic,customer,9.5,true\n… 409 more rows where site = customer\n\n-- 412 rows with site = customer\n-- 63 of those with fault_system = hydraulic\n-- 10 with comeback = true  (2.4%)"
   },
   {
     "id": "s3",
-    "filename": "degree-verification-2019.pdf",
+    "filename": "training-record-2024.pdf",
     "kind": "pdf",
     "category": "third-party record",
-    "meta": "registrar letter · 1 page",
-    "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing.\n\nIssued at the request of the degree holder."
+    "meta": "training centre record · 2 pages",
+    "excerpt": "Service training record\n\nTechnician   D. Marek\nProgramme    Field service, four stage\n\nStage 1  hydraulics           completed 2022-05-06\nStage 2  electrical systems   completed 2022-11-18\nStage 3  powertrain           completed 2023-08-24\nStage 4  diagnostics          completed 2024-04-12\n\nIssued by the training centre, not by the technician."
   },
   {
     "id": "s4",
-    "filename": "parcel-db-commit-log.txt",
-    "kind": "plain text",
-    "category": "system export",
-    "meta": "version control export · 412 commits",
-    "excerpt": "repository    parcel-db\nfirst commit  2025-11-04\nlast commit   2026-08-19\ncommits       412\nauthors       1  (a.reyes)\nhosting       self, single node\nnightly job   county-ingest · 287 successful runs"
+    "filename": "licence-and-endorsements.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "licensing record · 1 page",
+    "excerpt": "Commercial driver licence — record of endorsements\n\nHolder        D. Marek\nClass         A\nEndorsements  tanker, air brakes — no restriction\nIssued        2016-02-11\nStatus        active, no suspensions on file"
   },
   {
     "id": "s5",
@@ -58,51 +58,51 @@ export const sources = [
   },
   {
     "id": "s8",
-    "filename": "offer-letter-2026-03-30.pdf",
+    "filename": "apprenticeship-record-2026-03-30.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 4 pages",
-    "excerpt": "Reference OFFERLETTER-2872\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference APPRENTICESHIPRECORD-2872\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s9",
-    "filename": "course-transcript-2026-06-24.pdf",
+    "filename": "safety-training-card-2026-06-24.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 5 pages",
-    "excerpt": "Reference COURSETRANSCRIPT-7802\nIssued 2026-06-24.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference SAFETYTRAININGCARD-7802\nIssued 2026-06-24.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s10",
-    "filename": "license-history-2026-05-11.pdf",
+    "filename": "respirator-fit-test-2026-05-11.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 1 pages",
-    "excerpt": "Reference LICENSEHISTORY-3297\nIssued 2026-05-11.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference RESPIRATORFITTEST-3297\nIssued 2026-05-11.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s11",
-    "filename": "certification-card-2026-03-30.pdf",
+    "filename": "medical-examiner-card-2026-03-30.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 6 pages",
-    "excerpt": "Reference CERTIFICATIONCARD-3645\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference MEDICALEXAMINERCARD-3645\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s12",
-    "filename": "continuing-ed-credits-2025-04-18.csv",
-    "kind": "csv export",
+    "filename": "background-check-clearance-2025-04-18.pdf",
+    "kind": "pdf",
     "category": "third-party record",
-    "meta": "export · 1,958 rows",
-    "excerpt": "issued_on,item,units,verified\n2025-04-18,continuing_ed_credits,18,true\n… 20 more rows\n\n-- issued by the awarding body, not by the subject"
+    "meta": "issued · 8 pages",
+    "excerpt": "Reference BACKGROUNDCHECKCLEARANCE-3598\nIssued 2025-04-18.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s13",
-    "filename": "client-note-2025-09-14.txt",
-    "kind": "plain text",
+    "filename": "customer-survey-results-2025-09-14.csv",
+    "kind": "csv export",
     "category": "third-party record",
-    "meta": "record · 5,606 words",
-    "excerpt": "Reference CLIENTNOTE-9081\nIssued 2025-09-14.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "meta": "export · 481 rows",
+    "excerpt": "issued_on,item,units,verified\n2025-09-14,customer_survey_results,45,true\n… 87 more rows\n\n-- issued by the awarding body, not by the subject"
   },
   {
     "id": "s14",
@@ -114,75 +114,75 @@ export const sources = [
   },
   {
     "id": "s15",
-    "filename": "contract-sow-2026-03-30.pdf",
-    "kind": "pdf",
-    "category": "third-party record",
-    "meta": "issued · 2 pages",
-    "excerpt": "Reference CONTRACTSOW-7268\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "filename": "torque-wrench-calibration-2026-03-30.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 347 rows",
+    "excerpt": "exported_on,torque_wrench_calibration,count\n2026-03-30,total,605\n2026-03-30,flagged,13\n… 171 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s16",
-    "filename": "earnings-summary-2026-02-09.csv",
+    "filename": "tool-inventory-2026-02-09.csv",
     "kind": "csv export",
-    "category": "third-party record",
-    "meta": "export · 858 rows",
-    "excerpt": "issued_on,item,units,verified\n2026-02-09,earnings_summary,31,true\n… 89 more rows\n\n-- issued by the awarding body, not by the subject"
+    "category": "system export",
+    "meta": "export · 2,126 rows",
+    "excerpt": "exported_on,tool_inventory,count\n2026-02-09,total,316\n2026-02-09,flagged,14\n… 72 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s17",
-    "filename": "timesheet-export-2025-07-29.csv",
+    "filename": "mileage-log-2025-07-29.csv",
     "kind": "csv export",
     "category": "system export",
-    "meta": "export · 780 rows",
-    "excerpt": "exported_on,timesheet_export,count\n2025-07-29,total,295\n2025-07-29,flagged,9\n… 42 more rows\n\n-- generated by the system, not typed by hand"
+    "meta": "export · 409 rows",
+    "excerpt": "exported_on,mileage_log,count\n2025-07-29,total,221\n2025-07-29,flagged,25\n… 87 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s18",
-    "filename": "closing-tracker-2025-04-18.csv",
+    "filename": "timesheet-export-2026-06-24.csv",
     "kind": "csv export",
     "category": "system export",
-    "meta": "export · 565 rows",
-    "excerpt": "exported_on,closing_tracker,count\n2025-04-18,total,365\n2025-04-18,flagged,37\n… 71 more rows\n\n-- generated by the system, not typed by hand"
+    "meta": "export · 721 rows",
+    "excerpt": "exported_on,timesheet_export,count\n2026-06-24,total,964\n2026-06-24,flagged,6\n… 171 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s19",
-    "filename": "mileage-log-2026-01-22.csv",
+    "filename": "warranty-claim-log-2025-09-14.csv",
     "kind": "csv export",
     "category": "system export",
-    "meta": "export · 2,252 rows",
-    "excerpt": "exported_on,mileage_log,count\n2026-01-22,total,769\n2026-01-22,flagged,14\n… 75 more rows\n\n-- generated by the system, not typed by hand"
+    "meta": "export · 763 rows",
+    "excerpt": "exported_on,warranty_claim_log,count\n2025-09-14,total,496\n2025-09-14,flagged,1\n… 129 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s20",
-    "filename": "project-log-2026-02-09.txt",
-    "kind": "plain text",
-    "category": "self-report",
-    "meta": "own notes · 3,100 words",
-    "excerpt": "Written 2026-02-09.\n\n28 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "filename": "parts-usage-export-2026-01-22.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 1,965 rows",
+    "excerpt": "exported_on,parts_usage_export,count\n2026-01-22,total,220\n2026-01-22,flagged,28\n… 203 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s21",
-    "filename": "work-sample-notes-2026-01-22.txt",
+    "filename": "fault-code-notebook-2026-06-24.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "own notes · 5,067 words",
-    "excerpt": "Written 2026-01-22.\n\n12 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "meta": "own notes · 3,230 words",
+    "excerpt": "Written 2026-06-24.\n\n21 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s22",
-    "filename": "deal-sheet-2026-03-30.txt",
+    "filename": "machine-notes-2026-01-22.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "own notes · 5,537 words",
-    "excerpt": "Written 2026-03-30.\n\n26 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "meta": "own notes · 4,557 words",
+    "excerpt": "Written 2026-01-22.\n\n14 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s23",
-    "filename": "career-questionnaire-2025-11-06.txt",
+    "filename": "career-questionnaire-2025-04-18.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "own notes · 2,656 words",
-    "excerpt": "Written 2025-11-06.\n\n36 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "meta": "own notes · 5,193 words",
+    "excerpt": "Written 2025-04-18.\n\n46 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s0",
@@ -197,42 +197,42 @@ export const sources = [
 export const requirements = [
   {
     "id": "r1",
-    "title": "Land transaction experience",
+    "title": "Field diagnostic experience",
     "priority": "must",
-    "verbatim": "5+ years originating, negotiating or closing land transactions in Texas. Familiarity with severed mineral estates strongly preferred.",
-    "evidence": "intake-interview-2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. Corroborated by deed-records-medina-frio-atascosa.csv: 52 closings across three counties, 17 with a severed mineral estate.",
+    "verbatim": "3+ years diagnosing and repairing heavy equipment in the field, not only in a shop bay. Hydraulic and electrical fault finding required.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:09:40 — eleven years, nine of them in the field. work-orders-2023-2026.csv — 412 work orders closed on customer sites, 63 of them hydraulic, 10 comebacks.",
     "verdict": "have as documented"
   },
   {
     "id": "r2",
-    "title": "Parcel data systems",
+    "title": "Manufacturer service training",
     "priority": "must",
-    "verbatim": "Comfort building or operating parcel-level data tooling — GIS layers, county record ingestion, or equivalent.",
-    "evidence": "parcel-db-commit-log.txt — 412 commits, sole author, self-hosted, 287 nightly ingestion runs. The subject also describes it at 00:31:07 of intake-interview-2026-03-11.txt.",
+    "verbatim": "Current manufacturer service training for at least one major equipment line, or an equivalent apprenticeship completed.",
+    "evidence": "training-record-2024.pdf — four-stage field service programme, final stage completed 2024-04-12, issued by the training centre. Rebuild work described by the subject at 00:22:15.",
     "verdict": "have as documented"
   },
   {
     "id": "r3",
-    "title": "Interconnection queue familiarity",
+    "title": "Crane and rigging certification",
     "priority": "preferred",
-    "verbatim": "Working knowledge of the Sablewood Grid Authority generation interconnection queue and its study phases is preferred, not required.",
-    "evidence": "Nothing in the library. A draft asserted fluency here; the assertion traced to resume-2025-draft.docx, a document this pipeline wrote, and was blocked at asset lint.",
+    "verbatim": "Crane and rigging certification preferred. Technician may set and pull components without a dedicated lift crew.",
+    "evidence": "Nothing in the library. A draft claimed the certification; the claim traced to resume-2025-draft.docx, a document this pipeline wrote, and was blocked at asset lint. No certificate, no card, no issuing body.",
     "verdict": "do not have"
   },
   {
     "id": "r4",
-    "title": "Graduate degree",
+    "title": "Commercial driver licence",
     "priority": "preferred",
-    "verbatim": "Advanced degree in real estate, economics, land use or a related field.",
-    "evidence": "degree-verification-2019.pdf — registrar letter confirming M.S. Land Economics, conferred 2019-05-18, in good standing.",
+    "verbatim": "Class A commercial driver licence preferred. Technician will move a service truck and equipment trailer.",
+    "evidence": "licence-and-endorsements.pdf — class A, tanker and air brake endorsements, active, no suspensions on file.",
     "verdict": "have as documented"
   },
   {
     "id": "r5",
-    "title": "Team leadership",
+    "title": "Crew leadership",
     "priority": "must",
-    "verbatim": "Experience leading a small cross-functional team through a full project cycle.",
-    "evidence": "intake-interview-2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six, and self-reported. The six-person figure has no record behind it at all.",
+    "verbatim": "Experience leading a small crew through a full job cycle, including sign-off on other technicians' work.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:41:03 — led two technicians through one rebuild season and signed the work off. A crew and a full cycle, but two, not six, and self-reported. The six-technician figure has no record behind it at all.",
     "verdict": "adjacent but honest"
   }
 ];
@@ -249,31 +249,31 @@ export const documents = [
       },
       {
         "type": "meta",
-        "text": "Hiring team\nMeridian Grid Partners\nSan Antonio, Texas"
+        "text": "Service manager\nIronline Machinery Company\nSan Antonio, Texas"
       },
       {
         "type": "para",
-        "text": "Dear hiring team,"
+        "text": "Dear service manager,"
       },
       {
         "type": "para",
-        "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, most of it on the parcel side of the work the posting describes: assembling positions in country where the surface and the minerals went separate ways decades ago, and where the person who signs is rarely the person on the tax roll."
+        "text": "I am applying for the field service technician opening posted on 11 August. I have {{c1}}, and the work order export from my current employer shows {{c2}}, {{c7}}."
       },
       {
         "type": "para",
-        "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Of those, {{c7}} — slower work than a clean fee transfer, and the reason I have firm opinions about how long title curative really takes."
+        "text": "Most of the job is diagnosis. A machine is down on a site, the operator has a theory, and the fault code is pointing somewhere else again. I work through the hydraulics and the electrical until the machine tells me what is actually wrong, fix it to spec, and write it up so the next technician does not start from nothing. I finished {{c3}}, and I have {{c8}} since my apprenticeship."
       },
       {
         "type": "para",
-        "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am {{c8}}, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
+        "text": "I hold {{c4}}, so I can move the truck and the trailer without waiting on anyone. I take the on-call rotation seriously. Nights and weekends in season are the job, and the customer who calls at four in the morning is the one who remembers how you answered."
       },
       {
         "type": "para",
-        "text": "On the interconnection side I bring {{c5}}, and {{c6}} through a full development cycle."
+        "text": "I also bring {{c5}}, and {{c6}} through a full season."
       },
       {
         "type": "para",
-        "text": "What I would most want to discuss is where origination currently stalls for you — title curative, landowner contact, or the study phases — because the answer decides which of the above is actually worth anything to you. I am glad to walk through the parcel database on a call and let you push on the data yourself."
+        "text": "I would rather show you than tell you. Put me on a machine that has been looked at twice already and let me work it. If the diagnosis is wrong you will know inside a day, which is the point."
       },
       {
         "type": "para",
@@ -281,65 +281,65 @@ export const documents = [
       },
       {
         "type": "sig",
-        "text": "A. Reyes"
+        "text": "D. Marek"
       }
     ],
     "claims": [
       {
         "id": "c1",
-        "text": "fourteen years working land transactions in South Texas",
+        "text": "eleven years on heavy equipment, nine of them in the field",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "52 closings across Medina, Frio and Atascosa counties",
+        "text": "412 work orders closed on customer sites",
+        "label": "b",
+        "sourceId": "s2",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c7",
+        "text": "63 of them hydraulic faults found and repaired on site",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c3",
-        "text": "built and self-host a parcel database",
+        "text": "the four-stage manufacturer service training",
+        "label": "b",
+        "sourceId": "s3",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c8",
+        "text": "rebuilt final drives and hydrostatic pumps",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r2"
       },
       {
         "id": "c4",
-        "text": "M.S. in Land Economics",
+        "text": "a class A licence with tanker and air brake endorsements",
         "label": "b",
-        "sourceId": "s3",
+        "sourceId": "s4",
         "requirementId": "r4"
       },
       {
         "id": "c5",
-        "text": "deep familiarity with the Sablewood interconnection queue",
+        "text": "a current crane and rigging certification",
         "label": "d",
         "sourceId": "s0",
         "requirementId": "r3"
       },
       {
         "id": "c6",
-        "text": "a documented record leading a six-person team",
+        "text": "a documented record leading a six-technician crew",
         "label": "c",
         "sourceId": "s0",
         "requirementId": "r5"
-      },
-      {
-        "id": "c7",
-        "text": "17 involved a severed mineral estate",
-        "label": "b",
-        "sourceId": "s2",
-        "requirementId": "r1"
-      },
-      {
-        "id": "c8",
-        "text": "its only committer",
-        "label": "b",
-        "sourceId": "s4",
-        "requirementId": "r2"
       }
     ]
   },
@@ -350,11 +350,11 @@ export const documents = [
     "blocks": [
       {
         "type": "name",
-        "text": "A. Reyes"
+        "text": "D. Marek"
       },
       {
         "type": "contact",
-        "text": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143"
+        "text": "San Antonio, Texas · d.marek@example.invalid · (210) 555-0176"
       },
       {
         "type": "section",
@@ -362,7 +362,7 @@ export const documents = [
       },
       {
         "type": "para",
-        "text": "{{c1}}, focused on ranch splits and severed mineral estates. Builds and runs the parcel tooling the work depends on."
+        "text": "{{c1}}. Field diagnosis on hydraulics, electrical and powertrain, repaired to spec and written up so the next technician can follow it."
       },
       {
         "type": "section",
@@ -370,140 +370,140 @@ export const documents = [
       },
       {
         "type": "role",
-        "text": "Senior land analyst · Tallow Creek Land Co",
+        "text": "Field service technician · Redgate Equipment Company",
         "meta": "2019 — present"
       },
       {
         "type": "bullet",
-        "text": "{{c2}}, acting for the buyer or the seller"
+        "text": "{{c2}} across three service territories"
       },
       {
         "type": "bullet",
-        "text": "Of those, {{c7}}, each carried through curative to close"
+        "text": "{{c7}}, without pulling the machine to the shop"
       },
       {
         "type": "bullet",
-        "text": "{{c3}} that ingests county records nightly"
+        "text": "{{c6}} across three years of closed work orders"
       },
       {
         "type": "bullet",
-        "text": "{{c6}} into that database, unattended"
-      },
-      {
-        "type": "bullet",
-        "text": "{{c8}} — a title clerk, a contract surveyor and myself"
+        "text": "{{c8}} — two technicians and myself"
       },
       {
         "type": "role",
-        "text": "Land analyst · Bitterwater Ranch Company",
+        "text": "Heavy equipment technician · Millrace Machine Works",
         "meta": "2015 — 2019"
       },
       {
         "type": "bullet",
-        "text": "{{c5}} out of Hondo and the counties west of it"
+        "text": "{{c5}}, plus undercarriage and track work"
       },
       {
         "type": "bullet",
-        "text": "Prepared title packets and coordinated landowner contact ahead of closing"
+        "text": "Shop diagnosis on dozers, excavators and wheel loaders"
       },
       {
         "type": "bullet",
-        "text": "Reconciled deed records across several county clerk systems"
+        "text": "Wrote the hydrostatic fault notes the shop still works from"
       },
       {
         "type": "role",
-        "text": "Title assistant · Pecanhill Title Group",
-        "meta": "2012 — 2015"
+        "text": "Apprentice technician · Longspur Equipment",
+        "meta": "2013 — 2015"
       },
       {
         "type": "bullet",
-        "text": "Ran chain of title on residential and small-acreage files"
+        "text": "Two-year apprenticeship completed under a master technician"
       },
       {
         "type": "bullet",
-        "text": "Maintained the closing calendar and the curative checklist"
+        "text": "Preventive maintenance, fluid analysis, undercarriage measurement"
       },
       {
         "type": "section",
-        "text": "education"
+        "text": "training and licences"
       },
       {
         "type": "bullet",
-        "text": "{{c4}}, conferred 2019"
+        "text": "{{c3}}, final stage completed 2024"
       },
       {
         "type": "bullet",
-        "text": "B.S. Agricultural Economics"
+        "text": "{{c4}}"
+      },
+      {
+        "type": "bullet",
+        "text": "Safety training card, current"
       },
       {
         "type": "section",
-        "text": "licences and systems"
+        "text": "tools"
       },
       {
         "type": "bullet",
-        "text": "Texas real estate licence, active"
+        "text": "Own hand and torque tooling, calibration current"
       },
       {
         "type": "bullet",
-        "text": "Parcel database (own build) — spatial store, nightly county ingestion"
+        "text": "Laptop diagnostics, fault code reading, hydraulic pressure testing"
       }
     ],
     "claims": [
       {
         "id": "c1",
-        "text": "Fourteen years in Texas land transactions",
+        "text": "Eleven years on heavy equipment, nine in the field",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "52 closings across three counties",
+        "text": "412 work orders closed on customer sites",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
-        "id": "c3",
-        "text": "Built and self-hosted a parcel database",
-        "label": "a",
-        "sourceId": "s1",
-        "requirementId": "r2"
-      },
-      {
-        "id": "c4",
-        "text": "M.S. Land Economics",
+        "id": "c7",
+        "text": "63 hydraulic faults diagnosed and repaired on site",
         "label": "b",
-        "sourceId": "s3",
-        "requirementId": "r4"
-      },
-      {
-        "id": "c5",
-        "text": "Ranch splits and mineral severance work",
-        "label": "a",
-        "sourceId": "s1",
+        "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c6",
-        "text": "287 nightly ingestion runs",
-        "label": "b",
-        "sourceId": "s4",
-        "requirementId": "r2"
-      },
-      {
-        "id": "c7",
-        "text": "17 involved a severed mineral estate",
+        "text": "A 2.4% comeback rate",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c8",
-        "text": "Led a three-person crew through a full closing cycle",
+        "text": "Led a crew through a full rebuild season",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r5"
+      },
+      {
+        "id": "c5",
+        "text": "Final drive and hydrostatic pump rebuilds",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c3",
+        "text": "Four-stage manufacturer service training",
+        "label": "b",
+        "sourceId": "s3",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c4",
+        "text": "Class A licence · tanker and air brake endorsements",
+        "label": "b",
+        "sourceId": "s4",
+        "requirementId": "r4"
       }
     ]
   },
@@ -514,32 +514,32 @@ export const documents = [
     "blocks": [
       {
         "type": "meta",
-        "text": "to: hiring team, Meridian Grid Partners\nsubject: site analyst opening"
+        "text": "to: service manager, Ironline Machinery Company\nsubject: field service technician opening"
       },
       {
         "type": "para",
-        "text": "I saw the site analyst opening. I have {{c1}}, and I {{c2}} — happy to show you what it pulls."
+        "text": "I saw the field service technician opening. I have {{c1}}, and I {{c2}} — happy to bring my own tools and work a machine that has already been looked at twice."
       },
       {
         "type": "para",
-        "text": "Worth a short call?"
+        "text": "Worth a call?"
       },
       {
         "type": "sig",
-        "text": "A. Reyes"
+        "text": "D. Marek"
       }
     ],
     "claims": [
       {
         "id": "c1",
-        "text": "spent fourteen years on Texas land deals",
+        "text": "spent nine years fixing machines on customer sites",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "run my own parcel database",
+        "text": "rebuild final drives and hydrostatic pumps",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r2"
@@ -584,11 +584,11 @@ export const gates = {
   "records": [
     {
       "id": "rec-01",
-      "company": "Bosque Holdings",
-      "role": "development associate",
+      "company": "Pike Rental",
+      "role": "undercarriage technician",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s5",
@@ -606,13 +606,14 @@ export const gates = {
     },
     {
       "id": "rec-02",
-      "company": "Frontage Development",
-      "role": "right of way agent",
+      "company": "Sledge Service Group",
+      "role": "undercarriage technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s3",
         "s6",
         "s19"
       ],
@@ -628,14 +629,13 @@ export const gates = {
     },
     {
       "id": "rec-03",
-      "company": "Escarpment Development",
-      "role": "development associate",
+      "company": "Drayline Heavy Equipment",
+      "role": "equipment inspector",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s4",
         "s7",
         "s20"
       ],
@@ -651,13 +651,14 @@ export const gates = {
     },
     {
       "id": "rec-04",
-      "company": "Salado Capital",
-      "role": "land analyst",
+      "company": "Tandem Rental",
+      "role": "powertrain technician",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s3",
         "s8",
         "s21"
       ],
@@ -673,13 +674,14 @@ export const gates = {
     },
     {
       "id": "rec-05",
-      "company": "Quarry Land Group",
-      "role": "right of way agent",
+      "company": "Cinder Equipment Co",
+      "role": "powertrain technician",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 2,
+      "claimsParsed": 3,
+      "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s3",
         "s9",
         "s22"
       ],
@@ -695,13 +697,14 @@ export const gates = {
     },
     {
       "id": "rec-06",
-      "company": "Hardpan Development",
-      "role": "land analyst",
+      "company": "Flint Diesel",
+      "role": "diesel technician",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s4",
         "s10",
         "s23"
       ],
@@ -717,8 +720,8 @@ export const gates = {
     },
     {
       "id": "rec-07",
-      "company": "Meridian Grid Partners",
-      "role": "site analyst",
+      "company": "Ironline Machinery Company",
+      "role": "field service technician",
       "focus": true,
       "claimsParsed": 18,
       "claimsCleared": 16,
@@ -741,13 +744,14 @@ export const gates = {
     },
     {
       "id": "rec-08",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Ridgeline Service Group",
+      "role": "shop technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s1",
         "s11"
       ],
       "stoppedAt": "wildcard",
@@ -762,14 +766,13 @@ export const gates = {
     },
     {
       "id": "rec-09",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Keystone Machinery",
+      "role": "hydraulics specialist",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 1,
       "claimsBlocked": 2,
       "sourceIds": [
-        "s4",
         "s12"
       ],
       "stoppedAt": "lint",
@@ -784,14 +787,14 @@ export const gates = {
     },
     {
       "id": "rec-10",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Wallow Machine Works",
+      "role": "shop technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 1,
       "claimsBlocked": 1,
       "sourceIds": [
-        "s1",
+        "s3",
         "s13"
       ],
       "stoppedAt": "lint",
@@ -806,8 +809,8 @@ export const gates = {
     },
     {
       "id": "rec-11",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Ridgeline Power Systems",
+      "role": "service writer",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 1,
@@ -827,14 +830,14 @@ export const gates = {
     },
     {
       "id": "rec-12",
-      "company": "Wallow Partners",
-      "role": "land analyst",
+      "company": "Keystone Power Systems",
+      "role": "hydraulics specialist",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s3",
+        "s1",
         "s15"
       ],
       "stoppedAt": null,
@@ -849,13 +852,14 @@ export const gates = {
     },
     {
       "id": "rec-13",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Drayline Service Group",
+      "role": "shop technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s1",
         "s16"
       ],
       "stoppedAt": null,
@@ -870,14 +874,13 @@ export const gates = {
     },
     {
       "id": "rec-14",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Blackjack Rental",
+      "role": "hydraulics specialist",
       "focus": false,
-      "claimsParsed": 1,
-      "claimsCleared": 1,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
         "s17"
       ],
       "stoppedAt": null,
@@ -895,8 +898,8 @@ export const gates = {
     {
       "id": "run-0001",
       "recordId": "rec-01",
-      "company": "Bosque Holdings",
-      "role": "development associate",
+      "company": "Pike Rental",
+      "role": "undercarriage technician",
       "lines": [
         {
           "gate": "intake",
@@ -909,8 +912,8 @@ export const gates = {
     {
       "id": "run-0002",
       "recordId": "rec-02",
-      "company": "Frontage Development",
-      "role": "right of way agent",
+      "company": "Sledge Service Group",
+      "role": "undercarriage technician",
       "lines": [
         {
           "gate": "intake",
@@ -923,8 +926,8 @@ export const gates = {
     {
       "id": "run-0003",
       "recordId": "rec-03",
-      "company": "Escarpment Development",
-      "role": "development associate",
+      "company": "Drayline Heavy Equipment",
+      "role": "equipment inspector",
       "lines": [
         {
           "gate": "intake",
@@ -942,8 +945,8 @@ export const gates = {
     {
       "id": "run-0004",
       "recordId": "rec-04",
-      "company": "Salado Capital",
-      "role": "land analyst",
+      "company": "Tandem Rental",
+      "role": "powertrain technician",
       "lines": [
         {
           "gate": "intake",
@@ -961,8 +964,8 @@ export const gates = {
     {
       "id": "run-0005",
       "recordId": "rec-05",
-      "company": "Quarry Land Group",
-      "role": "right of way agent",
+      "company": "Cinder Equipment Co",
+      "role": "powertrain technician",
       "lines": [
         {
           "gate": "intake",
@@ -985,8 +988,8 @@ export const gates = {
     {
       "id": "run-0006",
       "recordId": "rec-06",
-      "company": "Hardpan Development",
-      "role": "land analyst",
+      "company": "Flint Diesel",
+      "role": "diesel technician",
       "lines": [
         {
           "gate": "intake",
@@ -1009,8 +1012,8 @@ export const gates = {
     {
       "id": "run-0007",
       "recordId": "rec-07",
-      "company": "Meridian Grid Partners",
-      "role": "site analyst",
+      "company": "Ironline Machinery Company",
+      "role": "field service technician",
       "lines": [
         {
           "gate": "intake",
@@ -1043,8 +1046,8 @@ export const gates = {
     {
       "id": "run-0008",
       "recordId": "rec-08",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Ridgeline Service Group",
+      "role": "shop technician",
       "lines": [
         {
           "gate": "intake",
@@ -1072,8 +1075,8 @@ export const gates = {
     {
       "id": "run-0009",
       "recordId": "rec-09",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Keystone Machinery",
+      "role": "hydraulics specialist",
       "lines": [
         {
           "gate": "intake",
@@ -1106,8 +1109,8 @@ export const gates = {
     {
       "id": "run-0010",
       "recordId": "rec-10",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Wallow Machine Works",
+      "role": "shop technician",
       "lines": [
         {
           "gate": "intake",
@@ -1140,8 +1143,8 @@ export const gates = {
     {
       "id": "run-0011",
       "recordId": "rec-11",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Ridgeline Power Systems",
+      "role": "service writer",
       "lines": [
         {
           "gate": "intake",
@@ -1174,8 +1177,8 @@ export const gates = {
     {
       "id": "run-0012",
       "recordId": "rec-12",
-      "company": "Wallow Partners",
-      "role": "land analyst",
+      "company": "Keystone Power Systems",
+      "role": "hydraulics specialist",
       "lines": [
         {
           "gate": "intake",
@@ -1213,8 +1216,8 @@ export const gates = {
     {
       "id": "run-0013",
       "recordId": "rec-13",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Drayline Service Group",
+      "role": "shop technician",
       "lines": [
         {
           "gate": "intake",
@@ -1252,8 +1255,8 @@ export const gates = {
     {
       "id": "run-0014",
       "recordId": "rec-14",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Blackjack Rental",
+      "role": "hydraulics specialist",
       "lines": [
         {
           "gate": "intake",
@@ -1278,12 +1281,12 @@ export const gates = {
         {
           "gate": "lint",
           "status": "ok",
-          "text": "1 claims, all labelled a or b"
+          "text": "2 claims, all labelled a or b"
         },
         {
           "gate": "submitted",
           "status": "ok",
-          "text": "1 claims shipped"
+          "text": "2 claims shipped"
         }
       ],
       "exit": 0
@@ -1294,29 +1297,30 @@ export const gates = {
 export const meta = {
   "pinnedDate": "2026-08-26",
   "posting": {
-    "reqId": "MGP-2026-0447",
-    "company": "Meridian Grid Partners",
-    "role": "site analyst",
-    "team": "Origination",
-    "reportsTo": "Director of Land",
-    "location": "San Antonio, Texas · hybrid, 3 days on site",
-    "employment": "full-time",
-    "travel": "up to 25%, mostly South Texas",
-    "compensation": "$92,000 – $118,000 · bonus eligible",
+    "reqId": "IMC-2026-0318",
+    "company": "Ironline Machinery Company",
+    "role": "field service technician",
+    "team": "Product Support",
+    "reportsTo": "Service Manager, South Territory",
+    "location": "San Antonio, Texas · field based, South Texas territory",
+    "employment": "full-time · on-call rotation",
+    "travel": "daily to customer sites, up to 150 miles",
+    "compensation": "$31.50 – $41.75 per hour · overtime after 40 · tool allowance",
     "posted": "2026-08-11",
     "closes": "2026-09-08",
-    "blurb": "Meridian Grid Partners assembles land positions for utility-scale generation across South Texas. The site analyst supports origination: parcel research, title review and landowner contact ahead of interconnection.",
+    "blurb": "Ironline Machinery sells, rents and services heavy equipment across South Texas. Field service technicians work on the customer's site, in whatever the machine is sitting in, and they are the company's reputation on the day something breaks.",
     "responsibilities": [
-      "Research parcels and chains of title ahead of site control.",
-      "Pull and reconcile county records across several jurisdictions.",
-      "Flag severed mineral estates and other title risk early, in writing.",
-      "Prepare landowner contact packets and track every outreach attempt.",
-      "Keep the parcel dataset current enough that origination can rely on it."
+      "Diagnose hydraulic, electrical and powertrain faults on customer sites.",
+      "Repair to the manufacturer procedure and torque spec, first time where possible.",
+      "Write a service report the next technician can actually follow.",
+      "Keep the truck, the tooling and the calibrated instruments in order.",
+      "Take the on-call rotation, including nights and weekends in season.",
+      "Work safely in the conditions the machine is in, not the conditions you would prefer."
     ],
-    "wildcard": "Tell us about a deal you walked away from, and what it cost you to walk.",
-    "subject": "A. Reyes",
-    "subjectContact": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143",
-    "gridOperator": "Sablewood Grid Authority"
+    "wildcard": "Tell us about a repair you signed off on that came back. What did you miss?",
+    "subject": "D. Marek",
+    "subjectContact": "San Antonio, Texas · d.marek@example.invalid · (210) 555-0176",
+    "physical": "Lifting to 80 lb, climbing, cramped spaces, outdoor conditions year round"
   },
   "targets": {
     "records": 14,

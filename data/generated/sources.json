@@ -4,32 +4,32 @@
     "filename": "intake-interview-2026-03-11.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "interview transcript · 4,180 words",
-    "excerpt": "[00:14:22] Q: How long have you been doing land work?\nA: Fourteen years now. Started in 2012 doing ranch\nsplits out past Hondo, moved into mineral and\nsurface severance work about four years in.\n\n[00:31:07] A: The parcel database is mine. I built it,\nI host it, I run the nightly pull myself.\n\n[00:52:41] Q: Team size on the Atascosa cycle?\nA: Three of us. Me, a title clerk, and a surveyor\non contract."
+    "meta": "interview transcript · 3,940 words",
+    "excerpt": "[00:09:40] Q: How long have you been on equipment?\nA: Eleven years. Two in the shop starting out, nine\nin the field since. Dozers, excavators, wheel loaders,\nsome ag equipment.\n\n[00:22:15] A: I rebuild final drives and hydrostatic\npumps. Learned it in the apprenticeship and never\nstopped doing it.\n\n[00:41:03] Q: Have you run a crew?\nA: Two techs plus me, through one rebuild season.\nNot a big crew. I was the one signing the work off."
   },
   {
     "id": "s2",
-    "filename": "deed-records-medina-frio-atascosa.csv",
+    "filename": "work-orders-2023-2026.csv",
     "kind": "csv export",
-    "category": "third-party record",
-    "meta": "county clerk pull · 1,284 rows",
-    "excerpt": "county,instrument,date,role,acres,mineral_severed\nMedina,WD-2024-04188,2024-06-11,buyer_rep,212.4,true\nFrio,WD-2024-05512,2024-09-02,seller_rep,64.0,false\nAtascosa,WD-2025-00913,2025-02-20,buyer_rep,341.7,true\n… 49 more rows matching role filter\n\n-- 52 rows where role is buyer_rep or seller_rep\n-- 17 of those with mineral_severed = true"
+    "category": "system export",
+    "meta": "work order export · 1,284 rows",
+    "excerpt": "work_order,date,machine,fault_system,site,hours,comeback\nWO-88214,2024-03-11,excavator,hydraulic,customer,6.5,false\nWO-91077,2024-07-02,dozer,electrical,customer,4.0,false\nWO-94663,2025-01-19,wheel_loader,hydraulic,customer,9.5,true\n… 409 more rows where site = customer\n\n-- 412 rows with site = customer\n-- 63 of those with fault_system = hydraulic\n-- 10 with comeback = true  (2.4%)"
   },
   {
     "id": "s3",
-    "filename": "degree-verification-2019.pdf",
+    "filename": "training-record-2024.pdf",
     "kind": "pdf",
     "category": "third-party record",
-    "meta": "registrar letter · 1 page",
-    "excerpt": "This letter confirms that A. Reyes was awarded the\ndegree of Master of Science in Land Economics,\nconferred 2019-05-18. Degree is in good standing.\n\nIssued at the request of the degree holder."
+    "meta": "training centre record · 2 pages",
+    "excerpt": "Service training record\n\nTechnician   D. Marek\nProgramme    Field service, four stage\n\nStage 1  hydraulics           completed 2022-05-06\nStage 2  electrical systems   completed 2022-11-18\nStage 3  powertrain           completed 2023-08-24\nStage 4  diagnostics          completed 2024-04-12\n\nIssued by the training centre, not by the technician."
   },
   {
     "id": "s4",
-    "filename": "parcel-db-commit-log.txt",
-    "kind": "plain text",
-    "category": "system export",
-    "meta": "version control export · 412 commits",
-    "excerpt": "repository    parcel-db\nfirst commit  2025-11-04\nlast commit   2026-08-19\ncommits       412\nauthors       1  (a.reyes)\nhosting       self, single node\nnightly job   county-ingest · 287 successful runs"
+    "filename": "licence-and-endorsements.pdf",
+    "kind": "pdf",
+    "category": "third-party record",
+    "meta": "licensing record · 1 page",
+    "excerpt": "Commercial driver licence — record of endorsements\n\nHolder        D. Marek\nClass         A\nEndorsements  tanker, air brakes — no restriction\nIssued        2016-02-11\nStatus        active, no suspensions on file"
   },
   {
     "id": "s5",
@@ -57,51 +57,51 @@
   },
   {
     "id": "s8",
-    "filename": "offer-letter-2026-03-30.pdf",
+    "filename": "apprenticeship-record-2026-03-30.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 4 pages",
-    "excerpt": "Reference OFFERLETTER-2872\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference APPRENTICESHIPRECORD-2872\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s9",
-    "filename": "course-transcript-2026-06-24.pdf",
+    "filename": "safety-training-card-2026-06-24.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 5 pages",
-    "excerpt": "Reference COURSETRANSCRIPT-7802\nIssued 2026-06-24.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference SAFETYTRAININGCARD-7802\nIssued 2026-06-24.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s10",
-    "filename": "license-history-2026-05-11.pdf",
+    "filename": "respirator-fit-test-2026-05-11.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 1 pages",
-    "excerpt": "Reference LICENSEHISTORY-3297\nIssued 2026-05-11.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference RESPIRATORFITTEST-3297\nIssued 2026-05-11.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s11",
-    "filename": "certification-card-2026-03-30.pdf",
+    "filename": "medical-examiner-card-2026-03-30.pdf",
     "kind": "pdf",
     "category": "third-party record",
     "meta": "issued · 6 pages",
-    "excerpt": "Reference CERTIFICATIONCARD-3645\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "excerpt": "Reference MEDICALEXAMINERCARD-3645\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s12",
-    "filename": "continuing-ed-credits-2025-04-18.csv",
-    "kind": "csv export",
+    "filename": "background-check-clearance-2025-04-18.pdf",
+    "kind": "pdf",
     "category": "third-party record",
-    "meta": "export · 1,958 rows",
-    "excerpt": "issued_on,item,units,verified\n2025-04-18,continuing_ed_credits,18,true\n… 20 more rows\n\n-- issued by the awarding body, not by the subject"
+    "meta": "issued · 8 pages",
+    "excerpt": "Reference BACKGROUNDCHECKCLEARANCE-3598\nIssued 2025-04-18.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
   },
   {
     "id": "s13",
-    "filename": "client-note-2025-09-14.txt",
-    "kind": "plain text",
+    "filename": "customer-survey-results-2025-09-14.csv",
+    "kind": "csv export",
     "category": "third-party record",
-    "meta": "record · 5,606 words",
-    "excerpt": "Reference CLIENTNOTE-9081\nIssued 2025-09-14.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "meta": "export · 481 rows",
+    "excerpt": "issued_on,item,units,verified\n2025-09-14,customer_survey_results,45,true\n… 87 more rows\n\n-- issued by the awarding body, not by the subject"
   },
   {
     "id": "s14",
@@ -113,75 +113,75 @@
   },
   {
     "id": "s15",
-    "filename": "contract-sow-2026-03-30.pdf",
-    "kind": "pdf",
-    "category": "third-party record",
-    "meta": "issued · 2 pages",
-    "excerpt": "Reference CONTRACTSOW-7268\nIssued 2026-03-30.\n\nThis document was produced by a third party and\nretained by the subject. It attests to the items\nlisted above and nothing beyond them."
+    "filename": "torque-wrench-calibration-2026-03-30.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 347 rows",
+    "excerpt": "exported_on,torque_wrench_calibration,count\n2026-03-30,total,605\n2026-03-30,flagged,13\n… 171 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s16",
-    "filename": "earnings-summary-2026-02-09.csv",
+    "filename": "tool-inventory-2026-02-09.csv",
     "kind": "csv export",
-    "category": "third-party record",
-    "meta": "export · 858 rows",
-    "excerpt": "issued_on,item,units,verified\n2026-02-09,earnings_summary,31,true\n… 89 more rows\n\n-- issued by the awarding body, not by the subject"
+    "category": "system export",
+    "meta": "export · 2,126 rows",
+    "excerpt": "exported_on,tool_inventory,count\n2026-02-09,total,316\n2026-02-09,flagged,14\n… 72 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s17",
-    "filename": "timesheet-export-2025-07-29.csv",
+    "filename": "mileage-log-2025-07-29.csv",
     "kind": "csv export",
     "category": "system export",
-    "meta": "export · 780 rows",
-    "excerpt": "exported_on,timesheet_export,count\n2025-07-29,total,295\n2025-07-29,flagged,9\n… 42 more rows\n\n-- generated by the system, not typed by hand"
+    "meta": "export · 409 rows",
+    "excerpt": "exported_on,mileage_log,count\n2025-07-29,total,221\n2025-07-29,flagged,25\n… 87 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s18",
-    "filename": "closing-tracker-2025-04-18.csv",
+    "filename": "timesheet-export-2026-06-24.csv",
     "kind": "csv export",
     "category": "system export",
-    "meta": "export · 565 rows",
-    "excerpt": "exported_on,closing_tracker,count\n2025-04-18,total,365\n2025-04-18,flagged,37\n… 71 more rows\n\n-- generated by the system, not typed by hand"
+    "meta": "export · 721 rows",
+    "excerpt": "exported_on,timesheet_export,count\n2026-06-24,total,964\n2026-06-24,flagged,6\n… 171 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s19",
-    "filename": "mileage-log-2026-01-22.csv",
+    "filename": "warranty-claim-log-2025-09-14.csv",
     "kind": "csv export",
     "category": "system export",
-    "meta": "export · 2,252 rows",
-    "excerpt": "exported_on,mileage_log,count\n2026-01-22,total,769\n2026-01-22,flagged,14\n… 75 more rows\n\n-- generated by the system, not typed by hand"
+    "meta": "export · 763 rows",
+    "excerpt": "exported_on,warranty_claim_log,count\n2025-09-14,total,496\n2025-09-14,flagged,1\n… 129 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s20",
-    "filename": "project-log-2026-02-09.txt",
-    "kind": "plain text",
-    "category": "self-report",
-    "meta": "own notes · 3,100 words",
-    "excerpt": "Written 2026-02-09.\n\n28 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "filename": "parts-usage-export-2026-01-22.csv",
+    "kind": "csv export",
+    "category": "system export",
+    "meta": "export · 1,965 rows",
+    "excerpt": "exported_on,parts_usage_export,count\n2026-01-22,total,220\n2026-01-22,flagged,28\n… 203 more rows\n\n-- generated by the system, not typed by hand"
   },
   {
     "id": "s21",
-    "filename": "work-sample-notes-2026-01-22.txt",
+    "filename": "fault-code-notebook-2026-06-24.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "own notes · 5,067 words",
-    "excerpt": "Written 2026-01-22.\n\n12 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "meta": "own notes · 3,230 words",
+    "excerpt": "Written 2026-06-24.\n\n21 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s22",
-    "filename": "deal-sheet-2026-03-30.txt",
+    "filename": "machine-notes-2026-01-22.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "own notes · 5,537 words",
-    "excerpt": "Written 2026-03-30.\n\n26 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "meta": "own notes · 4,557 words",
+    "excerpt": "Written 2026-01-22.\n\n14 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s23",
-    "filename": "career-questionnaire-2025-11-06.txt",
+    "filename": "career-questionnaire-2025-04-18.txt",
     "kind": "plain text",
     "category": "self-report",
-    "meta": "own notes · 2,656 words",
-    "excerpt": "Written 2025-11-06.\n\n36 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
+    "meta": "own notes · 5,193 words",
+    "excerpt": "Written 2025-04-18.\n\n46 entries, kept by the subject for their own\nreference. Useful for recall. Not evidence on its\nown — nothing here was checked by anyone else."
   },
   {
     "id": "s0",

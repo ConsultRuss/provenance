@@ -10,31 +10,31 @@
       },
       {
         "type": "meta",
-        "text": "Hiring team\nMeridian Grid Partners\nSan Antonio, Texas"
+        "text": "Service manager\nIronline Machinery Company\nSan Antonio, Texas"
       },
       {
         "type": "para",
-        "text": "Dear hiring team,"
+        "text": "Dear service manager,"
       },
       {
         "type": "para",
-        "text": "I am writing about the site analyst opening posted on 11 August. I have {{c1}}, most of it on the parcel side of the work the posting describes: assembling positions in country where the surface and the minerals went separate ways decades ago, and where the person who signs is rarely the person on the tax roll."
+        "text": "I am applying for the field service technician opening posted on 11 August. I have {{c1}}, and the work order export from my current employer shows {{c2}}, {{c7}}."
       },
       {
         "type": "para",
-        "text": "The transaction record is the part I would want checked first. County records show {{c2}}, acting for the buyer or the seller, and the instrument numbers are in an export I can send with this letter. Of those, {{c7}} — slower work than a clean fee transfer, and the reason I have firm opinions about how long title curative really takes."
+        "text": "Most of the job is diagnosis. A machine is down on a site, the operator has a theory, and the fault code is pointing somewhere else again. I work through the hydraulics and the electrical until the machine tells me what is actually wrong, fix it to spec, and write it up so the next technician does not start from nothing. I finished {{c3}}, and I have {{c8}} since my apprenticeship."
       },
       {
         "type": "para",
-        "text": "The posting also asks for comfort with parcel-level tooling. I {{c3}} that ingests county records nightly. I run the pull myself and I am {{c8}}, which is why I can usually answer an acreage or ownership question the same morning it is asked instead of a week later. I also hold an {{c4}}."
+        "text": "I hold {{c4}}, so I can move the truck and the trailer without waiting on anyone. I take the on-call rotation seriously. Nights and weekends in season are the job, and the customer who calls at four in the morning is the one who remembers how you answered."
       },
       {
         "type": "para",
-        "text": "On the interconnection side I bring {{c5}}, and {{c6}} through a full development cycle."
+        "text": "I also bring {{c5}}, and {{c6}} through a full season."
       },
       {
         "type": "para",
-        "text": "What I would most want to discuss is where origination currently stalls for you — title curative, landowner contact, or the study phases — because the answer decides which of the above is actually worth anything to you. I am glad to walk through the parcel database on a call and let you push on the data yourself."
+        "text": "I would rather show you than tell you. Put me on a machine that has been looked at twice already and let me work it. If the diagnosis is wrong you will know inside a day, which is the point."
       },
       {
         "type": "para",
@@ -42,65 +42,65 @@
       },
       {
         "type": "sig",
-        "text": "A. Reyes"
+        "text": "D. Marek"
       }
     ],
     "claims": [
       {
         "id": "c1",
-        "text": "fourteen years working land transactions in South Texas",
+        "text": "eleven years on heavy equipment, nine of them in the field",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "52 closings across Medina, Frio and Atascosa counties",
+        "text": "412 work orders closed on customer sites",
+        "label": "b",
+        "sourceId": "s2",
+        "requirementId": "r1"
+      },
+      {
+        "id": "c7",
+        "text": "63 of them hydraulic faults found and repaired on site",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c3",
-        "text": "built and self-host a parcel database",
+        "text": "the four-stage manufacturer service training",
+        "label": "b",
+        "sourceId": "s3",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c8",
+        "text": "rebuilt final drives and hydrostatic pumps",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r2"
       },
       {
         "id": "c4",
-        "text": "M.S. in Land Economics",
+        "text": "a class A licence with tanker and air brake endorsements",
         "label": "b",
-        "sourceId": "s3",
+        "sourceId": "s4",
         "requirementId": "r4"
       },
       {
         "id": "c5",
-        "text": "deep familiarity with the Sablewood interconnection queue",
+        "text": "a current crane and rigging certification",
         "label": "d",
         "sourceId": "s0",
         "requirementId": "r3"
       },
       {
         "id": "c6",
-        "text": "a documented record leading a six-person team",
+        "text": "a documented record leading a six-technician crew",
         "label": "c",
         "sourceId": "s0",
         "requirementId": "r5"
-      },
-      {
-        "id": "c7",
-        "text": "17 involved a severed mineral estate",
-        "label": "b",
-        "sourceId": "s2",
-        "requirementId": "r1"
-      },
-      {
-        "id": "c8",
-        "text": "its only committer",
-        "label": "b",
-        "sourceId": "s4",
-        "requirementId": "r2"
       }
     ]
   },
@@ -111,11 +111,11 @@
     "blocks": [
       {
         "type": "name",
-        "text": "A. Reyes"
+        "text": "D. Marek"
       },
       {
         "type": "contact",
-        "text": "San Antonio, Texas · a.reyes@example.invalid · (210) 555-0143"
+        "text": "San Antonio, Texas · d.marek@example.invalid · (210) 555-0176"
       },
       {
         "type": "section",
@@ -123,7 +123,7 @@
       },
       {
         "type": "para",
-        "text": "{{c1}}, focused on ranch splits and severed mineral estates. Builds and runs the parcel tooling the work depends on."
+        "text": "{{c1}}. Field diagnosis on hydraulics, electrical and powertrain, repaired to spec and written up so the next technician can follow it."
       },
       {
         "type": "section",
@@ -131,140 +131,140 @@
       },
       {
         "type": "role",
-        "text": "Senior land analyst · Tallow Creek Land Co",
+        "text": "Field service technician · Redgate Equipment Company",
         "meta": "2019 — present"
       },
       {
         "type": "bullet",
-        "text": "{{c2}}, acting for the buyer or the seller"
+        "text": "{{c2}} across three service territories"
       },
       {
         "type": "bullet",
-        "text": "Of those, {{c7}}, each carried through curative to close"
+        "text": "{{c7}}, without pulling the machine to the shop"
       },
       {
         "type": "bullet",
-        "text": "{{c3}} that ingests county records nightly"
+        "text": "{{c6}} across three years of closed work orders"
       },
       {
         "type": "bullet",
-        "text": "{{c6}} into that database, unattended"
-      },
-      {
-        "type": "bullet",
-        "text": "{{c8}} — a title clerk, a contract surveyor and myself"
+        "text": "{{c8}} — two technicians and myself"
       },
       {
         "type": "role",
-        "text": "Land analyst · Bitterwater Ranch Company",
+        "text": "Heavy equipment technician · Millrace Machine Works",
         "meta": "2015 — 2019"
       },
       {
         "type": "bullet",
-        "text": "{{c5}} out of Hondo and the counties west of it"
+        "text": "{{c5}}, plus undercarriage and track work"
       },
       {
         "type": "bullet",
-        "text": "Prepared title packets and coordinated landowner contact ahead of closing"
+        "text": "Shop diagnosis on dozers, excavators and wheel loaders"
       },
       {
         "type": "bullet",
-        "text": "Reconciled deed records across several county clerk systems"
+        "text": "Wrote the hydrostatic fault notes the shop still works from"
       },
       {
         "type": "role",
-        "text": "Title assistant · Pecanhill Title Group",
-        "meta": "2012 — 2015"
+        "text": "Apprentice technician · Longspur Equipment",
+        "meta": "2013 — 2015"
       },
       {
         "type": "bullet",
-        "text": "Ran chain of title on residential and small-acreage files"
+        "text": "Two-year apprenticeship completed under a master technician"
       },
       {
         "type": "bullet",
-        "text": "Maintained the closing calendar and the curative checklist"
+        "text": "Preventive maintenance, fluid analysis, undercarriage measurement"
       },
       {
         "type": "section",
-        "text": "education"
+        "text": "training and licences"
       },
       {
         "type": "bullet",
-        "text": "{{c4}}, conferred 2019"
+        "text": "{{c3}}, final stage completed 2024"
       },
       {
         "type": "bullet",
-        "text": "B.S. Agricultural Economics"
+        "text": "{{c4}}"
+      },
+      {
+        "type": "bullet",
+        "text": "Safety training card, current"
       },
       {
         "type": "section",
-        "text": "licences and systems"
+        "text": "tools"
       },
       {
         "type": "bullet",
-        "text": "Texas real estate licence, active"
+        "text": "Own hand and torque tooling, calibration current"
       },
       {
         "type": "bullet",
-        "text": "Parcel database (own build) — spatial store, nightly county ingestion"
+        "text": "Laptop diagnostics, fault code reading, hydraulic pressure testing"
       }
     ],
     "claims": [
       {
         "id": "c1",
-        "text": "Fourteen years in Texas land transactions",
+        "text": "Eleven years on heavy equipment, nine in the field",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "52 closings across three counties",
+        "text": "412 work orders closed on customer sites",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
-        "id": "c3",
-        "text": "Built and self-hosted a parcel database",
-        "label": "a",
-        "sourceId": "s1",
-        "requirementId": "r2"
-      },
-      {
-        "id": "c4",
-        "text": "M.S. Land Economics",
+        "id": "c7",
+        "text": "63 hydraulic faults diagnosed and repaired on site",
         "label": "b",
-        "sourceId": "s3",
-        "requirementId": "r4"
-      },
-      {
-        "id": "c5",
-        "text": "Ranch splits and mineral severance work",
-        "label": "a",
-        "sourceId": "s1",
+        "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c6",
-        "text": "287 nightly ingestion runs",
-        "label": "b",
-        "sourceId": "s4",
-        "requirementId": "r2"
-      },
-      {
-        "id": "c7",
-        "text": "17 involved a severed mineral estate",
+        "text": "A 2.4% comeback rate",
         "label": "b",
         "sourceId": "s2",
         "requirementId": "r1"
       },
       {
         "id": "c8",
-        "text": "Led a three-person crew through a full closing cycle",
+        "text": "Led a crew through a full rebuild season",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r5"
+      },
+      {
+        "id": "c5",
+        "text": "Final drive and hydrostatic pump rebuilds",
+        "label": "a",
+        "sourceId": "s1",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c3",
+        "text": "Four-stage manufacturer service training",
+        "label": "b",
+        "sourceId": "s3",
+        "requirementId": "r2"
+      },
+      {
+        "id": "c4",
+        "text": "Class A licence · tanker and air brake endorsements",
+        "label": "b",
+        "sourceId": "s4",
+        "requirementId": "r4"
       }
     ]
   },
@@ -275,32 +275,32 @@
     "blocks": [
       {
         "type": "meta",
-        "text": "to: hiring team, Meridian Grid Partners\nsubject: site analyst opening"
+        "text": "to: service manager, Ironline Machinery Company\nsubject: field service technician opening"
       },
       {
         "type": "para",
-        "text": "I saw the site analyst opening. I have {{c1}}, and I {{c2}} — happy to show you what it pulls."
+        "text": "I saw the field service technician opening. I have {{c1}}, and I {{c2}} — happy to bring my own tools and work a machine that has already been looked at twice."
       },
       {
         "type": "para",
-        "text": "Worth a short call?"
+        "text": "Worth a call?"
       },
       {
         "type": "sig",
-        "text": "A. Reyes"
+        "text": "D. Marek"
       }
     ],
     "claims": [
       {
         "id": "c1",
-        "text": "spent fourteen years on Texas land deals",
+        "text": "spent nine years fixing machines on customer sites",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r1"
       },
       {
         "id": "c2",
-        "text": "run my own parcel database",
+        "text": "rebuild final drives and hydrostatic pumps",
         "label": "a",
         "sourceId": "s1",
         "requirementId": "r2"

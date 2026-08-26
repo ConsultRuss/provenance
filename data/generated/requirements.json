@@ -1,42 +1,42 @@
 [
   {
     "id": "r1",
-    "title": "Land transaction experience",
+    "title": "Field diagnostic experience",
     "priority": "must",
-    "verbatim": "5+ years originating, negotiating or closing land transactions in Texas. Familiarity with severed mineral estates strongly preferred.",
-    "evidence": "intake-interview-2026-03-11.txt at 00:14:22 — fourteen years, starting 2012. Corroborated by deed-records-medina-frio-atascosa.csv: 52 closings across three counties, 17 with a severed mineral estate.",
+    "verbatim": "3+ years diagnosing and repairing heavy equipment in the field, not only in a shop bay. Hydraulic and electrical fault finding required.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:09:40 — eleven years, nine of them in the field. work-orders-2023-2026.csv — 412 work orders closed on customer sites, 63 of them hydraulic, 10 comebacks.",
     "verdict": "have as documented"
   },
   {
     "id": "r2",
-    "title": "Parcel data systems",
+    "title": "Manufacturer service training",
     "priority": "must",
-    "verbatim": "Comfort building or operating parcel-level data tooling — GIS layers, county record ingestion, or equivalent.",
-    "evidence": "parcel-db-commit-log.txt — 412 commits, sole author, self-hosted, 287 nightly ingestion runs. The subject also describes it at 00:31:07 of intake-interview-2026-03-11.txt.",
+    "verbatim": "Current manufacturer service training for at least one major equipment line, or an equivalent apprenticeship completed.",
+    "evidence": "training-record-2024.pdf — four-stage field service programme, final stage completed 2024-04-12, issued by the training centre. Rebuild work described by the subject at 00:22:15.",
     "verdict": "have as documented"
   },
   {
     "id": "r3",
-    "title": "Interconnection queue familiarity",
+    "title": "Crane and rigging certification",
     "priority": "preferred",
-    "verbatim": "Working knowledge of the Sablewood Grid Authority generation interconnection queue and its study phases is preferred, not required.",
-    "evidence": "Nothing in the library. A draft asserted fluency here; the assertion traced to resume-2025-draft.docx, a document this pipeline wrote, and was blocked at asset lint.",
+    "verbatim": "Crane and rigging certification preferred. Technician may set and pull components without a dedicated lift crew.",
+    "evidence": "Nothing in the library. A draft claimed the certification; the claim traced to resume-2025-draft.docx, a document this pipeline wrote, and was blocked at asset lint. No certificate, no card, no issuing body.",
     "verdict": "do not have"
   },
   {
     "id": "r4",
-    "title": "Graduate degree",
+    "title": "Commercial driver licence",
     "priority": "preferred",
-    "verbatim": "Advanced degree in real estate, economics, land use or a related field.",
-    "evidence": "degree-verification-2019.pdf — registrar letter confirming M.S. Land Economics, conferred 2019-05-18, in good standing.",
+    "verbatim": "Class A commercial driver licence preferred. Technician will move a service truck and equipment trailer.",
+    "evidence": "licence-and-endorsements.pdf — class A, tanker and air brake endorsements, active, no suspensions on file.",
     "verdict": "have as documented"
   },
   {
     "id": "r5",
-    "title": "Team leadership",
+    "title": "Crew leadership",
     "priority": "must",
-    "verbatim": "Experience leading a small cross-functional team through a full project cycle.",
-    "evidence": "intake-interview-2026-03-11.txt at 00:52:41 — led three people through the Atascosa closing cycle. Cross-functional and a full cycle, but three, not six, and self-reported. The six-person figure has no record behind it at all.",
+    "verbatim": "Experience leading a small crew through a full job cycle, including sign-off on other technicians' work.",
+    "evidence": "intake-interview-2026-03-11.txt at 00:41:03 — led two technicians through one rebuild season and signed the work off. A crew and a full cycle, but two, not six, and self-reported. The six-technician figure has no record behind it at all.",
     "verdict": "adjacent but honest"
   }
 ]

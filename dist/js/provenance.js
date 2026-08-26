@@ -496,8 +496,9 @@ export function mountProvenance(root) {
       ['location', post.location],
       ['type', `${post.employment} · travel ${post.travel}`],
       ['pay', post.compensation],
+      ['physical', post.physical],
       ['dates', `posted ${post.posted} · closes ${post.closes}`],
-    ];
+    ].filter(([, value]) => value);
 
     clear(inspector).append(
       el(

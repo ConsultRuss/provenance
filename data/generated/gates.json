@@ -34,11 +34,11 @@
   "records": [
     {
       "id": "rec-01",
-      "company": "Bosque Holdings",
-      "role": "development associate",
+      "company": "Pike Rental",
+      "role": "undercarriage technician",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
         "s5",
@@ -56,13 +56,14 @@
     },
     {
       "id": "rec-02",
-      "company": "Frontage Development",
-      "role": "right of way agent",
+      "company": "Sledge Service Group",
+      "role": "undercarriage technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s3",
         "s6",
         "s19"
       ],
@@ -78,14 +79,13 @@
     },
     {
       "id": "rec-03",
-      "company": "Escarpment Development",
-      "role": "development associate",
+      "company": "Drayline Heavy Equipment",
+      "role": "equipment inspector",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s4",
         "s7",
         "s20"
       ],
@@ -101,13 +101,14 @@
     },
     {
       "id": "rec-04",
-      "company": "Salado Capital",
-      "role": "land analyst",
+      "company": "Tandem Rental",
+      "role": "powertrain technician",
       "focus": false,
-      "claimsParsed": 3,
-      "claimsCleared": 3,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s3",
         "s8",
         "s21"
       ],
@@ -123,13 +124,14 @@
     },
     {
       "id": "rec-05",
-      "company": "Quarry Land Group",
-      "role": "right of way agent",
+      "company": "Cinder Equipment Co",
+      "role": "powertrain technician",
       "focus": false,
-      "claimsParsed": 2,
-      "claimsCleared": 2,
+      "claimsParsed": 3,
+      "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s3",
         "s9",
         "s22"
       ],
@@ -145,13 +147,14 @@
     },
     {
       "id": "rec-06",
-      "company": "Hardpan Development",
-      "role": "land analyst",
+      "company": "Flint Diesel",
+      "role": "diesel technician",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 3,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s4",
         "s10",
         "s23"
       ],
@@ -167,8 +170,8 @@
     },
     {
       "id": "rec-07",
-      "company": "Meridian Grid Partners",
-      "role": "site analyst",
+      "company": "Ironline Machinery Company",
+      "role": "field service technician",
       "focus": true,
       "claimsParsed": 18,
       "claimsCleared": 16,
@@ -191,13 +194,14 @@
     },
     {
       "id": "rec-08",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Ridgeline Service Group",
+      "role": "shop technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s1",
         "s11"
       ],
       "stoppedAt": "wildcard",
@@ -212,14 +216,13 @@
     },
     {
       "id": "rec-09",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Keystone Machinery",
+      "role": "hydraulics specialist",
       "focus": false,
       "claimsParsed": 3,
       "claimsCleared": 1,
       "claimsBlocked": 2,
       "sourceIds": [
-        "s4",
         "s12"
       ],
       "stoppedAt": "lint",
@@ -234,14 +237,14 @@
     },
     {
       "id": "rec-10",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Wallow Machine Works",
+      "role": "shop technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 1,
       "claimsBlocked": 1,
       "sourceIds": [
-        "s1",
+        "s3",
         "s13"
       ],
       "stoppedAt": "lint",
@@ -256,8 +259,8 @@
     },
     {
       "id": "rec-11",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Ridgeline Power Systems",
+      "role": "service writer",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 1,
@@ -277,14 +280,14 @@
     },
     {
       "id": "rec-12",
-      "company": "Wallow Partners",
-      "role": "land analyst",
+      "company": "Keystone Power Systems",
+      "role": "hydraulics specialist",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s3",
+        "s1",
         "s15"
       ],
       "stoppedAt": null,
@@ -299,13 +302,14 @@
     },
     {
       "id": "rec-13",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Drayline Service Group",
+      "role": "shop technician",
       "focus": false,
       "claimsParsed": 2,
       "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
+        "s1",
         "s16"
       ],
       "stoppedAt": null,
@@ -320,14 +324,13 @@
     },
     {
       "id": "rec-14",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Blackjack Rental",
+      "role": "hydraulics specialist",
       "focus": false,
-      "claimsParsed": 1,
-      "claimsCleared": 1,
+      "claimsParsed": 2,
+      "claimsCleared": 2,
       "claimsBlocked": 0,
       "sourceIds": [
-        "s1",
         "s17"
       ],
       "stoppedAt": null,
@@ -345,8 +348,8 @@
     {
       "id": "run-0001",
       "recordId": "rec-01",
-      "company": "Bosque Holdings",
-      "role": "development associate",
+      "company": "Pike Rental",
+      "role": "undercarriage technician",
       "lines": [
         {
           "gate": "intake",
@@ -359,8 +362,8 @@
     {
       "id": "run-0002",
       "recordId": "rec-02",
-      "company": "Frontage Development",
-      "role": "right of way agent",
+      "company": "Sledge Service Group",
+      "role": "undercarriage technician",
       "lines": [
         {
           "gate": "intake",
@@ -373,8 +376,8 @@
     {
       "id": "run-0003",
       "recordId": "rec-03",
-      "company": "Escarpment Development",
-      "role": "development associate",
+      "company": "Drayline Heavy Equipment",
+      "role": "equipment inspector",
       "lines": [
         {
           "gate": "intake",
@@ -392,8 +395,8 @@
     {
       "id": "run-0004",
       "recordId": "rec-04",
-      "company": "Salado Capital",
-      "role": "land analyst",
+      "company": "Tandem Rental",
+      "role": "powertrain technician",
       "lines": [
         {
           "gate": "intake",
@@ -411,8 +414,8 @@
     {
       "id": "run-0005",
       "recordId": "rec-05",
-      "company": "Quarry Land Group",
-      "role": "right of way agent",
+      "company": "Cinder Equipment Co",
+      "role": "powertrain technician",
       "lines": [
         {
           "gate": "intake",
@@ -435,8 +438,8 @@
     {
       "id": "run-0006",
       "recordId": "rec-06",
-      "company": "Hardpan Development",
-      "role": "land analyst",
+      "company": "Flint Diesel",
+      "role": "diesel technician",
       "lines": [
         {
           "gate": "intake",
@@ -459,8 +462,8 @@
     {
       "id": "run-0007",
       "recordId": "rec-07",
-      "company": "Meridian Grid Partners",
-      "role": "site analyst",
+      "company": "Ironline Machinery Company",
+      "role": "field service technician",
       "lines": [
         {
           "gate": "intake",
@@ -493,8 +496,8 @@
     {
       "id": "run-0008",
       "recordId": "rec-08",
-      "company": "Draw Holdings",
-      "role": "parcel data lead",
+      "company": "Ridgeline Service Group",
+      "role": "shop technician",
       "lines": [
         {
           "gate": "intake",
@@ -522,8 +525,8 @@
     {
       "id": "run-0009",
       "recordId": "rec-09",
-      "company": "Frontage Capital",
-      "role": "acquisition analyst",
+      "company": "Keystone Machinery",
+      "role": "hydraulics specialist",
       "lines": [
         {
           "gate": "intake",
@@ -556,8 +559,8 @@
     {
       "id": "run-0010",
       "recordId": "rec-10",
-      "company": "Ridgeline Energy",
-      "role": "land analyst",
+      "company": "Wallow Machine Works",
+      "role": "shop technician",
       "lines": [
         {
           "gate": "intake",
@@ -590,8 +593,8 @@
     {
       "id": "run-0011",
       "recordId": "rec-11",
-      "company": "Lometa Land Group",
-      "role": "title analyst",
+      "company": "Ridgeline Power Systems",
+      "role": "service writer",
       "lines": [
         {
           "gate": "intake",
@@ -624,8 +627,8 @@
     {
       "id": "run-0012",
       "recordId": "rec-12",
-      "company": "Wallow Partners",
-      "role": "land analyst",
+      "company": "Keystone Power Systems",
+      "role": "hydraulics specialist",
       "lines": [
         {
           "gate": "intake",
@@ -663,8 +666,8 @@
     {
       "id": "run-0013",
       "recordId": "rec-13",
-      "company": "Ridgeline Development",
-      "role": "diligence analyst",
+      "company": "Drayline Service Group",
+      "role": "shop technician",
       "lines": [
         {
           "gate": "intake",
@@ -702,8 +705,8 @@
     {
       "id": "run-0014",
       "recordId": "rec-14",
-      "company": "Lometa Development",
-      "role": "title analyst",
+      "company": "Blackjack Rental",
+      "role": "hydraulics specialist",
       "lines": [
         {
           "gate": "intake",
@@ -728,12 +731,12 @@
         {
           "gate": "lint",
           "status": "ok",
-          "text": "1 claims, all labelled a or b"
+          "text": "2 claims, all labelled a or b"
         },
         {
           "gate": "submitted",
           "status": "ok",
-          "text": "1 claims shipped"
+          "text": "2 claims shipped"
         }
       ],
       "exit": 0

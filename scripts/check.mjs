@@ -57,6 +57,8 @@ check('16.2  no real company, no other project name', () => {
     // them; it must not share a name, a codename, or any copied text.
     'memstrata', 'site screener', 'sitescreener', 'site-screener',
     // Real entities that could drift in from a draft.
+    // Real employers this demo is calibrated against but must never name.
+    'holt', 'caterpillar',
     'ercot', 'anthropic', 'openai', 'google', 'microsoft', 'amazon', 'meta platforms',
     'salesforce', 'oracle corp', 'jpmorgan', 'blackrock', 'cbre', 'jll',
   ];
