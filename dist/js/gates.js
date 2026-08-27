@@ -3,8 +3,8 @@
 // Most pipelines count throughput. This one counts refusals, so the number of records stopped
 // is the headline on every card and in the summary line above them.
 
-import { gates } from './data.js?v=8fe5df75';
-import { el } from './dom.js?v=8fe5df75';
+import { gates } from './data.js?v=567acd4a';
+import { el } from './dom.js?v=567acd4a';
 
 const REJECTED = new Set(['fail', 'blocked', 'expired']);
 

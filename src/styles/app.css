@@ -13,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.page { max-width: 1200px; margin: 0 auto; padding: 30px 32px 72px; }
+.page { max-width: 1320px; margin: 0 auto; padding: 26px 32px 72px; }
 
 h1 { font-size: 22px; font-weight: 500; margin: 0 0 4px; letter-spacing: -0.01em; }
 h2 { font-size: 16px; font-weight: 500; margin: 0 0 10px; }
@@ -41,7 +41,7 @@ p { margin: 0 0 12px; }
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 0 64px;
   align-items: start;
-  padding-bottom: 18px;
+  padding-bottom: 16px;
   margin-bottom: 0;
 }
 .eyebrow {
@@ -351,6 +351,15 @@ p { margin: 0 0 12px; }
 }
 .gate .grej-k { font-family: var(--mono); font-size: 10.5px; }
 
+/* The readout and the orientation share a row. The rails either side of the document are
+   fixed width, so vertical space above the chain is the scarcest thing on the page. */
+.readout-row {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 0 48px; align-items: start; margin: 0 0 16px;
+}
+.readout-row .stats-note { margin: 9px 0 0; }
+.orient .lede { max-width: none; margin: 0; }
+
 /* Explanatory prose sits at reading width, not card width. The cap is in px, not ch: a ch cap
    scales with each element's own font size, so smaller text gets a narrower measure than the
    text above it and a stack of paragraphs tapers instead of aligning. */
@@ -421,8 +430,15 @@ table.grid .ev { color: var(--sec); font-size: 13px; }
 
 /* ------------------------------------------------------------- responsive -- */
 
+/* The two rails are fixed, so every pixel lost below the cap came out of the document — at
+   1024 it was 279px, narrower than either rail beside it. The rails give way first now. */
+@media (max-width: 1200px) {
+  .chain { grid-template-columns: 210px minmax(0, 1fr) 250px; gap: 48px; }
+}
+
 @media (max-width: 1100px) {
   .funnel { grid-template-columns: repeat(3, 1fr); }
+  .readout-row { grid-template-columns: minmax(0, 1fr); gap: 14px 0; }
 }
 
 @media (max-width: 900px) {
@@ -430,6 +446,7 @@ table.grid .ev { color: var(--sec); font-size: 13px; }
   .claim { font-size: 22px; }
   .claim-sub { max-width: none; }
   .lede-pair { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .readout-row { grid-template-columns: minmax(0, 1fr); gap: 14px 0; }
   .call { grid-template-columns: minmax(0, 1fr); gap: 8px; align-items: start; }
   .call .cwhy { grid-column: 1; grid-row: auto; }
   .lead, .sub, .disclaimer { grid-column: 1; grid-row: auto; }
