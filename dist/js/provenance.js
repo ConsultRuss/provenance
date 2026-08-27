@@ -642,6 +642,14 @@ export function mountProvenance(root) {
         'no record at all — they connect to nothing on the left, and they are the reason this ' +
         'application never went out.',
     }),
+    // Shown only where the CSS has hidden the wire layer.
+    el('p', {
+      class: 'lede narrow-only',
+      text:
+        'This screen is too narrow for the connecting lines, so they are hidden. Nothing is lost: ' +
+        'select any claim, record or requirement and the panel underneath names everything it ' +
+        'connects to.',
+    }),
   );
 
   root.append(

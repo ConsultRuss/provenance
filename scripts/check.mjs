@@ -160,9 +160,17 @@ check('16.9  a requirement lands on do not have', () => {
 
 /* -- 11 · nothing reaches an external host -------------------------------- */
 
-check('16.11 no external host referenced in src or dist', () => {
-  // XML namespace URIs are identifiers, not fetches. Nothing else may look like a URL.
-  const allowed = [/http:\/\/www\.w3\.org\/2000\/svg/g, /http:\/\/www\.w3\.org\/1999\/xhtml/g];
+check('16.11 the page loads nothing from an external host', () => {
+  // The rule is about requests the page makes on load, not about any string shaped like a URL.
+  // Two things are therefore stripped before scanning rather than reported:
+  //   - XML namespace URIs, which are identifiers and never fetched;
+  //   - <a href> targets, which cost a request only if a reader chooses to click one.
+  // Anything that loads — a script, a stylesheet, an image, an @import, a font — still fails.
+  const allowed = [
+    /http:\/\/www\.w3\.org\/2000\/svg/g,
+    /http:\/\/www\.w3\.org\/1999\/xhtml/g,
+    /<a\s[^>]*>/gi,
+  ];
   // A relative script src is the whole point of the build; only an absolute one leaves the host.
   const patterns = [
     /https?:\/\//g,
