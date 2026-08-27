@@ -161,38 +161,39 @@ check('16.9  a requirement lands on do not have', () => {
 /* -- 11 · nothing reaches an external host -------------------------------- */
 
 check('16.11 the page loads nothing from an external host', () => {
-  // The rule is about requests the page makes on load, not about any string shaped like a URL.
-  // Two things are therefore stripped before scanning rather than reported:
-  //   - XML namespace URIs, which are identifiers and never fetched;
-  //   - <a href> targets, which cost a request only if a reader chooses to click one.
-  // Anything that loads — a script, a stylesheet, an image, an @import, a font — still fails.
-  const allowed = [
-    /http:\/\/www\.w3\.org\/2000\/svg/g,
-    /http:\/\/www\.w3\.org\/1999\/xhtml/g,
-    /<a\s[^>]*>/gi,
-  ];
-  // A relative script src is the whole point of the build; only an absolute one leaves the host.
-  const patterns = [
-    /https?:\/\//g,
-    /<script[^>]+src=["']?(?:https?:)?\/\//gi,
-    /@import\s+url\(\s*["']?(?:https?:)?\/\//gi,
-    /\/\/cdn\./gi,
+  // The rule is that the page makes no request to another host when it loads. A string that
+  // merely looks like a URL is not a request: an XML namespace, a JSON-LD @id, a canonical
+  // link, an og:url, and an <a href> all cost nothing until something chooses to act on them.
+  // So this looks for the constructs that actually load, and reports those.
+  const LOADERS = [
+    [/<script[^>]*src\s*=\s*["']?(?:https?:)?\/\//gi, 'external script'],
+    [/<(?:img|source|video|audio|track|iframe|embed|object|input)[^>]*(?:src|data|poster)\s*=\s*["']?(?:https?:)?\/\//gi, 'external media'],
+    [/@import\s+(?:url\()?\s*["']?(?:https?:)?\/\//gi, 'external @import'],
+    [/url\(\s*["']?(?:https?:)?\/\//gi, 'external url() in css'],
+    [/fetch\s*\(\s*["'`](?:https?:)?\/\//gi, 'fetch to another host'],
+    [/new\s+WebSocket\s*\(\s*["'`]/gi, 'websocket'],
+    [/XMLHttpRequest/g, 'XMLHttpRequest'],
   ];
 
-  const files = [...walk('src'), ...(safeWalk('dist'))].filter((f) =>
+  const files = [...walk('src'), ...safeWalk('dist')].filter((f) =>
     ['.html', '.css', '.js', '.mjs'].includes(extname(f)),
   );
+
   const hits = [];
   for (const file of files) {
-    let text = read(file);
-    for (const ok of allowed) text = text.replace(ok, '');
-    for (const pattern of patterns) {
+    // A stylesheet <link> is a load; a canonical or alternate <link> is not.
+    const text = read(file).replace(/<link[^>]*rel\s*=\s*["'](?:canonical|alternate)["'][^>]*>/gi, '');
+    for (const [pattern, what] of LOADERS) {
       const found = text.match(pattern);
-      if (found) hits.push(`${file}: ${found[0]}`);
+      if (found) hits.push(`${file}: ${what} — ${found[0].slice(0, 40)}`);
+    }
+    // Any <link> that pulls a resource must be same-origin and relative.
+    for (const tag of text.match(/<link[^>]*>/gi) ?? []) {
+      if (/href\s*=\s*["']?(?:https?:)?\/\//i.test(tag)) hits.push(`${file}: external <link> — ${tag.slice(0, 50)}`);
     }
   }
-  assert(hits.length === 0, hits.join(', '));
-  return `${files.length} files clean`;
+  assert(hits.length === 0, hits.join(' | '));
+  return `${files.length} files load nothing off-origin`;
 });
 
 function safeWalk(dir) {

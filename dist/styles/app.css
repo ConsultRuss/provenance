@@ -394,3 +394,18 @@ table.grid .ev { color: var(--sec); font-size: 13px; }
 @media (max-width: 900px) {
   .narrow-only { display: block; }
 }
+
+/* ---------------------------------------------------------------- glance -- */
+/* Static summary. Generated from the same data as the views above, so it cannot drift, and
+   visible to every reader — the substance must exist in the HTML for anything that does not
+   run JavaScript, and hiding it from people would be cloaking. */
+
+.glance { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--bd); max-width: 74ch; }
+.glance h2 { font-size: 16px; margin-bottom: 12px; }
+.glance h3 { margin-top: 22px; }
+.glance p { font-size: 13.5px; color: var(--sec); line-height: 1.65; }
+.glance ul { margin: 0 0 12px; padding-left: 20px; font-size: 13.5px; color: var(--sec); }
+.glance li { margin-bottom: 5px; line-height: 1.55; }
+.glance strong { color: var(--ink); }
+.glance code { font-family: var(--mono); font-size: 12.5px; background: var(--s1); padding: 1px 5px; border-radius: 3px; }
+.glance-note { font-size: 12.5px; margin-top: 16px; }

@@ -386,6 +386,156 @@ export const meta = ${JSON.stringify(
 `;
 writeFileSync(join(ROOT, 'src/js/data.js'), module, 'utf8');
 
+/* ------------------------------------------- static summary + structured data --- */
+
+// The three main views are built by JavaScript. Crawlers that do not run JS — which includes
+// most of the ones that feed answer engines — would otherwise see an empty page with four tab
+// labels on it. So the same facts are also written into the HTML as a plain summary. It is
+// visible to every reader, not hidden for machines: this is not the page to cloak anything on.
+
+const escape = (value) =>
+  String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const LABEL_TEXT = {
+  a: 'the subject said it — supported by a self-report, ships',
+  b: 'a record confirms it — supported by a third-party record or a system export, ships',
+  c: 'claimed, never checked — no record, blocked',
+  d: 'only in an earlier draft — traced to a document the pipeline itself wrote, blocked',
+};
+
+const answered = (doc) => {
+  const state = new Map(requirements.map((r) => [r.id, 'unanswered']));
+  for (const claim of doc.claims) {
+    if (state.get(claim.requirementId) === 'answered') continue;
+    state.set(claim.requirementId, claim.label === 'c' || claim.label === 'd' ? 'blocked' : 'answered');
+  }
+  return [...state.values()].filter((v) => v === 'answered').length;
+};
+
+const stopped = (gateId) => records.filter((r) => r.stoppedAt === gateId).length;
+const submitted = records.filter((r) => r.stoppedAt === null).length;
+const cover = documents.find((d) => d.id === 'cover');
+const resume = documents.find((d) => d.id === 'resume');
+
+const li = (items) => items.map((t) => `      <li>${t}</li>`).join('\n');
+
+const summary = `<section class="glance" id="at-a-glance">
+  <h2>At a glance</h2>
+
+  <p>This page demonstrates grounding and refusal in a generated-document pipeline. Every factual
+  claim carries the record it came from and a label grading how well that record supports it.
+  Claims with no record are blocked before they reach a document, and blocking is the ordinary
+  outcome rather than an error.</p>
+
+  <h3>The four evidence labels</h3>
+  <ul>
+${li(Object.entries(LABEL_TEXT).map(([k, v]) => `<strong>${k}</strong> — ${v}`))}
+  </ul>
+  <p>Labels a and b ship. Labels c and d cannot, and a claim carrying either is required to cite
+  the null record. The label and the record are one decision, not two: a self-report can only ever
+  support label a, so a claim cannot be graded higher than the evidence behind it.</p>
+
+  <h3>What the run produced</h3>
+  <ul>
+    <li>${targets.claimsParsed} claims parsed across ${records.length} application records.</li>
+    <li>${targets.claimsCleared} claims cleared. ${targets.claimsBlocked} were blocked for want of a record.</li>
+    <li>${targets.sourcesCited} distinct records in the candidate's library, across three kinds:
+        self-report, third-party record, and system export.</li>
+    <li>${records.length - submitted} of ${records.length} applications were refused. ${submitted} were submitted.</li>
+  </ul>
+
+  <h3>The six gates</h3>
+  <ul>
+${li(gates.map((g) => `<strong>${escape(g.label)}</strong> — ${escape(g.plain)} Stopped ${stopped(g.id)}.`))}
+  </ul>
+
+  <h3>The pressure test</h3>
+  <p>Each requirement is given a verdict before any document is written. The overall call is
+  derived from the rows, so it cannot flatter them.</p>
+  <ul>
+${li(requirements.map((r) => `<strong>${escape(r.title)}</strong> (${r.priority}) — ${escape(r.verdict)}.`))}
+  </ul>
+
+  <h3>The finding</h3>
+  <p>The cover letter makes two claims no record supports, and answers ${answered(cover)} of
+  ${requirements.length} requirements. The résumé states the smaller, true version of one of those
+  claims and answers ${answered(resume)} of ${requirements.length}. The padded document scores worse
+  than the honest one. Exporting the cover letter to PDF omits the unsupported claims entirely and
+  prints a withheld notice in their place.</p>
+
+  <h3>In machine-learning terms</h3>
+  <p>This is grounding and citation with refusal — abstention — as the default when evidence is
+  absent. Provenance is enforced in the schema rather than by a filter applied afterwards, which is
+  what makes hallucinated or unsupported output unrepresentable rather than merely unlikely. The
+  invariants are executable: the generator throws rather than emit a claim whose label and record
+  disagree, and a check fails the build if one ever appears.</p>
+
+  <p class="glance-note">Demo data. The candidate, employer and posting are invented; every figure
+  above is produced by <code>npm run seed</code> from a fixed seed in this repository.</p>
+</section>`;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': 'https://consultruss.com/#russell-w-hild',
+      name: 'Russell W. Hild',
+      url: 'https://consultruss.com',
+    },
+    {
+      '@type': 'TechArticle',
+      headline: 'Designing a system that will not state what it cannot prove',
+      description:
+        'A working demo of grounding and refusal in a document generator. Every factual claim is ' +
+        'traced to the record behind it and graded by how well that record supports it; claims with ' +
+        'no record are blocked before they ship.',
+      author: { '@id': 'https://consultruss.com/#russell-w-hild' },
+      inLanguage: 'en',
+      isAccessibleForFree: true,
+      keywords: [
+        'grounding', 'refusal', 'abstention', 'hallucination', 'provenance', 'citation',
+        'evidence grading', 'verifiable claims', 'retrieval-augmented generation',
+        'AI safety', 'document generation', 'auditability',
+      ].join(', '),
+      about: [
+        { '@type': 'Thing', name: 'Grounding in language model output' },
+        { '@type': 'Thing', name: 'Refusal and abstention under insufficient evidence' },
+        { '@type': 'Thing', name: 'Provenance tracking' },
+        { '@type': 'Thing', name: 'Hallucination control' },
+      ],
+    },
+    {
+      '@type': 'SoftwareSourceCode',
+      name: 'provenance',
+      description:
+        'Static demo. A seeded generator writes job application documents, grades each claim by ' +
+        'the kind of record behind it, and refuses to emit any claim it cannot source.',
+      programmingLanguage: 'JavaScript',
+      runtimePlatform: 'Browser, Node.js',
+      author: { '@id': 'https://consultruss.com/#russell-w-hild' },
+    },
+  ],
+};
+
+const block = [
+  '<!-- generated:summary:start — written by scripts/generate.mjs, do not edit by hand -->',
+  `<script type="application/ld+json">\n${JSON.stringify(graph, null, 2)}\n</script>`,
+  summary,
+  '<!-- generated:summary:end -->',
+].join('\n');
+
+const indexPath = join(ROOT, 'src/index.html');
+const html = readFileSync(indexPath, 'utf8');
+const START = '<!-- generated:summary:start';
+const END = 'generated:summary:end -->';
+if (!html.includes(START) || !html.includes(END)) {
+  throw new Error('src/index.html is missing the generated:summary markers');
+}
+const before = html.slice(0, html.indexOf(START));
+const after = html.slice(html.indexOf(END) + END.length);
+writeFileSync(indexPath, `${before}${block}${after}`, 'utf8');
+
 console.log(`seed ${config.seed} · ${records.length} records · ${targets.claimsParsed} claims parsed · ` +
   `${targets.claimsBlocked} blocked · ${targets.sourcesCited} sources cited`);
-console.log('wrote data/generated/*.json and src/js/data.js');
+console.log('wrote data/generated/*.json, src/js/data.js and the summary block in src/index.html');

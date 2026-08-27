@@ -4,7 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Russell W. Hild — provenance demo</title>
-<meta name="description" content="A document generator with a provenance check inside it. Every claim is traced to a source record and to the requirement it answers. Claims that cannot be sourced do not ship.">
+<meta name="description" content="Designing a system that will not state what it cannot prove. A working demo of grounding and refusal: every factual claim is traced to the record behind it and graded by how well that record supports it, and claims with no record are blocked before they ship.">
+<meta name="author" content="Russell W. Hild">
+<link rel="canonical" href="https://consultruss.com/provenance/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Designing a system that will not state what it cannot prove">
+<meta property="og:description" content="A working demo of grounding and refusal in a document generator. Every claim carries the record behind it; claims with no record are blocked before they ship.">
+<meta property="og:url" content="https://consultruss.com/provenance/">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="./styles/tokens.css">
 <link rel="stylesheet" href="./styles/app.css">
 </head>
@@ -74,6 +81,127 @@
     <p>Numbers are not round, because measured counts rarely are. The output always contains blocked claims and unanswered requirements — a clean run would prove nothing.</p>
 
   </div>
+
+  <!-- generated:summary:start — written by scripts/generate.mjs, do not edit by hand -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://consultruss.com/#russell-w-hild",
+      "name": "Russell W. Hild",
+      "url": "https://consultruss.com"
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Designing a system that will not state what it cannot prove",
+      "description": "A working demo of grounding and refusal in a document generator. Every factual claim is traced to the record behind it and graded by how well that record supports it; claims with no record are blocked before they ship.",
+      "author": {
+        "@id": "https://consultruss.com/#russell-w-hild"
+      },
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "keywords": "grounding, refusal, abstention, hallucination, provenance, citation, evidence grading, verifiable claims, retrieval-augmented generation, AI safety, document generation, auditability",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Grounding in language model output"
+        },
+        {
+          "@type": "Thing",
+          "name": "Refusal and abstention under insufficient evidence"
+        },
+        {
+          "@type": "Thing",
+          "name": "Provenance tracking"
+        },
+        {
+          "@type": "Thing",
+          "name": "Hallucination control"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "provenance",
+      "description": "Static demo. A seeded generator writes job application documents, grades each claim by the kind of record behind it, and refuses to emit any claim it cannot source.",
+      "programmingLanguage": "JavaScript",
+      "runtimePlatform": "Browser, Node.js",
+      "author": {
+        "@id": "https://consultruss.com/#russell-w-hild"
+      }
+    }
+  ]
+}
+</script>
+<section class="glance" id="at-a-glance">
+  <h2>At a glance</h2>
+
+  <p>This page demonstrates grounding and refusal in a generated-document pipeline. Every factual
+  claim carries the record it came from and a label grading how well that record supports it.
+  Claims with no record are blocked before they reach a document, and blocking is the ordinary
+  outcome rather than an error.</p>
+
+  <h3>The four evidence labels</h3>
+  <ul>
+      <li><strong>a</strong> — the subject said it — supported by a self-report, ships</li>
+      <li><strong>b</strong> — a record confirms it — supported by a third-party record or a system export, ships</li>
+      <li><strong>c</strong> — claimed, never checked — no record, blocked</li>
+      <li><strong>d</strong> — only in an earlier draft — traced to a document the pipeline itself wrote, blocked</li>
+  </ul>
+  <p>Labels a and b ship. Labels c and d cannot, and a claim carrying either is required to cite
+  the null record. The label and the record are one decision, not two: a self-report can only ever
+  support label a, so a claim cannot be graded higher than the evidence behind it.</p>
+
+  <h3>What the run produced</h3>
+  <ul>
+    <li>47 claims parsed across 14 application records.</li>
+    <li>41 claims cleared. 6 were blocked for want of a record.</li>
+    <li>23 distinct records in the candidate's library, across three kinds:
+        self-report, third-party record, and system export.</li>
+    <li>11 of 14 applications were refused. 3 were submitted.</li>
+  </ul>
+
+  <h3>The six gates</h3>
+  <ul>
+      <li><strong>intake</strong> — Reads the posting and pulls out what it asks for, word for word. Stopped 2.</li>
+      <li><strong>live check</strong> — Checks the job is still open before any work goes into it. Stopped 2.</li>
+      <li><strong>pressure test</strong> — Asks honestly whether this person can do the job, requirement by requirement. Stopped 2.</li>
+      <li><strong>wildcard question</strong> — Works out an honest answer to the odd question the posting asks. Stopped 1.</li>
+      <li><strong>asset lint</strong> — Reads the finished documents and checks every claim has a record behind it. Stopped 4.</li>
+      <li><strong>submitted</strong> — The application goes out. Stopped 0.</li>
+  </ul>
+
+  <h3>The pressure test</h3>
+  <p>Each requirement is given a verdict before any document is written. The overall call is
+  derived from the rows, so it cannot flatter them.</p>
+  <ul>
+      <li><strong>Field diagnostic experience</strong> (must) — have as documented.</li>
+      <li><strong>Manufacturer service training</strong> (must) — have as documented.</li>
+      <li><strong>Crane and rigging certification</strong> (preferred) — do not have.</li>
+      <li><strong>Commercial driver licence</strong> (preferred) — have as documented.</li>
+      <li><strong>Crew leadership</strong> (must) — adjacent but honest.</li>
+  </ul>
+
+  <h3>The finding</h3>
+  <p>The cover letter makes two claims no record supports, and answers 3 of
+  5 requirements. The résumé states the smaller, true version of one of those
+  claims and answers 4 of 5. The padded document scores worse
+  than the honest one. Exporting the cover letter to PDF omits the unsupported claims entirely and
+  prints a withheld notice in their place.</p>
+
+  <h3>In machine-learning terms</h3>
+  <p>This is grounding and citation with refusal — abstention — as the default when evidence is
+  absent. Provenance is enforced in the schema rather than by a filter applied afterwards, which is
+  what makes hallucinated or unsupported output unrepresentable rather than merely unlikely. The
+  invariants are executable: the generator throws rather than emit a claim whose label and record
+  disagree, and a check fails the build if one ever appears.</p>
+
+  <p class="glance-note">Demo data. The candidate, employer and posting are invented; every figure
+  above is produced by <code>npm run seed</code> from a fixed seed in this repository.</p>
+</section>
+<!-- generated:summary:end -->
 
   <footer class="site-foot">
     <span>Built by Russell W. Hild · <a href="https://consultruss.com">consultruss.com</a></span>
