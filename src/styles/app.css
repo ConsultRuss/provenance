@@ -20,13 +20,26 @@ h2 { font-size: 16px; font-weight: 500; margin: 0 0 10px; }
 h3 { font-size: 14px; font-weight: 500; margin: 0 0 6px; }
 p { margin: 0 0 12px; }
 
-/* The claim the page is making about its author, stated before the machinery. */
-.lead {
-  font-size: 17px; font-weight: 500; color: var(--ink);
-  line-height: 1.45; margin: 0 0 12px; max-width: 68ch;
+/* The claim the page is making about its author, stated before the machinery.
+   Two columns: the claim on the left, what it does and the disclaimer on the right. A single
+   stacked column left most of the page empty and pushed the actual content below the fold.
+   Widths are set here rather than on the children — a max-width in ch scales with each
+   element's own font size, so smaller text ended up with a narrower measure than the text
+   above it and the block read as a shrinking staircase. */
+.intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px 56px;
+  align-items: start;
+  margin: 0 0 26px;
 }
-.sub { color: var(--sec); font-size: 14px; margin: 0 0 12px; max-width: 74ch; }
-.disclaimer { font-size: 13px; color: var(--sec); margin: 0 0 24px; max-width: 74ch; }
+.lead {
+  grid-column: 1; grid-row: 1 / span 2;
+  font-size: 18px; font-weight: 500; color: var(--ink);
+  line-height: 1.4; margin: 0;
+}
+.sub { grid-column: 2; grid-row: 1; color: var(--sec); font-size: 14px; margin: 0; }
+.disclaimer { grid-column: 2; grid-row: 2; font-size: 13px; color: var(--sec); margin: 0; }
 .disclaimer strong { color: var(--ink); }
 
 /* Focus is always visible. No shadows are allowed, so this is an outline. */
@@ -294,8 +307,18 @@ p { margin: 0 0 12px; }
 }
 .gate .grej-k { font-family: var(--mono); font-size: 10.5px; }
 
-/* Explanatory prose sits at reading width, not card width. */
-.lede { max-width: 74ch; color: var(--sec); font-size: 13.5px; margin: 0 0 18px; }
+/* Explanatory prose sits at reading width, not card width. The cap is in px, not ch: a ch cap
+   scales with each element's own font size, so smaller text gets a narrower measure than the
+   text above it and a stack of paragraphs tapers instead of aligning. */
+.lede { max-width: 760px; color: var(--sec); font-size: 13.5px; margin: 0 0 18px; }
+
+/* Two paragraphs of orientation read better side by side than stacked, and stacking them cost
+   about eighty vertical pixels on every view before the reader reached anything to look at. */
+.lede-pair {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 56px; margin: 0 0 20px; align-items: start;
+}
+.lede-pair .lede { max-width: none; margin: 0; }
 
 .vocab { display: grid; grid-template-columns: 120px 1fr; gap: 7px 16px; margin: 0 0 4px; max-width: 74ch; }
 .vocab dt { font-family: var(--mono); font-size: 12px; color: var(--ink); }
@@ -352,6 +375,9 @@ table.grid .ev { color: var(--sec); font-size: 13px; }
 }
 
 @media (max-width: 900px) {
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .lede-pair { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .lead, .sub, .disclaimer { grid-column: 1; grid-row: auto; }
   .page { padding: 24px 20px 56px; }
   .chain { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   #wires { display: none; } /* wires are decorative; the inspector carries the same links */

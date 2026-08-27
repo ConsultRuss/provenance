@@ -77,7 +77,7 @@ export function mountPressure(root) {
 
   const intro = el(
     'div',
-    {},
+    { class: 'lede-pair' },
     el('p', {
       class: 'lede',
       text:

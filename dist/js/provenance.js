@@ -626,7 +626,7 @@ export function mountProvenance(root) {
 
   const orientation = el(
     'div',
-    {},
+    { class: 'lede-pair' },
     el('p', {
       class: 'lede',
       text:
