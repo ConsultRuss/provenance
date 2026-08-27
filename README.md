@@ -1,15 +1,31 @@
 # provenance
 
-A public demo page: a document generator with a provenance check inside it.
+**Designing a system that will not state what it cannot prove.**
 
-Every factual claim in a generated document carries a label saying how well it is sourced.
-Claims with a weak label cannot ship. The page makes that visible — a source record on the
-left, the document in the middle, the job requirement on the right, and a wire between them.
+A generator writes job application documents, traces every factual claim to the record behind
+it, and blocks the ones that have none. The subject matter is a job search; the problem is not.
+Anything that produces text someone will act on — a summary, a report, an answer pulled from a
+pile of documents — has to know which parts it can back and which it cannot.
+
+What that looks like in practice, and what this repository is actually demonstrating:
+
+- **Provenance is the schema, not a feature.** A claim carries its label and its source
+  together. The kind of record decides which label is available: a self-report can only support
+  "the subject said it", never "a record confirms it".
+- **Refusal is the main path.** A claim with no record is blocked before it reaches a document.
+  The pipeline reports how many records it stopped, not how many it sent — 11 of 14 here.
+- **The invariants are executable.** `npm run seed` throws rather than emit a claim whose label
+  and record disagree, and `npm run check` fails the build if one ever appears. None of this
+  relies on remembering the rules.
+- **Refusal survives export.** The PDF a reader downloads contains no blocked claim text, and a
+  test generates the file and asserts that.
+
+The page makes it visible: the record library on the left, the document in the middle, the job
+requirement on the right, and a line connecting each claim to both.
 
 **The demo data is generated. No real record enters this repository.** Every company, person,
-place and file name below is invented. The page belongs to Russell W. Hild / consultruss.com.
-
-Deploys to `consultruss.com/provenance`.
+place and file name is invented. The page belongs to Russell W. Hild / consultruss.com, and
+deploys to `consultruss.com/provenance`.
 
 ## Commands
 

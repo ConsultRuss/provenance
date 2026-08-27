@@ -20,7 +20,14 @@ h2 { font-size: 16px; font-weight: 500; margin: 0 0 10px; }
 h3 { font-size: 14px; font-weight: 500; margin: 0 0 6px; }
 p { margin: 0 0 12px; }
 
-.sub { color: var(--sec); font-size: 14px; margin: 0 0 26px; }
+/* The claim the page is making about its author, stated before the machinery. */
+.lead {
+  font-size: 17px; font-weight: 500; color: var(--ink);
+  line-height: 1.45; margin: 0 0 12px; max-width: 68ch;
+}
+.sub { color: var(--sec); font-size: 14px; margin: 0 0 12px; max-width: 74ch; }
+.disclaimer { font-size: 13px; color: var(--sec); margin: 0 0 24px; max-width: 74ch; }
+.disclaimer strong { color: var(--ink); }
 
 /* Focus is always visible. No shadows are allowed, so this is an outline. */
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 3px; }
