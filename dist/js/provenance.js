@@ -8,10 +8,10 @@
 //   4. Rail rows are real buttons; claims are role="button" spans, because a button cannot
 //      flow as inline text (see claimSpan).
 
-import { sources, requirements, documents, gates, meta } from './data.js?v=5a965987';
-import { drawWires, onLayoutChange } from './wires.js?v=5a965987';
-import { buildDocumentPdf } from './pdf.js?v=5a965987';
-import { el, clear } from './dom.js?v=5a965987';
+import { sources, requirements, documents, gates, meta } from './data.js?v=8fe5df75';
+import { drawWires, onLayoutChange } from './wires.js?v=8fe5df75';
+import { buildDocumentPdf } from './pdf.js?v=8fe5df75';
+import { el, clear } from './dom.js?v=8fe5df75';
 
 const LABELS = {
   a: { meaning: 'the candidate said it', color: 'var(--ok)' },
@@ -630,17 +630,16 @@ export function mountProvenance(root) {
     el('p', {
       class: 'lede',
       text:
-        'A job application, taken apart. Read it left to right: the record library is everything ' +
-        'this candidate can prove something with, the middle is a document written for one job, ' +
-        'and the right is what that job asked for. A line connects a claim to the record it rests ' +
-        'on and to the requirement it answers.',
+        'A job application, taken apart. Left is everything this candidate can prove something ' +
+        'with, the middle is a document written for one job, the right is what that job asked ' +
+        'for. A line joins each claim to its record and to the requirement it answers.',
     }),
     el('p', {
       class: 'lede',
       text:
         'Click any underlined claim to follow it both ways. Two claims in the cover letter have ' +
-        'no record at all — they connect to nothing on the left, and they are the reason this ' +
-        'application never went out.',
+        'no record at all: they join nothing on the left, and they are why this application ' +
+        'never went out.',
     }),
     // Shown only where the CSS has hidden the wire layer.
     el('p', {

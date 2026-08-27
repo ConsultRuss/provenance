@@ -13,7 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.page { max-width: 1200px; margin: 0 auto; padding: 36px 32px 72px; }
+.page { max-width: 1200px; margin: 0 auto; padding: 30px 32px 72px; }
 
 h1 { font-size: 22px; font-weight: 500; margin: 0 0 4px; letter-spacing: -0.01em; }
 h2 { font-size: 16px; font-weight: 500; margin: 0 0 10px; }
@@ -33,25 +33,47 @@ p { margin: 0 0 12px; }
   align-items: start;
   margin: 0 0 26px;
 }
-/* The claim carries the left column and the disclaimer sits under it; the explanation holds
-   the right column on its own. Putting both short blocks on the right left a visible void
-   under the one-line claim, which reads as a mistake rather than as space. */
-.lead {
-  grid-column: 1; grid-row: 1;
-  font-size: 21px; font-weight: 500; color: var(--ink);
-  line-height: 1.35; margin: 0;
-  text-wrap: balance;
+/* Masthead. A title block with a spec table beside it, the way an instrument is labelled:
+   what it is on the left, what it runs on to the right. A paragraph of prose next to a
+   headline reads as a brochure; a key/value block reads as equipment. */
+.masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 0 64px;
+  align-items: start;
+  padding-bottom: 18px;
+  margin-bottom: 0;
 }
-.sub { grid-column: 2; grid-row: 1 / span 2; color: var(--sec); font-size: 14px; margin: 0; }
-.disclaimer { grid-column: 1; grid-row: 2; font-size: 13px; color: var(--sec); margin: 0; }
-.disclaimer strong { color: var(--ink); }
+.eyebrow {
+  grid-column: 1 / -1;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.07em;
+  color: var(--sec); margin: 0 0 16px;
+}
+.claim {
+  font-size: 26px; font-weight: 500; line-height: 1.22; letter-spacing: -0.012em;
+  margin: 0 0 10px; text-wrap: balance;
+}
+.claim-sub { font-size: 14px; color: var(--sec); margin: 0; max-width: 480px; }
+
+.spec {
+  display: grid; grid-template-columns: 62px minmax(0, 1fr);
+  gap: 7px 16px; margin: 4px 0 0; font-size: 13px; align-content: start;
+}
+.spec dt {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.04em;
+  color: var(--sec); padding-top: 3px;
+}
+.spec dd { margin: 0; color: var(--ink); line-height: 1.45; }
+.spec dd a { color: var(--ac); text-decoration: none; border-bottom: 1px solid var(--bd2); }
+.spec dd a:hover { border-bottom-color: var(--ac); }
 
 /* Focus is always visible. No shadows are allowed, so this is an outline. */
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: 3px; }
 
 /* ------------------------------------------------------------------ tabs -- */
 
-.tabs { display: flex; gap: 26px; border-bottom: 1px solid var(--bd); margin-bottom: 26px; }
+.tabs { display: flex; gap: 24px; border-bottom: 1px solid var(--bd); margin: 0 0 22px; }
+.tab { padding: 12px 0 10px; }
 
 .tab {
   font-family: var(--sans); font-size: 14px; color: var(--sec);
@@ -67,25 +89,34 @@ p { margin: 0 0 12px; }
 
 .bar {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 11px 15px; background: var(--wnb); border-radius: 6px; margin-bottom: 20px;
+  padding: 10px 14px; background: var(--wnb); border-radius: 6px; margin-bottom: 16px;
 }
 .bar-t { font-size: 13.5px; color: var(--wn); }
 .bar-n { font-family: var(--mono); font-size: 13px; color: var(--wn); white-space: nowrap; }
 
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.stat { background: var(--s1); border-radius: 10px; padding: 11px 14px; }
-.stat .l { font-family: var(--mono); font-size: 11px; color: var(--sec); letter-spacing: 0.02em; }
-.stat .v { font-size: 23px; font-weight: 500; line-height: 1.35; }
+/* One readout, divided — not four floating cards. Instruments group their gauges. */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--s1);
+  border: 1px solid var(--bd2); border-radius: 10px; overflow: hidden;
+}
+.stat { padding: 12px 16px 13px; border-right: 1px solid var(--bd2); }
+.stat:last-child { border-right: 0; }
+.stat .l {
+  font-family: var(--mono); font-size: 10.5px; color: var(--sec);
+  letter-spacing: 0.04em; margin-bottom: 2px;
+}
+.stat .v { font-size: 26px; font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; }
 .stat .v.bad { color: var(--dg); }
 
 /* The cards count the whole corpus, not the document on screen. Say so. */
-.stats-note { font-family: var(--mono); font-size: 11.5px; color: var(--sec); margin: 8px 0 24px; }
+.stats-note { font-family: var(--mono); font-size: 11px; color: var(--sec); margin: 9px 0 18px; }
 
 /* ---------------------------------------------------------------- legend -- */
 
 .lgd {
-  display: flex; flex-wrap: wrap; gap: 20px;
-  padding: 14px 0 18px; border-bottom: 1px solid var(--bd); margin-bottom: 20px;
+  display: flex; flex-wrap: wrap; gap: 8px 18px;
+  padding: 0; margin: 0 0 14px;
 }
 .lg { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--sec); }
 
@@ -106,7 +137,10 @@ p { margin: 0 0 12px; }
 
 /* ---------------------------------------------------- document toggle row -- */
 
-.tgl { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.tgl {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding-top: 14px; margin-bottom: 14px; border-top: 1px solid var(--bd);
+}
 
 .tb {
   font-size: 13.5px; padding: 6px 14px; border-radius: 6px;
@@ -294,7 +328,13 @@ p { margin: 0 0 12px; }
 
 .funnel { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-bottom: 8px; }
 
-.gate { border: 1px solid var(--bd); border-radius: 10px; padding: 12px 13px; }
+/* Flex column with the description growing, so the six numbers sit on one line across the
+   row however many lines each description runs to. A row of gauges that do not align
+   reads as an accident. */
+.gate {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--bd); border-radius: 10px; padding: 12px 13px;
+}
 .gate .ghead { display: flex; align-items: baseline; gap: 7px; margin-bottom: 8px; }
 .gate .gnum {
   font-family: var(--mono); font-size: 10px; color: var(--sec);
@@ -320,7 +360,7 @@ p { margin: 0 0 12px; }
    about eighty vertical pixels on every view before the reader reached anything to look at. */
 .lede-pair {
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 56px; margin: 0 0 20px; align-items: start;
+  gap: 0 56px; margin: 0 0 16px; align-items: start;
 }
 .lede-pair .lede { max-width: none; margin: 0; }
 
@@ -344,10 +384,17 @@ p { margin: 0 0 12px; }
 
 /* ---------------------------------------------------------- pressure test -- */
 
-.call { border: 1px solid var(--bd); border-radius: 10px; padding: 14px 16px; margin-bottom: 18px; }
-.call .clab { font-family: var(--mono); font-size: 11px; color: var(--sec); letter-spacing: 0.02em; }
-.call .cval { font-size: 23px; font-weight: 500; line-height: 1.35; }
-.call .cwhy { font-size: 13.5px; color: var(--sec); margin-top: 4px; }
+/* The verdict reads like the readout strip above: the call on the left, the reasoning beside
+   it, rather than a short line stranded in a full-width box. */
+.call {
+  display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 0 48px; align-items: center;
+  background: var(--s1); border: 1px solid var(--bd2); border-radius: 10px;
+  padding: 14px 16px; margin-bottom: 18px;
+}
+.call .clab { font-family: var(--mono); font-size: 10.5px; color: var(--sec); letter-spacing: 0.04em; }
+.call .cval { font-size: 26px; font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; }
+.call .cwhy { grid-column: 2; grid-row: 1 / span 2; font-size: 13.5px; color: var(--sec); margin: 0; }
 
 table.grid { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 table.grid th {
@@ -379,8 +426,12 @@ table.grid .ev { color: var(--sec); font-size: 13px; }
 }
 
 @media (max-width: 900px) {
-  .intro { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .masthead { grid-template-columns: minmax(0, 1fr); gap: 18px 0; }
+  .claim { font-size: 22px; }
+  .claim-sub { max-width: none; }
   .lede-pair { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .call { grid-template-columns: minmax(0, 1fr); gap: 8px; align-items: start; }
+  .call .cwhy { grid-column: 1; grid-row: auto; }
   .lead, .sub, .disclaimer { grid-column: 1; grid-row: auto; }
   .page { padding: 24px 20px 56px; }
   .chain { grid-template-columns: minmax(0, 1fr); gap: 28px; }
@@ -405,7 +456,7 @@ table.grid .ev { color: var(--sec); font-size: 13px; }
 .cat.system-export { background: var(--s1); color: var(--sec); border: 1px solid var(--bd); }
 
 /* Plain-language line on each gate card, for a reader who has never seen a pipeline. */
-.gate .gplain { font-size: 12px; color: var(--sec); line-height: 1.45; margin: 0 0 10px; }
+.gate .gplain { flex: 1 1 auto; font-size: 12px; color: var(--sec); line-height: 1.45; margin: 0 0 12px; }
 
 /* ------------------------------------------------------------ site footer -- */
 

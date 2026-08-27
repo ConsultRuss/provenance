@@ -12,21 +12,27 @@
 <meta property="og:description" content="A working demo of grounding and refusal in a document generator. Every claim carries the record behind it; claims with no record are blocked before they ship.">
 <meta property="og:url" content="https://consultruss.com/provenance/">
 <meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="./styles/tokens.css?v=5a965987">
-<link rel="stylesheet" href="./styles/app.css?v=5a965987">
+<link rel="stylesheet" href="./styles/tokens.css?v=8fe5df75">
+<link rel="stylesheet" href="./styles/app.css?v=8fe5df75">
 </head>
 <body>
 <main class="page">
 
-  <h1>Russell W. Hild — provenance demo</h1>
+  <header class="masthead">
+    <p class="eyebrow">Russell W. Hild · provenance demo</p>
 
-  <div class="intro">
-    <p class="lead">Designing a system that will not state what it cannot prove.</p>
+    <div class="masthead-claim">
+      <h1 class="claim">Designing a system that will not state what it cannot prove.</h1>
+      <p class="claim-sub">A generator writes job application documents, traces every claim to the record behind it, and blocks the ones that have none. The subject is a job search; the problem is not.</p>
+    </div>
 
-    <p class="sub">A generator writes job application documents, traces every factual claim to the record behind it, and blocks the ones that have none. The subject matter is a job search; the problem is not. Anything that produces text someone will act on — a summary, a report, an answer pulled from a pile of documents — has to know which parts it can back and which it cannot.</p>
-
-    <p class="disclaimer"><strong>Nothing here is real.</strong> The candidate, the employer and the posting are invented. Every figure on this page comes from a script in this repository.</p>
-  </div>
+    <dl class="spec">
+      <dt>subject</dt><dd>job application documents</dd>
+      <dt>method</dt><dd>every claim graded by the record behind it</dd>
+      <dt>data</dt><dd>generated — no real person, employer or posting</dd>
+      <dt>source</dt><dd><a href="https://github.com/ConsultRuss/provenance">github.com/ConsultRuss/provenance</a></dd>
+    </dl>
+  </header>
 
   <div class="tabs" role="tablist" aria-label="views">
     <button class="tab" type="button" role="tab" data-tab="provenance" id="tab-provenance" aria-controls="panel-provenance" aria-selected="true">Provenance</button>
@@ -211,6 +217,6 @@
   </footer>
 
 </main>
-<script type="module" src="./js/app.js?v=5a965987"></script>
+<script type="module" src="./js/app.js?v=8fe5df75"></script>
 </body>
 </html>

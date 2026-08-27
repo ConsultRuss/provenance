@@ -3,8 +3,8 @@
 // The overall call is derived from the rows rather than stored, so the headline cannot drift
 // away from the evidence underneath it.
 
-import { requirements, meta } from './data.js?v=5a965987';
-import { el } from './dom.js?v=5a965987';
+import { requirements, meta } from './data.js?v=8fe5df75';
+import { el } from './dom.js?v=8fe5df75';
 
 const VERDICT_CLASS = {
   'have as documented': 'have',
