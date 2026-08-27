@@ -14,10 +14,10 @@ import { buildDocumentPdf } from './pdf.js';
 import { el, clear } from './dom.js';
 
 const LABELS = {
-  a: { meaning: 'said directly', color: 'var(--ok)' },
-  b: { meaning: 'confirmed against a record', color: 'var(--ac)' },
-  c: { meaning: 'asserted, never confirmed', color: 'var(--wn)' },
-  d: { meaning: 'derived document only', color: 'var(--dg)' },
+  a: { meaning: 'the candidate said it', color: 'var(--ok)' },
+  b: { meaning: 'a record confirms it', color: 'var(--ac)' },
+  c: { meaning: 'claimed, never checked', color: 'var(--wn)' },
+  d: { meaning: 'only in an earlier draft', color: 'var(--dg)' },
 };
 
 // What kind of record something is decides which label it can support.
@@ -153,7 +153,10 @@ export function mountProvenance(root) {
   const banner = el(
     'div',
     { class: 'bar' },
-    el('div', { class: 'bar-t', text: 'Labels c and d cannot ship. The generator refuses to emit them.' }),
+    el('div', {
+      class: 'bar-t',
+      text: 'A claim with no record behind it is not sent. Labels c and d never leave this page.',
+    }),
     el('div', { class: 'bar-n', text: `${corpus.blocked} claims blocked · all runs` }),
   );
 
@@ -621,10 +624,31 @@ export function mountProvenance(root) {
 
   /* --------------------------------------------------------------- mount --- */
 
+  const orientation = el(
+    'div',
+    {},
+    el('p', {
+      class: 'lede',
+      text:
+        'A job application, taken apart. Read it left to right: the record library is everything ' +
+        'this candidate can prove something with, the middle is a document written for one job, ' +
+        'and the right is what that job asked for. A line connects a claim to the record it rests ' +
+        'on and to the requirement it answers.',
+    }),
+    el('p', {
+      class: 'lede',
+      text:
+        'Click any underlined claim to follow it both ways. Two claims in the cover letter have ' +
+        'no record at all — they connect to nothing on the left, and they are the reason this ' +
+        'application never went out.',
+    }),
+  );
+
   root.append(
     banner,
     stats,
     statsNote,
+    orientation,
     legend,
     toggle,
     chain,

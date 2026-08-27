@@ -366,3 +366,6 @@ table.grid .ev { color: var(--sec); font-size: 13px; }
 .cat.self-report { background: var(--okb); color: var(--ok); }
 .cat.third-party-record { background: var(--acb); color: var(--ac); }
 .cat.system-export { background: var(--s1); color: var(--sec); border: 1px solid var(--bd); }
+
+/* Plain-language line on each gate card, for a reader who has never seen a pipeline. */
+.gate .gplain { font-size: 12px; color: var(--sec); line-height: 1.45; margin: 0 0 10px; }

@@ -75,7 +75,28 @@ export function mountPressure(root) {
     ),
   );
 
+  const intro = el(
+    'div',
+    {},
+    el('p', {
+      class: 'lede',
+      text:
+        'Before a single document is written, the candidate is scored against the posting one ' +
+        'requirement at a time, and the answer is written down. This is the step most job search ' +
+        'advice skips: deciding honestly whether to apply at all.',
+    }),
+    el('p', {
+      class: 'lede',
+      text:
+        'Three verdicts are allowed. Have as documented means a record proves it. Adjacent but ' +
+        'honest means the real experience is close but not the same, and the difference gets said ' +
+        'out loud rather than rounded up. Do not have means exactly that. The call at the top is ' +
+        'worked out from the rows below it, so it cannot flatter them.',
+    }),
+  );
+
   root.append(
+    intro,
     head,
     table,
     el('p', {

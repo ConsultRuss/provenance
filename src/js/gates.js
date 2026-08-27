@@ -48,14 +48,23 @@ export function mountGates(root) {
   );
 
   const intro = el(
-    'p',
-    { class: 'lede' },
-    document.createTextNode(
-      'Every record enters at intake and moves right. A gate either passes a record to the next ' +
-        'gate or stops it there. A record that is stopped is not retried and not patched — the ' +
-        'work it would take to pass the gate honestly is the work that was missing. The number on ' +
-        'each card is how many records that gate stopped.',
-    ),
+    'div',
+    {},
+    el('p', {
+      class: 'lede',
+      text:
+        'This is a job search run as a pipeline. Every posting that comes in becomes a record, ' +
+        'and a record has to clear six checks in order before anything is sent to an employer. ' +
+        'Most records never get that far, and that is the design rather than a fault. A pipeline ' +
+        'that sends everything is easy to build. This one is built to stop.',
+    }),
+    el('p', {
+      class: 'lede',
+      text:
+        'Read the row left to right. Each card is one check: what it looks at, and how many ' +
+        'records it stopped. A record stopped at a gate is not retried and not quietly fixed — ' +
+        'the work needed to pass that gate honestly is the work that was missing.',
+    }),
   );
 
   const funnel = el(
@@ -78,8 +87,9 @@ export function mountGates(root) {
           el('span', { class: 'gnum', text: String(i + 1) }),
           el('span', { class: 'gname', text: gate.label }),
         ),
+        el('div', { class: 'gplain', text: gate.plain }),
         el('div', { class: `gbig${stopped === 0 ? ' zero' : ''}`, text: String(stopped) }),
-        el('div', { class: 'glab', text: stopped === 0 ? 'stopped none' : verdictName }),
+        el('div', { class: 'glab', text: stopped === 0 ? 'stopped none' : `${verdictName} here` }),
         el(
           'div',
           { class: 'grow', style: 'margin-top:9px' },
@@ -92,9 +102,17 @@ export function mountGates(root) {
           el('span', { text: 'passed on' }),
           el('span', { text: String(counts.pass) }),
         ),
-        el('div', { class: 'grej' }, el('span', { class: 'grej-k', text: 'rejects ' }), document.createTextNode(gate.rejects)),
       );
     }),
+  );
+
+  const rejections = el(
+    'dl',
+    { class: 'vocab' },
+    gates.gates.flatMap((gate) => [
+      el('dt', { text: gate.label }),
+      el('dd', { text: `rejects ${gate.rejects}` }),
+    ]),
   );
 
   const vocabulary = el(
@@ -141,6 +159,8 @@ export function mountGates(root) {
     summary,
     intro,
     funnel,
+    el('h2', { text: 'what each gate turns away', style: 'margin-top:28px' }),
+    rejections,
     el('h2', { text: 'what each verdict means', style: 'margin-top:28px' }),
     vocabulary,
     el('h2', { text: 'run log', style: 'margin-top:28px' }),

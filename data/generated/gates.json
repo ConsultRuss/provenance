@@ -3,32 +3,38 @@
     {
       "id": "intake",
       "label": "intake",
-      "rejects": "postings with no verbatim requirement text to quote"
+      "rejects": "postings with no verbatim requirement text to quote",
+      "plain": "Reads the posting and pulls out what it asks for, word for word."
     },
     {
       "id": "live",
       "label": "live check",
-      "rejects": "postings that have closed or gone stale since intake"
+      "rejects": "postings that have closed or gone stale since intake",
+      "plain": "Checks the job is still open before any work goes into it."
     },
     {
       "id": "pressure",
       "label": "pressure test",
-      "rejects": "applications where a must-have requirement lands on do not have"
+      "rejects": "applications where a must-have requirement lands on do not have",
+      "plain": "Asks honestly whether this person can do the job, requirement by requirement."
     },
     {
       "id": "wildcard",
       "label": "wildcard question",
-      "rejects": "applications with no honest answer to the open question in the posting"
+      "rejects": "applications with no honest answer to the open question in the posting",
+      "plain": "Works out an honest answer to the odd question the posting asks."
     },
     {
       "id": "lint",
       "label": "asset lint",
-      "rejects": "documents containing a claim labelled c or d"
+      "rejects": "documents containing a claim labelled c or d",
+      "plain": "Reads the finished documents and checks every claim has a record behind it."
     },
     {
       "id": "submitted",
       "label": "submitted",
-      "rejects": "nothing — a record that reaches this gate has cleared every check"
+      "rejects": "nothing — a record that reaches this gate has cleared every check",
+      "plain": "The application goes out."
     }
   ],
   "records": [
