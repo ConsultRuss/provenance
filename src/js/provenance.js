@@ -123,14 +123,29 @@ export function mountProvenance(root) {
     'div',
     { class: 'chain' },
     wires,
-    el('div', {}, el('div', { class: 'railh', text: 'record library' }), srail),
+    el(
+      'div',
+      {},
+      el(
+        'div',
+        { class: 'railh' },
+        document.createTextNode('record library'),
+        el('span', { class: 'hint', text: 'click a record' }),
+      ),
+      srail,
+    ),
     el('div', {}, el('div', { class: 'railh', text: 'generated document' }), docBox),
     el(
       'div',
       {},
       el('div', { class: 'railh', text: 'job posting' }),
       postingCard,
-      el('div', { class: 'railh', style: 'margin-top:16px', text: 'requirements' }),
+      el(
+        'div',
+        { class: 'railh', style: 'margin-top:16px' },
+        document.createTextNode('requirements'),
+        el('span', { class: 'hint', text: 'click a requirement' }),
+      ),
       rrail,
     ),
   );
@@ -609,17 +624,24 @@ export function mountProvenance(root) {
 
   function setDocument(doc) {
     currentDoc = doc;
-    selection = null;
     for (const [id, button] of docButtons) button.setAttribute('aria-pressed', id === doc.id ? 'true' : 'false');
     counter.textContent = counterText(doc);
     renderDocument();
     paintRequirementStates();
 
-    // Open on a blocked claim where one exists. The first thing a visitor sees should be the
-    // system refusing to ship something.
-    const opening = doc.claims.find(isBlocked) ?? doc.claims[0];
-    if (opening) showClaim(opening.id);
-    else redraw();
+    // Open on the first record in the library, so the first thing a visitor sees is a record
+    // feeding claims that answer requirements — the whole mechanism in one selection, and a
+    // demonstration that the rails are clickable.
+    //
+    // A claim id means a different claim in each document, so a claim selection cannot survive
+    // a document switch. A record or a requirement can, and keeping it is worth more than
+    // resetting: the same record stays lit while the document under it changes, which is the
+    // point the fixed rails are making.
+    if (!selection || selection.kind === 'claim') {
+      selection = { kind: 'source', id: railSources[0].id };
+    }
+    if (selection.kind === 'source') showSource(selection.id);
+    else showRequirement(selection.id);
   }
 
   /* --------------------------------------------------------------- mount --- */

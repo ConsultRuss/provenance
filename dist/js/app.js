@@ -3,9 +3,9 @@
 // Tab state lives in the location hash so a tab can be linked directly. Views mount lazily on
 // first activation and are kept afterwards, so switching tabs never re-renders the chain.
 
-import { mountProvenance } from './provenance.js?v=567acd4a';
-import { mountGates } from './gates.js?v=567acd4a';
-import { mountPressure } from './pressure.js?v=567acd4a';
+import { mountProvenance } from './provenance.js?v=14459050';
+import { mountGates } from './gates.js?v=14459050';
+import { mountPressure } from './pressure.js?v=14459050';
 
 const VIEWS = [
   { id: 'provenance', mount: mountProvenance },

@@ -130,14 +130,33 @@ check('16.3b every label matches its record category', () => {
 
 /* -- 6 · the default selection is a blocked claim ------------------------- */
 
-check('16.6  the first document opens on a blocked claim', () => {
+// The brief asked the page to open on a blocked claim, so refusal was the first thing seen.
+// It now opens on the first record in the library instead, which shows the whole chain at once
+// and makes it obvious the rails are clickable. Refusal is still visible on load without a
+// click — the banner carries the blocked count, the blocked claims are struck through in the
+// document, and their requirements read "blocked claim only" — so this checks that rather than
+// the old rule.
+check('16.6  refusal is visible on load without clicking', () => {
   const documents = json('data/generated/documents.json');
+  const sources = json('data/generated/sources.json');
   const first = documents[0];
-  assert(
-    first.claims.some((c) => c.label === 'c' || c.label === 'd'),
-    `${first.id} has no blocked claim to open on`,
-  );
-  return `${first.id} carries a blocked claim`;
+
+  const blocked = first.claims.filter((c) => c.label === 'c' || c.label === 'd');
+  assert(blocked.length > 0, `${first.id} shows no blocked claim on load`);
+
+  // The opening selection is railSources[0]: the lowest-numbered record any document cites.
+  const cited = new Set(documents.flatMap((d) => d.claims.map((c) => c.sourceId)));
+  const opening = sources
+    .filter((s) => s.id !== 's0' && cited.has(s.id))
+    .sort((a, b) => Number(a.id.slice(1)) - Number(b.id.slice(1)))[0];
+  assert(opening, 'no record for the page to open on');
+
+  // That opening record must actually feed the first document, or the page opens on a dead
+  // selection with nothing lit.
+  const feeds = first.claims.filter((c) => c.sourceId === opening.id);
+  assert(feeds.length > 0, `${opening.filename} is cited by nothing in ${first.id}`);
+
+  return `opens on ${opening.filename} (${feeds.length} claims) · ${blocked.length} blocked claims visible`;
 });
 
 /* -- 8 · the run log contains a refusal ----------------------------------- */

@@ -174,8 +174,16 @@ p { margin: 0 0 12px; }
 }
 
 .railh {
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
   font-family: var(--mono); font-size: 11px; color: var(--sec);
   letter-spacing: 0.04em; margin-bottom: 9px;
+}
+
+/* An affordance badge. Nothing about a bordered row says "clickable" on its own, and the two
+   rails are where the whole interaction starts. */
+.railh .hint {
+  font-size: 10px; letter-spacing: 0.02em; color: var(--sec);
+  border: 1px solid var(--bd2); border-radius: 3px; padding: 1px 5px;
 }
 
 .rail { display: flex; flex-direction: column; gap: 6px; position: relative; z-index: 2; }
