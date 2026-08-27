@@ -8,10 +8,10 @@
 //   4. Rail rows are real buttons; claims are role="button" spans, because a button cannot
 //      flow as inline text (see claimSpan).
 
-import { sources, requirements, documents, gates, meta } from './data.js';
-import { drawWires, onLayoutChange } from './wires.js';
-import { buildDocumentPdf } from './pdf.js';
-import { el, clear } from './dom.js';
+import { sources, requirements, documents, gates, meta } from './data.js?v=5a965987';
+import { drawWires, onLayoutChange } from './wires.js?v=5a965987';
+import { buildDocumentPdf } from './pdf.js?v=5a965987';
+import { el, clear } from './dom.js?v=5a965987';
 
 const LABELS = {
   a: { meaning: 'the candidate said it', color: 'var(--ok)' },

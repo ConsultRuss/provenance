@@ -33,13 +33,17 @@ p { margin: 0 0 12px; }
   align-items: start;
   margin: 0 0 26px;
 }
+/* The claim carries the left column and the disclaimer sits under it; the explanation holds
+   the right column on its own. Putting both short blocks on the right left a visible void
+   under the one-line claim, which reads as a mistake rather than as space. */
 .lead {
-  grid-column: 1; grid-row: 1 / span 2;
-  font-size: 18px; font-weight: 500; color: var(--ink);
-  line-height: 1.4; margin: 0;
+  grid-column: 1; grid-row: 1;
+  font-size: 21px; font-weight: 500; color: var(--ink);
+  line-height: 1.35; margin: 0;
+  text-wrap: balance;
 }
-.sub { grid-column: 2; grid-row: 1; color: var(--sec); font-size: 14px; margin: 0; }
-.disclaimer { grid-column: 2; grid-row: 2; font-size: 13px; color: var(--sec); margin: 0; }
+.sub { grid-column: 2; grid-row: 1 / span 2; color: var(--sec); font-size: 14px; margin: 0; }
+.disclaimer { grid-column: 1; grid-row: 2; font-size: 13px; color: var(--sec); margin: 0; }
 .disclaimer strong { color: var(--ink); }
 
 /* Focus is always visible. No shadows are allowed, so this is an outline. */
